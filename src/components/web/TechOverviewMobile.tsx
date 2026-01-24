@@ -34,20 +34,36 @@ export default function TechOverviewMobile() {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            if (!containerRef.current) return;
-            const rect = containerRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (!containerRef.current) return;
+                    const rect = containerRef.current.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
 
-            const totalDistance = rect.height - windowHeight;
-            const currentPos = -rect.top;
+                    const totalDistance = rect.height - windowHeight;
+                    const currentPos = -rect.top;
 
-            const progress = Math.min(Math.max(currentPos / totalDistance, 0), 1);
-            setScrollProgress(progress);
+                    const progress = Math.min(Math.max(currentPos / totalDistance, 0), 1);
+                    setScrollProgress(progress);
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        // Initial check
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const totalDistance = rect.height - windowHeight;
+            const currentPos = -rect.top;
+            setScrollProgress(Math.min(Math.max(currentPos / totalDistance, 0), 1));
+        }
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -95,15 +111,6 @@ export default function TechOverviewMobile() {
                 </div>
             </div>
 
-            <style jsx>{`
-                .ghost-label-extraction::after { content: 'DATA_EXTRACTION.LOG'; }
-                .ghost-label-assembly::after { content: 'SYSTEM_ASSEMBLY.EXE'; }
-                .ghost-label-growth::after { content: 'GROWTH_DEPLOY.SYS'; }
-                
-                .ghost-phase-01::after { content: '[ PHASE_01 ]'; }
-                .ghost-phase-02::after { content: '[ PHASE_02 ]'; }
-                .ghost-phase-03::after { content: '[ PHASE_03 ]'; }
-            `}</style>
         </div>
     );
 }

@@ -281,8 +281,13 @@
 
 /* WebServices Animations */
 @keyframes circuit-flow {
-    0% { transform: translateX(-200%); }
-    100% { transform: translateX(400%); }
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(400%);
+    }
 }
 
 .animate-circuit-flow {
@@ -290,10 +295,44 @@
 }
 
 @keyframes node-pulse {
-    0%, 100% { background-color: black; transform: scale(1); }
-    50% { background-color: white; transform: scale(1.2); }
+
+    0%,
+    100% {
+        background-color: black;
+        transform: scale(1);
+    }
+
+    50% {
+        background-color: white;
+        transform: scale(1.2);
+    }
 }
 
 .animate-node-pulse {
     animation: node-pulse 3s ease-in-out infinite;
+}
+
+/* TechOverviewMobile Styles */
+.ghost-label-extraction::after {
+    content: 'DATA_EXTRACTION.LOG';
+}
+
+.ghost-label-assembly::after {
+    content: 'SYSTEM_ASSEMBLY.EXE';
+}
+
+.ghost-label-growth::after {
+    content: 'GROWTH_DEPLOY.SYS';
+}
+
+.ghost-phase-01::after {
+    content: '[ PHASE_01 ]';
+}
+
+.ghost-phase-02::after {
+    content: '[ PHASE_02 ]';
+}
+
+.ghost-phase-03::after {
+    content: '[ PHASE_03 ]';
 }

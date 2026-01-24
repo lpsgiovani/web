@@ -13,7 +13,7 @@ const TEAM = [
         specialtyStrong2: "UX/UI Design",
         bio: "Giovani garante que a estética nunca seja vazia. Seu trabalho é fundido à estratégia de negócio, assegurando propósito comercial em cada pixel.",
         file: "giovani.tsx",
-        img: "/assets/primitiva/giovani.jpg",
+        img: "/assets/primitiva/giovani_responsive.webp",
         borderColor: "border-zinc-800",
         bgColor: "bg-zinc-950/80",
         hoverBorder: "hover:border-zinc-700"
@@ -27,7 +27,7 @@ const TEAM = [
         specialty2: ".",
         bio: "Gustavo transforma a estratégia em sistemas ultra-velozes, garantindo performance e escalabilidade de ponta a ponta.",
         file: "gustavo.tsx",
-        img: "/assets/primitiva/tempone.png",
+        img: "/assets/primitiva/tempone_responsive.webp",
         borderColor: "border-zinc-800",
         bgColor: "bg-zinc-900/50",
         hoverBorder: "hover:border-zinc-700"

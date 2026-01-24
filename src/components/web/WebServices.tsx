@@ -61,22 +61,38 @@ export default function WebServices() {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            if (!containerRef.current) return;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (!containerRef.current) return;
 
-            const rect = containerRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+                    const rect = containerRef.current.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    const start = windowHeight / 2;
+                    const totalDistance = rect.height;
+                    const currentPos = start - rect.top;
 
-            const start = windowHeight / 2;
-            const totalDistance = rect.height;
-            const currentPos = start - rect.top;
+                    const progress = Math.min(Math.max(currentPos / totalDistance, 0), 1);
+                    setScrollProgress(progress);
 
-            const progress = Math.min(Math.max(currentPos / totalDistance, 0), 1);
-            setScrollProgress(progress);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        // Initial calculation
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const start = windowHeight / 2;
+            const totalDistance = rect.height;
+            const currentPos = start - rect.top;
+            setScrollProgress(Math.min(Math.max(currentPos / totalDistance, 0), 1));
+        }
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
