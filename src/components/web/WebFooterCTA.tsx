@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
 import { captureEvent } from '@/lib/analytics';
 
 export default function WebFooterCTA() {
