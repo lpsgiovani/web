@@ -6,7 +6,9 @@ import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const projetos = await getCollection('projetos');
-  return projetos.map(entry => ({
+  // Handle exclusion for static override
+  const filtered = projetos.filter(p => p.slug !== 'pedecafe');
+  return filtered.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
   }));

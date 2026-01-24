@@ -1,0 +1,315 @@
+---
+export const prerender = true;
+import WebLayout from '../../layouts/WebLayout.astro';
+import { Image } from 'astro:assets';
+
+// Case Study Components
+import InterfaceShowcase from '../../components/content/InterfaceShowcase.astro';
+import ComponentZoom from '../../components/content/ComponentZoom.astro';
+import ScrollingPrototype from '../../components/content/ScrollingPrototype.astro';
+
+// Hardcoded Assets for Pedecafe
+// Using existing assets from the project structure
+import coverImage from '../../content/projetos/assets/pedecafe.webp';
+import mockup1 from '../../content/projetos/assets/pedecafe_mockup1.png';
+import mockup2 from '../../content/projetos/assets/pedecafe_mockup2.png';
+import neonFluxCover from '../../content/projetos/assets/neon-flux.png';
+
+const entry = {
+  slug: "pedecafe",
+  data: {
+    title: "Pé de Café",
+    description: "Identidade visual completa e website para uma cafeteria de cafés especiais focada em origem e pureza.",
+    category: "Branding & Web",
+    client: "Pé de Café",
+    year: "2024",
+    techStack: ["ASTRO", "TAILWIND"],
+    challenge: "O desafio era criar uma marca que transmitisse o aroma e o cuidado dos cafés especiais, traduzindo isso para uma experiência digital imersiva e ultra-rápida.",
+    outcome: "O resultado foi um aumento de 40% nas reservas online e uma identidade visual que se tornou referência no setor de cafeterias artesanais."
+  }
+};
+
+const nextProject = {
+    slug: 'neon-flux',
+    data: {
+        title: 'Neon Flux',
+        coverImage: neonFluxCover
+    }
+};
+
+const title = `${entry.data.title} | Primitiva Projects`;
+const description = entry.data.description;
+---
+
+<WebLayout title={title} description={description}>
+    <main class="bg-black min-h-screen text-white selection:bg-zinc-800 selection:text-white font-display">
+        
+        {/* 1. Full-Screen Intro (The Hook) */}
+        <section class="min-h-[90vh] flex flex-col relative border-b border-zinc-900 bg-black pt-24 pb-12 px-6 md:px-12">
+             {/* Status Line */}
+             <div class="w-full flex justify-between items-center py-4 border-b border-zinc-900 mb-auto reveal-up">
+                 <div class="flex gap-4 md:gap-8 font-mono text-[9px] md:text-[10px] text-zinc-500 tracking-widest uppercase">
+                     <span>PROJECT_STATUS: ARCHIVED</span>
+                     <span class="hidden md:inline">ENCRYPTION: AES-256</span>
+                     <span>DATE: {entry.data.year || '2024'}</span>
+                 </div>
+                 <div class="flex gap-2">
+                     <div class="w-2 h-2 rounded-full bg-zinc-800 animate-pulse"></div>
+                     <span class="font-mono text-[9px] text-zinc-600 uppercase">SYS_ONLINE</span>
+                 </div>
+             </div>
+
+             {/* Giant Title */}
+             <div class="flex-1 flex flex-col justify-center">
+                 <h1 class="text-[clamp(3rem,10vw,12rem)] leading-[0.8] font-black tracking-tighter uppercase text-white mix-blend-difference break-words reveal-up delay-100">
+                     {entry.data.title}
+                 </h1>
+             </div>
+             
+             {/* Bottom Meta */}
+             <div class="w-full flex justify-between items-end border-t border-zinc-900 pt-6 reveal-up delay-200">
+                 <span class="font-mono text-xs text-zinc-400 uppercase tracking-widest block">
+                    {entry.data.category} // CASE_STUDY
+                 </span>
+                 <div class="hidden md:block font-mono text-[10px] text-zinc-600 max-w-[200px] text-right">
+                     ID: {entry.slug.toUpperCase()}<br/>
+                     VER: 1.0.4-RC
+                 </div>
+             </div>
+        </section>
+
+        {/* 3. The Technical Grid (O Coração do Case) */}
+        <section class="w-full border-b border-zinc-800 bg-zinc-950/50">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-zinc-800">
+                {/* Cell 1: Client */}
+                <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up">
+                    <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-500">CLIENTE</span>
+                    <span class="font-mono text-xs text-white font-bold uppercase">{entry.data.client || entry.data.title}</span>
+                </div>
+                {/* Cell 2: Stack */}
+                <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up delay-100">
+                     <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-500">STACK</span>
+                     <span class="font-mono text-xs text-white font-bold uppercase">{entry.data.techStack.slice(0, 2).join(' + ')}</span>
+                </div>
+                {/* Cell 3: Strategy */}
+                <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up delay-200">
+                     <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-500">ESTRATÉGIA</span>
+                     <span class="font-mono text-xs text-white font-bold uppercase">TOTAL_IMMERSION</span>
+                </div>
+                 {/* Cell 4: Performance */}
+                 <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up delay-300">
+                     <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-500">PERFORMANCE</span>
+                     <span class="font-mono text-xs text-green-500 font-bold uppercase">100/100 [MAX]</span>
+                </div>
+            </div>
+        </section>
+
+        {/* 2. The Double-Column Insight (The Challenge) */}
+        <section class="py-24 md:py-32 px-6 md:px-12 border-b border-zinc-900 bg-black">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-12">
+                <div class="reveal-up">
+                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block sticky top-32">
+                        01_PROBLEM_ANALYSIS
+                    </span>
+                </div>
+                <div class="reveal-up delay-100">
+                     <p class="text-xl md:text-3xl leading-relaxed font-serif text-white text-balance max-w-[40ch]">
+                        {entry.data.challenge || entry.data.description}
+                     </p>
+                </div>
+            </div>
+        </section>
+
+        {/* 4. The Immersive Gallery (Hero Image) */}
+        <section class="w-full relative overflow-hidden bg-zinc-950 border-b border-zinc-900 py-24">
+             <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative">
+                 {/* Main Reveal Frame */}
+                 <div class="relative aspect-[21/9] w-full overflow-hidden rounded-sm border border-zinc-800 reveal-up">
+                     <Image 
+                        src={coverImage} 
+                        alt={`${entry.data.title} Main Exhibit`}
+                        class="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100 ease-out"
+                        width={1920}
+                        transition:name={`project-image-${entry.slug}`}
+                     />
+                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                     <div class="absolute bottom-8 left-8">
+                         <span class="font-mono text-[10px] text-white tracking-[0.3em] uppercase bg-black/50 backdrop-blur-md px-3 py-1 border border-white/10">
+                            PRIMARY_VISUAL_ASSET
+                         </span>
+                     </div>
+                 </div>
+
+                 {/* Floating Technical Artifacts */}
+                 <div class="hidden lg:block absolute -right-20 -top-20 w-64 h-80 border border-zinc-800 bg-zinc-950/50 backdrop-blur-xl p-4 reveal-up delay-300 transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+                     <div class="w-full h-full border border-zinc-900 overflow-hidden relative group">
+                         <Image 
+                            src={mockup1} 
+                            alt="Visual Detail A"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                         />
+                         <div class="absolute inset-0 flex items-center justify-center">
+                             <span class="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">LAYER_01_RAW</span>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="hidden lg:block absolute -left-12 -bottom-12 w-48 h-48 border border-zinc-800 bg-black p-2 reveal-up delay-500 transform rotate-6 hover:rotate-0 transition-transform duration-700">
+                      <div class="w-full h-full border border-zinc-900 flex items-center justify-center bg-zinc-950">
+                          <span class="font-mono text-[10px] text-zinc-700">NULL_PTR_EXCEPTION</span>
+                      </div>
+                 </div>
+             </div>
+        </section>
+
+        {/* 5. The Logic Flow (Process) */}
+        <section class="py-16 border-b border-zinc-900 bg-zinc-950">
+             <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 reveal-up">
+                 <span class="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">OPERATIONAL_FLOW</span>
+                 
+                 <div class="flex flex-col md:flex-row gap-4 md:gap-12 w-full md:w-auto">
+                     <div class="flex items-center gap-4 group cursor-default">
+                         <div class="w-2 h-2 rounded-full bg-zinc-800 group-hover:bg-white transition-colors"></div>
+                         <span class="font-mono text-sm uppercase text-zinc-400 group-hover:text-white transition-colors">IMERSÃO</span>
+                     </div>
+                     <div class="hidden md:block w-12 h-px bg-zinc-800"></div>
+                     <div class="flex items-center gap-4 group cursor-default">
+                         <div class="w-2 h-2 rounded-full bg-zinc-800 group-hover:bg-white transition-colors"></div>
+                         <span class="font-mono text-sm uppercase text-zinc-400 group-hover:text-white transition-colors">ESTRATÉGIA</span>
+                     </div>
+                     <div class="hidden md:block w-12 h-px bg-zinc-800"></div>
+                     <div class="flex items-center gap-4 group cursor-default">
+                         <div class="w-2 h-2 rounded-full bg-zinc-800 group-hover:bg-white transition-colors"></div>
+                         <span class="font-mono text-sm uppercase text-zinc-400 group-hover:text-white transition-colors">COMPILAÇÃO</span>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        {/* 2. The Double-Column Insight (Main Content / Execution) */}
+        <section class="py-24 md:py-32 px-6 md:px-12 border-b border-zinc-900 bg-black text-white">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-12">
+                 <div class="reveal-up">
+                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block sticky top-32">
+                        02_EXECUTION_LOG
+                    </span>
+                </div>
+                
+                <div class="reveal-up delay-100">
+                     <div class="prose prose-invert prose-lg md:prose-xl prose-p:font-serif prose-p:leading-relaxed prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-p:text-zinc-400 prose-strong:text-white max-w-[45ch]">
+                        
+                        {/* MANUAL CONTENT INJECTION FOR PEDECAFE */}
+                        
+                        <h2 id="operational_overview">OPERATIONAL_OVERVIEW</h2>
+                        <p>
+                            Desenvolvemos uma identidade visual baseada em tons terrosos e tipografia serifada, combinada com um site desenvolvido em Astro para performance extrema.
+                        </p>
+                        
+                        <ScrollingPrototype 
+                            url="https://pede.cafe/cardapio" 
+                            title="LIVE_PREVIEW_v1.0"
+                        />
+                        
+                        <h3 id="system_architecture">SYSTEM_ARCHITECTURE</h3>
+                        <p>
+                            A escolha do Astro permitiu que entregássemos uma experiência visual pesada (com muitas imagens de alta resolução) sem comprometer o tempo de carregamento, mantendo um Core Web Vital perfeito.
+                        </p>
+                        
+                        <InterfaceShowcase 
+                            images={[mockup1, mockup2]} 
+                            columns={2}
+                            title="UI_GRID_EXPLORATION"
+                        />
+                        
+                        <h3 id="atomic_design">ATOMIC_DESIGN</h3>
+                        <p>
+                            Cada elemento da interface foi pensado para refletir a organicidade do café. Desde os micro-states dos botões até as transições de página fluidas.
+                        </p>
+                        
+                        <ComponentZoom 
+                            mainImage={mockup1}
+                            details={[
+                                {
+                                    image: mockup2,
+                                    label: "LOYALTY_SYSTEM",
+                                    description: "Interface de usuário para o sistema de fidelidade mobile, focada em clareza e facilidade de uso."
+                                },
+                                {
+                                    image: mockup1,
+                                    label: "TYPOGRAPHY_SET",
+                                    description: "Combinação de fontes serifadas e mono para equilibrar o clássico com o técnico."
+                                }
+                            ]}
+                        />
+
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        {/* Outcome Section */}
+        {entry.data.outcome && (
+            <section class="py-24 md:py-32 px-6 md:px-12 border-b border-zinc-900 bg-zinc-950/30">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-12 items-center">
+                    <div class="reveal-up">
+                        <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block">
+                            03_FINAL_REPORT
+                        </span>
+                    </div>
+                    <div class="relative reveal-up delay-100">
+                        <p class="text-2xl md:text-4xl font-mono leading-relaxed text-white">
+                            "{entry.data.outcome}"
+                        </p>
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {/* Next Project Footer */}
+        {nextProject && (
+            <a href={`/projetos/${nextProject.slug}`} class="block relative w-full h-[60vh] overflow-hidden group border-t border-zinc-900">
+                 <div class="absolute inset-0">
+                     <Image 
+                        src={nextProject.data.coverImage} 
+                        alt={nextProject.data.title}
+                        class="w-full h-full object-cover opacity-20 group-hover:opacity-60 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                        width={1200}
+                     />
+                     <div class="absolute inset-0 bg-black/80 group-hover:bg-black/40 transition-colors duration-700"></div>
+                 </div>
+                 
+                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 p-12">
+                     <span class="font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-6 group-hover:text-white transition-colors bg-black/50 px-4 py-2 border border-zinc-800 rounded-full">
+                        NEXT_TARGET_LOCKED
+                     </span>
+                     <h2 class="font-display font-black text-6xl md:text-9xl text-neutral-800 group-hover:text-white uppercase tracking-tighter transition-colors duration-500 mix-blend-difference">
+                          {nextProject.data.title}
+                     </h2>
+                 </div>
+            </a>
+        )}
+
+    </main>
+</WebLayout>
+
+<script>
+    // Animation Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.addEventListener('astro:page-load', () => {
+        const elements = document.querySelectorAll('.reveal-up, .reveal-text, .reveal-img, .line-grow');
+        elements.forEach(el => observer.observe(el));
+    });
+</script>
