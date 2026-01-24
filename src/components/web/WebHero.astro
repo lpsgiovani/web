@@ -1,44 +1,27 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
-// Import images
-import coverPlaceholder from '../../assets/cover/pedecafe.webp';
+const allProjects = await getCollection('projetos');
+// Explicit order to match design aesthetics
+const ORDER = ['pedecafe', 'neon-flux', 'fintech'];
 
-const projects = [
-    {
-        href: '/projetos/pedecafe',
-        slug: 'pedecafe',
-        image: coverPlaceholder,
-        alt: 'Pé de Café - Branding e Web',
-        tag: 'Branding & Web',
-        title: 'Pé de Café',
-        stack: 'ASTRO + TAILWIND',
-        delay: '',
-        extraClasses: ''
-    },
-    {
-        href: '/web/neon-flux',
-        slug: 'neon-flux',
-        image: coverPlaceholder,
-        alt: 'Neon Flux - E-commerce de Streetwear',
-        tag: 'E-commerce',
-        title: 'Neon Flux',
-        stack: 'NEXT.JS + SHOPIFY',
-        delay: 'delay-100',
-        extraClasses: ''
-    },
-    {
-        href: '#',
-        slug: 'fintech',
-        image: coverPlaceholder,
-        alt: 'Dashboard Financeiro',
-        tag: 'Web App',
-        title: 'Fintech Dashboard',
-        stack: 'REACT + TS',
-        delay: 'delay-200',
-        extraClasses: 'grayscale brightness-50'
-    }
-];
+const projects = ORDER.map((slug, idx) => {
+    const entry = allProjects.find(p => p.slug === slug);
+    if (!entry) return null;
+
+    return {
+        href: `/projetos/${entry.slug}`,
+        slug: entry.slug,
+        image: entry.data.coverImage,
+        alt: `${entry.data.title} - ${entry.data.description}`,
+        tag: entry.data.category,
+        title: entry.data.title,
+        stack: entry.data.techStack.join(' + '),
+        delay: idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : '',
+        extraClasses: entry.slug === 'fintech' ? 'grayscale brightness-50' : ''
+    };
+}).filter(p => p !== null);
 ---
 
 <div class="relative w-full bg-neutral-100 py-20 md:py-40 px-0 md:px-6 overflow-hidden text-black">
@@ -47,16 +30,14 @@ const projects = [
     
     <div class="max-w-7xl mx-auto relative z-10 md:pl-8">
         
-        {/* Spacer to maintain layout flow (Title removed) */}
-
-
         {/* MOBILE LAYOUT (Carousel) */}
         <div class="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 px-4 scrollbar-hide pb-8">
-            {projects.map((project, idx) => (
+            {projects.map((project) => (
                 <a
                     href={project.href}
                     data-project-title={project.title}
                     data-project-tag={project.tag}
+                    data-astro-prefetch
                     class={`group shrink-0 w-[85vw] max-w-[85vw] snap-center flex flex-col border border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 project-link overflow-hidden`}
                 >
                     {/* Compact Window Header */}
@@ -71,13 +52,12 @@ const projects = [
 
                     {/* Image */}
                     <div class="relative aspect-square overflow-hidden border-b border-black bg-neutral-200">
-                        <img
-                            src={project.image.src}
+                        <Image
+                            src={project.image}
                             alt={project.alt}
                             class={`w-full h-full object-cover object-center grayscale ${project.extraClasses || ''}`}
                             loading="lazy"
-                            width="640"
-                            height="360"
+                            transition:name={`project-image-${project.slug}`}
                         />
                     </div>
 
@@ -110,11 +90,12 @@ const projects = [
 
         {/* DESKTOP LAYOUT (Grid) */}
         <div class="hidden md:grid md:grid-cols-3 gap-8 px-0">
-            {projects.map((project, idx) => (
+            {projects.map((project) => (
                 <a
                     href={project.href}
                     data-project-title={project.title}
                     data-project-tag={project.tag}
+                    data-astro-prefetch
                     class={`group flex flex-col border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 project-link reveal-up ${project.delay} overflow-hidden`}
                 >
                     {/* Full Window Header */}
@@ -129,13 +110,12 @@ const projects = [
 
                     {/* Image */}
                     <div class="relative aspect-square overflow-hidden border-b-2 border-black bg-neutral-200 group-hover:contrast-[1.1] transition-all">
-                        <img
-                            src={project.image.src}
+                        <Image
+                            src={project.image}
                             alt={project.alt}
                             class={`w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 ${project.extraClasses || ''}`}
                             loading="lazy"
-                            width="800"
-                            height="600"
+                            transition:name={`project-image-${project.slug}`}
                         />
                     </div>
 

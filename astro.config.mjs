@@ -44,12 +44,9 @@ export default defineConfig({
         },
         build: {
             target: 'esnext',
-            assetsInlineLimit: 15360,
             rollupOptions: {
                 output: {
-                    manualChunks: {
-                        'vendor-hero': ['react', 'react-dom', 'framer-motion'],
-                    }
+                    manualChunks: undefined,
                 }
             }
         },

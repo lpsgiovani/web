@@ -1,0 +1,81 @@
+---
+export const prerender = true;
+import { getCollection } from 'astro:content';
+import WebLayout from '../../layouts/WebLayout.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const projetos = await getCollection('projetos');
+  return projetos.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const title = `${entry.data.title} | Primitiva Projects`;
+const description = entry.data.description;
+---
+
+<WebLayout title={title} description={description}>
+    <main class="bg-zinc-50 min-h-screen pt-24 pb-20 px-6 border-t border-zinc-200 text-black">
+        <div class="max-w-7xl mx-auto">
+            
+            {/* Header: Breadcrumbs & Title */}
+            <div class="mb-12 reveal-up">
+                <a href="/" class="font-mono text-[10px] uppercase tracking-widest text-zinc-500 hover:text-black transition-colors mb-6 inline-block">
+                    &lt; VOLTAR_PARA_HOME
+                </a>
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="font-mono text-xs text-zinc-400 uppercase tracking-widest block mb-2">{entry.data.category}</span>
+                        <h1 class="text-4xl md:text-7xl font-serif leading-none italic">
+                            {entry.data.title}
+                        </h1>
+                    </div>
+                    <div class="flex gap-2">
+                        {entry.data.techStack.map(tech => (
+                            <span class="font-mono text-[10px] uppercase border border-black px-2 py-1 rounded-full">
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Image with Transition */}
+            <div class="w-full aspect-video md:aspect-[21/9] bg-neutral-200 rounded-sm overflow-hidden mb-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-2 border-black reveal-img">
+                <Image 
+                    src={entry.data.coverImage} 
+                    alt={entry.data.title} 
+                    class="w-full h-full object-cover"
+                    transition:name={`project-image-${entry.slug}`}
+                    loading="eager"
+                    fetchpriority="high"
+                />
+            </div>
+
+            {/* Content Body */}
+            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12">
+                <div class="font-mono text-xs text-zinc-500 uppercase tracking-widest sticky top-32 h-fit">
+                    <p class="mb-2 text-black font-bold">// DESCRICAO</p>
+                    <p class="mb-8">{entry.data.description}</p>
+                    
+                    <p class="mb-2 text-black font-bold">// TECH_METADATA</p>
+                    <ul class="space-y-1" aria-hidden="true">
+                        <li>STATUS: DEPLOYED</li>
+                        <li>SPEED: 100/100</li>
+                        <li>ACCESS: PUBLIC</li>
+                    </ul>
+                </div>
+                
+                <div class="prose prose-zinc prose-lg font-sans">
+                    <Content />
+                </div>
+            </div>
+
+        </div>
+    </main>
+</WebLayout>
