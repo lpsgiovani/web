@@ -17,7 +17,7 @@ import TechOverviewMobile from './TechOverviewMobile.tsx';
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up rounded-2xl overflow-hidden">
+                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up rounded-2xl overflow-hidden will-change-transform isolate-layer">
                     <div class="h-8 border-b border-black flex items-center px-4 gap-1.5 bg-zinc-100 group-hover:bg-zinc-900 group-hover:border-white transition-colors">
                         <div class="w-3 h-3 rounded-full bg-red-500"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -36,7 +36,7 @@ import TechOverviewMobile from './TechOverviewMobile.tsx';
                     </div>
                 </div>
 
-                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up delay-100 rounded-2xl overflow-hidden">
+                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up delay-100 rounded-2xl overflow-hidden will-change-transform isolate-layer">
                     <div class="h-8 border-b border-black flex items-center px-4 gap-1.5 bg-zinc-100 group-hover:bg-zinc-900 group-hover:border-white transition-colors">
                         <div class="w-3 h-3 rounded-full bg-red-500"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -55,7 +55,7 @@ import TechOverviewMobile from './TechOverviewMobile.tsx';
                     </div>
                 </div>
 
-                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up delay-200 rounded-2xl overflow-hidden">
+                <div class="group relative flex flex-col aspect-square border-2 border-black bg-white text-black transition-colors duration-300 hover:bg-black hover:text-white hover:border-black reveal-up delay-200 rounded-2xl overflow-hidden will-change-transform isolate-layer">
                     <div class="h-8 border-b border-black flex items-center px-4 gap-1.5 bg-zinc-100 group-hover:bg-zinc-900 group-hover:border-white transition-colors">
                         <div class="w-3 h-3 rounded-full bg-red-500"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -105,4 +105,7 @@ import TechOverviewMobile from './TechOverviewMobile.tsx';
     .ghost-phase-01::after { content: '[ PHASE_01 ]'; }
     .ghost-phase-02::after { content: '[ PHASE_02 ]'; }
     .ghost-phase-03::after { content: '[ PHASE_03 ]'; }
+
+    .will-change-transform { will-change: transform, opacity; }
+    .isolate-layer { isolation: isolate; }
 </style>

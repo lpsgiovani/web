@@ -52,7 +52,7 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
   <div class="flex-1 flex flex-col justify-center items-center w-full min-h-0 relative z-10" role="none">
       
       {/* System Window Container */}
-      <div class="w-full max-w-4xl bg-zinc-950/50 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl reveal-up duration-1000 transform translate-y-10 group hover:border-zinc-700 transition-colors">
+      <div class="w-full max-w-4xl bg-zinc-950/50 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl animate-fade-in group hover:border-zinc-700 transition-colors will-change-transform h-auto aspect-auto md:aspect-[16/9] lg:aspect-[2/1] min-h-[300px]">
           
           {/* macOS Style Header */}
           <div class="bg-zinc-900/80 border-b border-zinc-800 h-10 flex items-center px-4 gap-2">
@@ -70,10 +70,10 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
 
           {/* Content Area */}
           <div class="p-8 md:p-12 lg:p-16 flex flex-col gap-2">
-              <h2 class="font-display font-medium text-1xl md:text-4xl text-zinc-400 reveal-up delay-300">
+              <h2 class="font-display font-medium text-1xl md:text-4xl text-zinc-400 animate-slide-up" style="animation-delay: 0.2s">
                   TENHA O SITE QUE SEU
               </h2>
-              <h1 class="font-display font-black text-4xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tighter text-white uppercase reveal-up delay-500 text-shadow-glow">
+              <h1 class="font-display font-black text-4xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tighter text-white uppercase animate-slide-up text-shadow-glow" style="animation-delay: 0.4s">
                   CONCORRENTE <br />
                   NÃO PODE TER.
               </h1>
@@ -111,5 +111,8 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
     }
     .nav-link-02:hover::before {
         color: white;
+    }
+    .will-change-transform {
+        will-change: transform;
     }
 </style>
