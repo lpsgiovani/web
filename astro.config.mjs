@@ -19,6 +19,7 @@ export default defineConfig({
     }),
     build: {
         inlineStylesheets: 'always',
+        modulePreload: { polyfill: false },
     },
     prefetch: {
         prefetchAll: true,

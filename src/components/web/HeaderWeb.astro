@@ -1,6 +1,6 @@
 ---
 // HeaderWeb.astro - System Window Hero Design
-import HeaderStatusLine from '../web/HeaderStatusLine';
+// HeaderWeb.astro - System Window Hero Design
 ---
 
 <header class="relative bg-black text-white h-[100svh] flex flex-col p-6 md:p-12 border-b border-zinc-900 overflow-hidden">
@@ -82,8 +82,85 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
 
       {/* Technical Status Line Typewriter */}
       <div class="mt-6 flex w-full max-w-4xl px-2 h-auto md:h-6 items-center min-h-[1.5rem]">
-          <HeaderStatusLine client:visible />
+          <p id="status-line" class="font-mono text-[10px] md:text-xs uppercase tracking-wide flex flex-wrap md:block items-center leading-relaxed">
+              <!-- Inline content populated by JS -->
+              <span class="mr-0 md:mr-0 inline-flex items-center">
+                  <span id="status-text-1" class="text-green-500 mr-2"></span>
+                  <span id="status-text-2" class="text-zinc-400"></span>
+                  <span id="cursor-1" class="text-green-500 font-bold ml-[1px] opacity-0">_</span>
+              </span>
+              <span id="separator" class="mx-2 text-zinc-600 hidden md:inline transition-opacity duration-300 opacity-0">//</span>
+              <span class="w-full md:w-auto block md:inline mt-1 md:mt-0 text-white font-bold opacity-90">
+                  <span id="status-text-3"></span>
+                  <span id="cursor-2" class="text-green-500 font-bold ml-[1px] opacity-0">_</span>
+              </span>
+          </p>
       </div>
+
+      <script is:inline>
+          (function() {
+              const TARGET_TEXT_1 = "> STATUS: PRIMITIVA_V1.1";
+              const TARGET_TEXT_2 = "UNIMOS ESTRATÉGIA, DESIGN E PERFORMANCE PARA CRIAR SITES IMPOSSÍVEIS DE IGNORAR.";
+              
+              const statusText1El = document.getElementById('status-text-1');
+              const statusText2El = document.getElementById('status-text-2');
+              const statusText3El = document.getElementById('status-text-3');
+              const cursor1El = document.getElementById('cursor-1');
+              const cursor2El = document.getElementById('cursor-2');
+              const separatorEl = document.getElementById('separator');
+              
+              if (!statusText1El || !statusText2El || !statusText3El || !cursor1El || !cursor2El || !separatorEl) return;
+              
+              // Blinking cursor logic
+              let blinkState = true;
+              setInterval(() => {
+                  blinkState = !blinkState;
+                  const opacity = blinkState ? '1' : '0';
+                  // Only show cursor if active phase
+                  if (cursor1El.dataset.active === 'true') cursor1El.style.opacity = opacity;
+                  if (cursor2El.dataset.active === 'true') cursor2El.style.opacity = opacity;
+              }, 530);
+
+              // Phase 0: Start delay
+              setTimeout(() => {
+                  cursor1El.dataset.active = 'true';
+                  
+                  // Typing Part 1
+                  let charIndex1 = 0;
+                  const text1Interval = setInterval(() => {
+                       if (charIndex1 < TARGET_TEXT_1.length) {
+                           const currentStr = TARGET_TEXT_1.slice(0, charIndex1 + 1);
+                           const split = currentStr.split(':');
+                           statusText1El.textContent = split[0] ? (currentStr.includes(':') ? '> STATUS:' : currentStr) : '';
+                           statusText2El.textContent = currentStr.includes(':') ? split[1] : '';
+                           charIndex1++;
+                       } else {
+                           clearInterval(text1Interval);
+                           cursor1El.dataset.active = 'false';
+                           cursor1El.style.opacity = '0';
+                           separatorEl.classList.remove('opacity-0');
+                           separatorEl.classList.add('opacity-100');
+                           
+                           // Phase 2: Typing Part 2
+                           setTimeout(() => {
+                               cursor2El.dataset.active = 'true';
+                               let charIndex2 = 0;
+                               const text2Interval = setInterval(() => {
+                                   if (charIndex2 < TARGET_TEXT_2.length) {
+                                       statusText3El.textContent = TARGET_TEXT_2.slice(0, charIndex2 + 1);
+                                       charIndex2++;
+                                   } else {
+                                       clearInterval(text2Interval);
+                                       // Keep cursor 2 blinking at the end
+                                   }
+                               }, 30);
+                           }, 200);
+                       }
+                  }, 30);
+                  
+              }, 1200);
+          })();
+      </script>
 
   </div>
 </header>
