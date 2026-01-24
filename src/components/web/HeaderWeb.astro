@@ -20,9 +20,11 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
           height="20" 
         />
       </a>
-      <span class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest hidden md:inline-block" aria-hidden="true">
-        V1.0 // JF_BR
-      </span>
+      <div class="hidden md:flex items-center" aria-hidden="true" role="presentation">
+        <svg width="120" height="20" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-30">
+          <text x="0" y="14" fill="white" font-family="monospace" font-size="10" letter-spacing="2">V1.0 // JF_BR</text>
+        </svg>
+      </div>
     </div>
 
     {/* Navigation */}
@@ -31,7 +33,7 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
         href="#about"
         class="group flex items-center gap-1 font-mono text-[10px] md:text-xs font-bold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors cursor-pointer"
       >
-        <span class="text-zinc-500 group-hover:text-white transition-colors" role="presentation">[01]</span>
+        <span class="text-white/30 group-hover:text-white transition-colors" role="presentation">[01]</span>
         <span>SOBRE</span>
       </a>
 
@@ -39,7 +41,7 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
         href="/contato"
         class="group flex items-center gap-2 font-mono text-[10px] md:font-display md:text-xs font-bold tracking-wider uppercase text-white md:border md:border-zinc-800 md:rounded md:bg-zinc-900/50 px-0 md:px-3 py-1.5 hover:border-zinc-600 transition-colors cursor-pointer"
       >
-        <span class="text-zinc-400 group-hover:text-white transition-colors" role="presentation">[02]</span>
+        <span class="text-white/30 group-hover:text-white transition-colors" role="presentation">[02]</span>
         <span>CONTATO</span>
         <span class="relative flex h-2 w-2 ml-1">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -62,7 +64,7 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
                   <div class="w-3 h-3 rounded-full bg-[#28c840] border border-black/10"></div>
               </div>
               <div class="flex-1 text-center" aria-hidden="true">
-                  <span class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest opacity-60">cmd://run_hero_sequence</span>
+                  <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">cmd://run_hero_sequence</span>
               </div>
           </div>
 
