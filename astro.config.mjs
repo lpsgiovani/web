@@ -43,6 +43,11 @@ export default defineConfig({
         },
         build: {
             target: 'esnext',
+            rollupOptions: {
+                output: {
+                    manualChunks: undefined,
+                }
+            }
         },
         ssr: {
             noExternal: ['@radix-ui/*'],

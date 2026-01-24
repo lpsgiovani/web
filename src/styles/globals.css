@@ -278,3 +278,22 @@
 .dark #nprogress .bar {
     background: #fff !important;
 }
+
+/* WebServices Animations */
+@keyframes circuit-flow {
+    0% { transform: translateX(-200%); }
+    100% { transform: translateX(400%); }
+}
+
+.animate-circuit-flow {
+    animation: circuit-flow 3s linear infinite;
+}
+
+@keyframes node-pulse {
+    0%, 100% { background-color: black; transform: scale(1); }
+    50% { background-color: white; transform: scale(1.2); }
+}
+
+.animate-node-pulse {
+    animation: node-pulse 3s ease-in-out infinite;
+}

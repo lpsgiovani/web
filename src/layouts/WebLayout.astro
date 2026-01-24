@@ -53,16 +53,16 @@ const siteUrl = "https://primitiva.cc";
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     
-    <!-- Preload Critical Fonts (Mirroring BaseLayout) -->
-    <link rel="preload" href="/fonts/space-grotesk-normal-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/space-grotesk-normal-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Strategic Font Preloads -->
+    <link rel="preload" href="/fonts/space-grotesk-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/space-grotesk-normal-500.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/space-grotesk-normal-600.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/space-grotesk-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/space-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     
     <ClientRouter />
     <Analytics />
-    
-    <!-- Lottie Player Script -->
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
     <slot name="head" />
 
@@ -91,64 +91,21 @@ const siteUrl = "https://primitiva.cc";
         });
       };
 
-      const setupLotties = () => {
-        const players = document.querySelectorAll('dotlottie-player');
-        
-        const lottieObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            const player = entry.target as any;
-            if (entry.isIntersecting) {
-              if (player && typeof player.play === 'function') {
-                player.play();
-                player.classList.remove('opacity-0');
-              }
-            } else {
-              if (player && typeof player.pause === 'function') {
-                player.pause();
-              }
-            }
-          });
-        }, { rootMargin: '600px 0px' });
-
-        players.forEach((player: any) => {
-          player.setAttribute('loop', '');
-          player.setAttribute('autoplay', '');
-          
-          player.addEventListener('ready', () => {
-            player.classList.remove('opacity-0');
-          });
-
-          player.addEventListener('complete', () => {
-            if (player.seek) player.seek(0);
-            if (player.play) player.play();
-          });
-
-          lottieObserver.observe(player);
-        });
-      };
-
       const init = () => {
         setupAnimations();
-        setupLotties();
         
-        // Catch any late hydration or dynamic content
-        setTimeout(setupAnimations, 100);
-        setTimeout(setupLotties, 500);
-        setTimeout(setupLotties, 1500);
+        // Catch any late hydration
+        setTimeout(setupAnimations, 200);
+        setTimeout(setupAnimations, 1000);
 
-        // Safely handle NProgress
-        import('nprogress').then(NProgress => {
-            const np = NProgress.default || NProgress;
-            if (np && np.done) np.done();
-        }).catch(() => {});
+        // Defer NProgress and non-critical logic to window.onload
+        window.addEventListener('load', () => {
+            import('nprogress').then(NProgress => {
+                const np = NProgress.default || NProgress;
+                if (np && np.done) np.done();
+            }).catch(() => {});
+        });
       };
-
-      // Run on initial load
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
 
       // Run on page-load for behavior with ViewTransitions
       document.addEventListener('astro:page-load', init);
