@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 const TEAM = [
     {
@@ -36,29 +35,40 @@ const TEAM = [
 ];
 
 export default function WebAboutMobile() {
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
-    // Scroll track of 150vh
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start start", "end end"]
-    });
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!containerRef.current) return;
+            const rect = containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
 
-    // 2 items: 0% -> -50% translation
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+            const totalDistance = rect.height - windowHeight;
+            const currentPos = -rect.top;
+
+            const progress = Math.min(Math.max(currentPos / totalDistance, 0), 1);
+            setScrollProgress(progress);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const translateX = scrollProgress * 50;
 
     return (
-        <section ref={sectionRef} id="about-mobile" className="relative h-[150vh] w-full bg-zinc-950">
+        <section ref={containerRef} id="about-mobile" className="relative h-[150vh] w-full bg-zinc-950">
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center items-center overflow-hidden">
 
                 {/* Cards Track */}
-                <motion.div
-                    style={{ x, willChange: "transform" }}
-                    className="flex flex-nowrap w-[200%] items-center"
+                <div
+                    style={{ transform: `translateX(-${translateX}%)`, willChange: "transform" }}
+                    className="flex flex-nowrap w-[200%] items-center transition-transform duration-75 ease-out"
                 >
-                    {TEAM.map((member, idx) => (
+                    {TEAM.map((member) => (
                         <div key={member.id} className="w-[50%] flex justify-center items-center shrink-0 px-6">
-                            {/* Card matches WebAbout.astro visuals exactly */}
                             <div className={`flex flex-col w-full max-w-[300px] border-[1.5px] ${member.borderColor} ${member.bgColor} shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all ${member.hoverBorder} duration-300 group h-full rounded-2xl overflow-hidden`}>
                                 <div className={`h-10 border-b-[1.5px] ${member.borderColor} flex items-center px-4 gap-2 bg-zinc-900`}>
                                     <div className="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
@@ -93,32 +103,14 @@ export default function WebAboutMobile() {
                             </div>
                         </div>
                     ))}
-                </motion.div>
+                </div>
 
-                {/* Pagination Indicators - Synced with scroll */}
+                {/* Pagination Indicators */}
                 <div className="flex justify-center items-center gap-3 mt-12 w-full">
-                    <Dot index={0} progress={scrollYProgress} />
-                    <Dot index={1} progress={scrollYProgress} />
+                    <div className={`w-2 h-2 border border-white transition-colors duration-300 ${scrollProgress < 0.5 ? 'bg-white' : 'bg-transparent'}`} />
+                    <div className={`w-2 h-2 border border-white transition-colors duration-300 ${scrollProgress >= 0.5 ? 'bg-white' : 'bg-transparent'}`} />
                 </div>
             </div>
         </section>
-    );
-}
-
-function Dot({ index, progress }: { index: number, progress: any }) {
-    const isActive = useTransform(
-        progress,
-        index === 0 ? [0, 0.5] : [0.5, 1],
-        index === 0 ? [1, 0] : [0, 1]
-    );
-
-    // Transform boolean active state to color
-    const bg = useTransform(isActive, v => v > 0.5 ? "#ffffff" : "transparent");
-
-    return (
-        <motion.div
-            style={{ backgroundColor: bg }}
-            className="w-2 h-2 border border-white transition-colors duration-300"
-        />
     );
 }
