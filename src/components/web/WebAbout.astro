@@ -1,0 +1,269 @@
+---
+// src/components/web/WebAbout.astro
+---
+
+<section id="about" class="bg-zinc-950 py-16 md:py-32 px-0 md:px-6 border-t border-zinc-900 selection:bg-white selection:text-black relative overflow-hidden">
+    
+    <!-- Blueprint Grid Background -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none z-0" style="background-image: radial-gradient(circle, #27272a 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="absolute inset-0 opacity-10 pointer-events-none z-0" style="background-image: linear-gradient(#27272a 1px, transparent 1px), linear-gradient(90deg, #27272a 1px, transparent 1px); background-size: 160px 160px;"></div>
+
+    <!-- Technical Annotations (Desktop Only) -->
+    <div class="hidden lg:block absolute top-12 left-12 font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-700 opacity-40 select-none z-0">
+        <p>System.Identity.A_CELL // POS: 0.0.12</p>
+        <p>Coordinate: 21.7642° S, 43.3503° W</p>
+    </div>
+    <div class="hidden lg:block absolute bottom-24 right-12 font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-700 opacity-40 text-right select-none z-0">
+        <p>Direct_Access_Mode: true</p>
+        <p>Built_With: Astro + High_Performance_Coffee</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Título da Seção -->
+        <div class="mb-12 md:mb-12 text-center px-6 reveal-up">
+            <h2 class="text-3xl md:text-7xl font-serif leading-[1.1] text-white max-w-4xl mx-auto">
+                Quem <span class="italic">projeta</span> <br>e quem <span class="italic">constrói.</span>
+            </h2>
+        </div>
+
+        <!-- Cards Container (Mobile Carousel / Desktop Overlap Composition) -->
+        <div class="relative">
+            {/* MOBILE: Carousel Layout */}
+            <div 
+                id="about-carousel"
+                class="flex md:hidden overflow-x-auto snap-x snap-mandatory scroll-smooth gap-5 px-6 pb-16 scrollbar-hide relative z-10"
+            >
+                {/* Card 1: Giovani (Mobile) */}
+                <div class="flex-none w-[78vw] max-w-[300px] snap-center">
+                    <div class="flex flex-col border-[1.5px] border-zinc-800 bg-zinc-950/80 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] reveal-up transition-all hover:border-zinc-700 duration-300 group h-full rounded-2xl overflow-hidden">
+                        <div class="h-10 border-b-[1.5px] border-zinc-800 flex items-center px-4 gap-2 bg-zinc-900">
+                            <div class="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#ff5f57]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#febc2e]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#28c840]"></div>
+                            </div>
+                            <span class="ml-auto font-mono text-[9px] uppercase tracking-wider text-zinc-600">
+                                giovani.tsx
+                            </span>
+                        </div>
+                        <div class="p-8 flex flex-col h-full">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-16 h-16 shrink-0 border-[1.5px] border-zinc-800 p-1 bg-zinc-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:border-zinc-700 transition-all overflow-hidden">
+                                    <img src="/assets/primitiva/giovani.jpg" alt="Giovani Lopes" class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500" />
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-black uppercase tracking-tighter leading-none font-display mb-2 text-white">Giovani <br>Lopes</h3>
+                                    <p class="font-mono text-[10px] text-zinc-500 tracking-tight">// ESTRATÉGIA & DESIGN</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4 flex-grow">
+                                <p class="text-lg font-serif leading-relaxed text-zinc-300">Especialista em <strong class="text-white">Estratégia</strong> e <strong class="text-white">Design</strong></p>
+                                <p class="text-zinc-500 text-sm leading-relaxed font-sans">Giovani garante que a estética nunca seja vazia. Seu trabalho é fundido à estratégia de negócio, assegurando propósito comercial em cada decisão.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Card 2: Gustavo (Mobile) */}
+                <div class="flex-none w-[78vw] max-w-[300px] snap-center">
+                    <div class="flex flex-col border-[1.5px] border-zinc-800 bg-zinc-900/50 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] reveal-up delay-100 transition-all hover:border-zinc-700 duration-300 group h-full rounded-2xl overflow-hidden">
+                        <div class="h-10 border-b-[1.5px] border-zinc-800 flex items-center px-4 gap-2 bg-zinc-900">
+                            <div class="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#ff5f57]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#febc2e]"></div>
+                                <div class="w-2.5 h-2.5 rounded-full border border-black/20 bg-[#28c840]"></div>
+                            </div>
+                            <span class="ml-auto font-mono text-[9px] uppercase tracking-wider text-zinc-600">
+                                gustavo.tsx
+                            </span>
+                        </div>
+                        <div class="p-8 flex flex-col h-full">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-16 h-16 shrink-0 border-[1.5px] border-zinc-800 p-1 bg-zinc-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:border-zinc-700 transition-all overflow-hidden">
+                                    <img src="/assets/primitiva/tempone.png" alt="Gustavo Tempone" class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500" />
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-black uppercase tracking-tighter leading-none font-display mb-2 text-white">Gustavo Tempone</h3>
+                                    <p class="font-mono text-[10px] text-zinc-500 tracking-tight">// ENGENHARIA</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4 flex-grow">
+                                <p class="text-lg font-serif leading-relaxed text-zinc-300">Especialista em <strong class="text-white">Desenvolvimento</strong>.</p>
+                                <p class="text-zinc-500 text-sm leading-relaxed font-sans">Gustavo transforma a estratégia em sistemas ultra-velozes, garantindo performance e escalabilidade de ponta a ponta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {/* Final Spacer */}
+                <div class="flex-none w-[12vw]"></div>
+            </div>
+
+            {/* Pagination Indicators (Mobile Only) */}
+            <div class="flex md:hidden justify-center items-center gap-3 mt-2 mb-12">
+                <div data-dot="0" class="w-2 h-2 border border-white bg-white transition-all duration-300 about-dot"></div>
+                <div data-dot="1" class="w-2 h-2 border border-white bg-transparent transition-all duration-300 about-dot"></div>
+            </div>
+
+            {/* DESKTOP: Organic Overlap Layout with Entrance Reveal */}
+            <div class="hidden md:flex justify-center items-center min-h-[600px] relative px-4 max-w-6xl mx-auto">
+                
+                {/* Decoration Labels */}
+                <div class="absolute top-[20%] left-0 font-mono text-[10px] text-zinc-700 tracking-widest vertical-text select-none">01 // STRATEGY</div>
+                <div class="absolute bottom-[20%] right-0 font-mono text-[10px] text-zinc-700 tracking-widest vertical-text select-none">02 // ENGINE</div>
+
+                <!-- Card 1: Giovani (Desktop) -->
+                <div class="flex-none w-[420px] z-20 group reveal-encaixe-1">
+                    <div class="flex flex-col border-[1.5px] border-zinc-800 bg-zinc-950 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all hover:border-zinc-500 hover:-translate-y-2 duration-500 rounded-2xl overflow-hidden">
+                        <div class="h-10 border-b-[1.5px] border-zinc-800 flex items-center px-4 gap-2 bg-zinc-900">
+                            <div class="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#ff5f57]"></div>
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#febc2e]"></div>
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#28c840]"></div>
+                            </div>
+                            <span class="ml-auto font-mono text-[10px] uppercase tracking-wider text-zinc-600">giovani.tsx</span>
+                        </div>
+                        <div class="p-10 flex flex-col h-full bg-gradient-to-br from-zinc-950 to-zinc-900/40">
+                            <div class="flex items-center gap-6 mb-10">
+                                <div class="w-24 h-24 shrink-0 border-[1.5px] border-zinc-800 p-1 bg-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:border-zinc-600 transition-all overflow-hidden rotate-[-2deg] group-hover:rotate-0">
+                                    <img src="/assets/primitiva/giovani.jpg" alt="Giovani Lopes" class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500" />
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-black uppercase tracking-tighter leading-none font-display mb-2 text-white">Giovani <br>Lopes</h3>
+                                    <p class="font-mono text-sm text-zinc-500 tracking-tight">// ESTRATÉGIA & DESIGN</p>
+                                </div>
+                            </div>
+                            <div class="space-y-6 flex-grow">
+                                <p class="text-xl font-serif leading-relaxed text-zinc-300">Especialista em <strong class="text-white">Estratégia</strong> e <strong class="text-white">UX/UI Design</strong></p>
+                                <p class="text-zinc-500 leading-relaxed font-sans opacity-80 text-sm">Giovani garante que a estética nunca seja vazia. Seu trabalho é fundido à estratégia de negócio, assegurando que cada pixel desenhado tenha um propósito comercial claro e gere autoridade imediata.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Gustavo (Desktop) -->
+                <div class="flex-none w-[420px] -ml-10 z-30 group reveal-encaixe-2">
+                    <div class="flex flex-col border-[1.5px] border-zinc-800 bg-zinc-950 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all hover:border-zinc-500 hover:-translate-y-2 duration-500 rounded-2xl overflow-hidden">
+                        <div class="h-10 border-b-[1.5px] border-zinc-800 flex items-center px-4 gap-2 bg-zinc-900">
+                            <div class="flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#ff5f57]"></div>
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#febc2e]"></div>
+                                <div class="w-3 h-3 rounded-full border border-black/20 bg-[#28c840]"></div>
+                            </div>
+                            <span class="ml-auto font-mono text-[10px] uppercase tracking-wider text-zinc-600">gustavo.tsx</span>
+                        </div>
+                        <div class="p-10 flex flex-col h-full bg-zinc-950">
+                            <div class="flex items-center gap-6 mb-10">
+                                <div class="w-24 h-24 shrink-0 border-[1.5px] border-zinc-800 p-1 bg-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:border-zinc-600 transition-all overflow-hidden rotate-[2deg] group-hover:rotate-0">
+                                    <img src="/assets/primitiva/tempone.png" alt="Gustavo Tempone" class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500" />
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-black uppercase tracking-tighter leading-none font-display mb-2 text-white">Gustavo Tempone</h3>
+                                    <p class="font-mono text-sm text-zinc-500 tracking-tight">// ENGENHARIA</p>
+                                </div>
+                            </div>
+                            <div class="space-y-6 flex-grow">
+                                <p class="text-xl font-serif leading-relaxed text-zinc-300">Especialista em <strong class="text-white">Arquitetura de Software</strong>.</p>
+                                <p class="text-zinc-500 leading-relaxed font-sans opacity-80 text-sm">Gustavo transforma a estratégia em sistemas ultra-velozes. Com uma obsessão técnica por performance, ele garante que as interfaces sejam tão rápidas e eficientes quanto são visualmente impactantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé da Seção -->
+        <div class="mt-24 pt-12 border-t border-zinc-900 reveal-up delay-300 px-6 relative">
+            <div class="hidden md:block absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-white/20"></div>
+            <p class="font-mono text-[10px] md:text-sm uppercase tracking-[0.4em] text-zinc-600 text-center leading-relaxed">
+                INTERFACE DIRETA COM QUEM EXECUTA. SEM INTERMEDIAÇÕES, APENAS RESULTADOS.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    /* Animation States for Encaixe Reveal (Desktop Only) */
+    @media (min-width: 768px) {
+        .reveal-encaixe-1 {
+            opacity: 0;
+            transform: translateY(120px);
+            transition: opacity 0.8s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-encaixe-2 {
+            opacity: 0;
+            transform: translateY(180px);
+            transition: opacity 0.8s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0.2s;
+        }
+
+        .reveal-encaixe-1.active {
+            opacity: 1;
+            transform: translateY(-3rem); /* md:-translate-y-12 */
+        }
+        .reveal-encaixe-2.active {
+            opacity: 1;
+            transform: translateY(3rem); /* md:translate-y-12 */
+        }
+    }
+</style>
+
+<script>
+    const setupAbout = () => {
+        // Carousel Logic
+        const carousel = document.getElementById('about-carousel');
+        const dots = document.querySelectorAll('.about-dot');
+
+        if (carousel && dots.length > 0) {
+            const handleScroll = () => {
+                const scrollLeft = carousel.scrollLeft;
+                const width = carousel.offsetWidth;
+                const index = Math.round(scrollLeft / width);
+                dots.forEach((dot, idx) => {
+                    const dotEl = dot as HTMLElement;
+                    if (idx === index) {
+                        dotEl.classList.add('bg-white');
+                        dotEl.classList.remove('bg-transparent');
+                    } else {
+                        dotEl.classList.remove('bg-white');
+                        dotEl.classList.add('bg-transparent');
+                    }
+                });
+            };
+            carousel.addEventListener('scroll', handleScroll, { passive: true });
+        }
+
+        // Reveal Observer for Custom Entrance
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-encaixe-1, .reveal-encaixe-2').forEach(el => {
+            revealObserver.observe(el);
+        });
+    };
+
+    document.addEventListener('astro:page-load', setupAbout);
+</script>

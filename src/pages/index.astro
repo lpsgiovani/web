@@ -1,0 +1,93 @@
+---
+// Web Page - Primitiva
+export const prerender = true;
+import WebLayout from '../layouts/WebLayout.astro';
+import HeaderWeb from '../components/astro/HeaderWeb.astro';
+import TechOverview from '../components/astro/TechOverview.astro';
+// We replace the standard Hero (projects grid) with our filtered WebHero
+import WebHero from '../components/astro/WebHero.astro';
+
+// Web Specific Interactive Components
+import WebServices from '../components/web/WebServices';
+import WebTestimonials from '../components/web/WebTestimonials';
+import WebFAQ from '../components/web/WebFAQ';
+import WebFooter from '../components/web/WebFooter.astro';
+import PerformanceInterface from '../components/web/PerformanceInterface.astro';
+import WebAbout from '../components/web/WebAbout.astro';
+
+const title = "Desenvolvimento de Sites Rápidos e Otimizados | Primitiva";
+const description = "Criação de sites de alta performance focada em conversão e SEO. Next.js, Astro e Design Premium.";
+
+// JSON-LD Structured Data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Primitiva — Desenvolvimento Web",
+  "image": "https://primitiva.cc/assets/primitiva/thumb.webp",
+  "@id": "https://primitiva.cc/web",
+  "url": "https://primitiva.cc/web",
+  "telephone": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Juiz de Fora",
+    "addressRegion": "MG",
+    "postalCode": "",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -21.7642,
+    "longitude": -43.3503
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.instagram.com/primitiva.cc"
+  ]
+};
+---
+
+<WebLayout title={title} description={description}>
+  <main class="relative flex w-full flex-col">
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <!-- Header with modified Headline for Web -->
+    <HeaderWeb transition:persist />
+    
+    <!-- Performance X-Ray Section -->
+    <PerformanceInterface />
+    
+    <!-- Interactive Web Services Accordion -->
+    <WebServices client:visible />
+    
+    <!-- Tech Overview (Matched with original /web) -->
+    <TechOverview />
+
+    <!-- Interactive Web Testimonials Carousel -->
+    <WebTestimonials client:visible />
+
+    <!-- Filtered Projects Grid (Only Web) -->
+    <WebHero />
+
+    <!-- Quem Somos (Célula) -->
+    <WebAbout />
+    
+    <!-- Interactive Web FAQ Accordion -->
+    <WebFAQ client:visible />
+    
+    <!-- Footer with CTA tracking (Web Specific) -->
+    <WebFooter />
+  </main>
+</WebLayout>

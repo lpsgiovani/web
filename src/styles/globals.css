@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-normal-300.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-normal-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-normal-500.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-normal-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-normal-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Serif';
+    src: url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Serif';
+    src: url('/fonts/InstrumentSerif-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/fonts/space-mono-normal-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/fonts/space-mono-normal-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('/fonts/space-mono-italic-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+    --font-space-grotesk: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-instrument-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+    --font-space-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+}
+
+@layer base {
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f2f2f0;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+        background: #333;
+    }
+
+    body {
+        @apply min-h-screen antialiased;
+    }
+
+    a,
+    button {
+        touch-action: manipulation;
+    }
+}
+
+@layer components {
+    .text-vertical-rl {
+        writing-mode: vertical-rl;
+    }
+
+    /* Animations - Unified and Robust */
+    .reveal-up,
+    .reveal-text {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+        transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+        will-change: opacity, transform;
+    }
+
+    .reveal-img {
+        opacity: 0;
+        transform: scale(1.05) translate3d(0, 0, 0);
+        transition: opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+        will-change: opacity, transform;
+    }
+
+    /* Active States */
+    .reveal-up.active,
+    .reveal-text.active,
+    .reveal-img.active {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 1.5s ease;
+    }
+
+    .fade-in.active {
+        opacity: 1;
+    }
+
+    .line-grow {
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left top;
+        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+        will-change: transform;
+    }
+
+    .line-grow.active {
+        transform: scaleX(1);
+    }
+
+    .cv-auto {
+        /* Removed content-visibility to avoid potential CLS/paint issues */
+    }
+}
+
+@layer utilities {
+    .font-display {
+        font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .font-serif {
+        font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+    }
+
+    .font-mono {
+        font-family: var(--font-space-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* Safe fallback for reveal-up if JS fails */
+    @media (scripting: none) {
+
+        .reveal-up,
+        .reveal-text,
+        .reveal-img,
+        .fade-in {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+.delay-400 {
+    transition-delay: 400ms;
+}
+
+.delay-500 {
+    transition-delay: 500ms;
+}
+
+/* Staggered Entrance Animations */
+@keyframes fade-in-kf {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up-kf {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in-kf 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up-kf 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Default page transition fade */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+
+/* NProgress Custom Styling */
+#nprogress .bar {
+    background: #000 !important;
+    height: 3px !important;
+    z-index: 10001 !important;
+}
+
+#nprogress .spinner {
+    display: none !important;
+}
+
+.dark #nprogress .bar {
+    background: #fff !important;
+}
