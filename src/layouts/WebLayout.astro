@@ -85,7 +85,10 @@ const siteUrl = "https://primitiva.cc";
         }, observerOptions);
 
         const animatedElements = document.querySelectorAll('.reveal-up, .reveal-text, .reveal-img, .fade-in, .line-grow, .reveal-encaixe-1, .reveal-encaixe-2');
-        animatedElements.forEach(el => observer.observe(el));
+        animatedElements.forEach(el => {
+            // Se já estiver visível por algum motivo ou se o JS demorar, garante que observe
+            observer.observe(el);
+        });
       };
 
       const setupLotties = () => {
@@ -116,32 +119,45 @@ const siteUrl = "https://primitiva.cc";
           });
 
           player.addEventListener('complete', () => {
-            player.seek(0);
-            player.play();
+            if (player.seek) player.seek(0);
+            if (player.play) player.play();
           });
 
           lottieObserver.observe(player);
         });
       };
 
-      // Run on page-load for parished behavior with ViewTransitions
-      document.addEventListener('astro:page-load', () => {
+      const init = () => {
         setupAnimations();
         setupLotties();
         
-        // Catch any late hydration
+        // Catch any late hydration or dynamic content
+        setTimeout(setupAnimations, 100);
         setTimeout(setupLotties, 500);
         setTimeout(setupLotties, 1500);
 
+        // Safely handle NProgress
         import('nprogress').then(NProgress => {
-            if (NProgress.done) NProgress.done();
-        });
-      });
+            const np = NProgress.default || NProgress;
+            if (np && np.done) np.done();
+        }).catch(() => {});
+      };
+
+      // Run on initial load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+
+      // Run on page-load for behavior with ViewTransitions
+      document.addEventListener('astro:page-load', init);
 
       document.addEventListener('astro:before-preparation', () => {
         import('nprogress').then(NProgress => {
-            if (NProgress.start) NProgress.start();
-        });
+            const np = NProgress.default || NProgress;
+            if (np && np.start) np.start();
+        }).catch(() => {});
       });
     </script>
   </head>

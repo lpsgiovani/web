@@ -243,6 +243,9 @@
                 });
             };
             carousel.addEventListener('scroll', handleScroll, { passive: true });
+            
+            // Initial check
+            handleScroll();
         }
 
         // Reveal Observer for Custom Entrance
@@ -265,5 +268,11 @@
         });
     };
 
+    // Run on both initial load and page transitions
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupAbout);
+    } else {
+        setupAbout();
+    }
     document.addEventListener('astro:page-load', setupAbout);
 </script>
