@@ -63,7 +63,6 @@ const siteUrl = "https://primitiva.cc";
     <link rel="preload" href="/fonts/space-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/space-mono-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     
-    <ClientRouter />
     <Analytics />
 
     <slot name="head" />
@@ -122,6 +121,7 @@ const siteUrl = "https://primitiva.cc";
   </head>
   <body class="antialiased bg-zinc-950 text-white font-display" transition:animate="fade">
     <slot />
+    <ClientRouter />
     <SpeedInsights />
   </body>
 </html>
