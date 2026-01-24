@@ -71,7 +71,46 @@ const siteUrl = "https://primitiva.cc";
     <!-- Version: v1.1.0-STATIC-FIX -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js" integrity="sha512-bUg5gaqB9lv38ilIloK6qI7W02wpXkH338n4QsUEqF1yO5pXkIdLinar+Tknom7zR6wje60uFkMFywe28mh4+g==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-    <script src="/js/app.js" is:inline defer></script>
+    <script is:inline>
+      (function() {
+        const setupAnimations = () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '100px',
+                threshold: 0.1
+            };
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+    
+            const animatedElements = document.querySelectorAll('.reveal-up, .reveal-text, .reveal-img, .fade-in, .line-grow, .reveal-encaixe-1, .reveal-encaixe-2');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        };
+    
+        const init = () => {
+            setupAnimations();
+            setTimeout(setupAnimations, 200);
+            setTimeout(setupAnimations, 1000);
+        };
+    
+        document.addEventListener('astro:page-load', init);
+        document.addEventListener('astro:after-swap', init);
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+      })();
+    </script>
   </head>
   <body class="antialiased bg-zinc-950 text-white font-display" transition:animate="fade">
     <slot />
