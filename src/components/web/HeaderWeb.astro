@@ -31,17 +31,15 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
     <nav class="flex items-center gap-4 md:gap-8">
       <a 
         href="#about"
-        class="group flex items-center gap-1 font-mono text-[10px] md:text-xs font-bold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors cursor-pointer"
+        class="nav-link-01 group flex items-center gap-1 font-mono text-[10px] md:text-xs font-bold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors cursor-pointer"
       >
-        <span class="text-white/30 group-hover:text-white transition-colors" role="presentation">[01]</span>
         <span>SOBRE</span>
       </a>
 
       <a 
-        href="/contato"
-        class="group flex items-center gap-2 font-mono text-[10px] md:font-display md:text-xs font-bold tracking-wider uppercase text-white md:border md:border-zinc-800 md:rounded md:bg-zinc-900/50 px-0 md:px-3 py-1.5 hover:border-zinc-600 transition-colors cursor-pointer"
+        href="#"
+        class="nav-link-02 group flex items-center gap-2 font-mono text-[10px] md:font-display md:text-xs font-bold tracking-wider uppercase text-white md:border md:border-zinc-800 md:rounded md:bg-zinc-900/50 px-0 md:px-3 py-1.5 hover:border-zinc-600 transition-colors cursor-pointer"
       >
-        <span class="text-white/30 group-hover:text-white transition-colors" role="presentation">[02]</span>
         <span>CONTATO</span>
         <span class="relative flex h-2 w-2 ml-1">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -51,20 +49,22 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
     </nav>
   </div>
 
-  <div class="flex-1 flex flex-col justify-center items-center w-full min-h-0 relative z-10">
+  <div class="flex-1 flex flex-col justify-center items-center w-full min-h-0 relative z-10" role="none">
       
       {/* System Window Container */}
       <div class="w-full max-w-4xl bg-zinc-950/50 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl reveal-up duration-1000 transform translate-y-10 group hover:border-zinc-700 transition-colors">
           
           {/* macOS Style Header */}
           <div class="bg-zinc-900/80 border-b border-zinc-800 h-10 flex items-center px-4 gap-2">
-              <div class="flex gap-2">
+              <div class="flex gap-2" role="none">
                   <div class="w-3 h-3 rounded-full bg-[#ff5f57] border border-black/10"></div>
                   <div class="w-3 h-3 rounded-full bg-[#febc2e] border border-black/10"></div>
                   <div class="w-3 h-3 rounded-full bg-[#28c840] border border-black/10"></div>
               </div>
-              <div class="flex-1 text-center" aria-hidden="true">
-                  <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">cmd://run_hero_sequence</span>
+              <div class="flex-1 text-center" aria-hidden="true" role="none">
+                  <svg width="160" height="20" viewBox="0 0 160 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto block">
+                    <text x="50%" y="14" fill="white" fill-opacity="0.2" font-family="monospace" font-size="10" text-anchor="middle" letter-spacing="1">CMD://RUN_HERO_SEQUENCE</text>
+                  </svg>
               </div>
           </div>
 
@@ -91,5 +91,25 @@ import HeaderStatusLine from '../web/HeaderStatusLine';
 <style>
     .text-shadow-glow {
         text-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+
+    .nav-link-01::before {
+        content: '[01]';
+        color: rgba(255, 255, 255, 0.3);
+        margin-right: 0.25rem;
+        transition: color 0.2s ease;
+    }
+    .nav-link-01:hover::before {
+        color: white;
+    }
+
+    .nav-link-02::before {
+        content: '[02]';
+        color: rgba(255, 255, 255, 0.3);
+        margin-right: 0.5rem;
+        transition: color 0.2s ease;
+    }
+    .nav-link-02:hover::before {
+        color: white;
     }
 </style>
