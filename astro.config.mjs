@@ -42,6 +42,9 @@ export default defineConfig({
                 '@': path.resolve(__dirname, './src'),
             },
         },
+        server: {
+            allowedHosts: ['moodily-quantal-anahi.ngrok-free.dev'],
+        },
         build: {
             target: 'esnext',
             rollupOptions: {

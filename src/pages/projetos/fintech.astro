@@ -2,38 +2,45 @@
 export const prerender = true;
 import WebLayout from '../../layouts/WebLayout.astro';
 import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
 
 // Case Study Components
 import InterfaceShowcase from '../../components/content/InterfaceShowcase.astro';
 import ComponentZoom from '../../components/content/ComponentZoom.astro';
 import ScrollingPrototype from '../../components/content/ScrollingPrototype.astro';
 
-// Hardcoded Assets for Pedecafe
-// Using existing assets from the project structure
+// Get project data from content collection
+const entryData = await getEntry('projetos', 'fintech');
+if (!entryData) {
+    throw new Error('Project entry not found');
+}
+const { Content } = await entryData.render();
+
+// Hardcoded Assets for Fintech
 import coverImage from '../../assets/cover/pedecafe.webp';
 import mockup1 from '../../assets/cover/pedecafe.webp';
 import mockup2 from '../../assets/cover/pedecafe.webp';
-import neonFluxCover from '../../assets/cover/pedecafe.webp';
+import pedecafeCover from '../../assets/cover/pedecafe.webp';
 
 const entry = {
-  slug: "pedecafe",
+  slug: "fintech",
   data: {
-    title: "Pé de Café",
-    description: "Identidade visual completa e website para uma cafeteria de cafés especiais focada em origem e pureza.",
-    category: "Branding & Web",
-    client: "Pé de Café",
+    title: entryData.data.title,
+    description: entryData.data.description,
+    category: entryData.data.category,
+    client: "Fintech Corp",
     year: "2024",
-    techStack: ["ASTRO", "TAILWIND"],
-    challenge: "O desafio era criar uma marca que transmitisse o aroma e o cuidado dos cafés especiais, traduzindo isso para uma experiência digital imersiva e ultra-rápida.",
-    outcome: "O resultado foi um aumento de 40% nas reservas online e uma identidade visual que se tornou referência no setor de cafeterias artesanais."
+    techStack: entryData.data.techStack,
+    challenge: "Simplificar a visualização de dados financeiros complexos em tempo real.",
+    outcome: "O resultado foi uma redução de 60% no tempo de análise de dados e uma interface que se tornou referência em dashboards financeiros."
   }
 };
 
 const nextProject = {
-    slug: 'neon-flux',
+    slug: 'pedecafe',
     data: {
-        title: 'Neon Flux',
-        coverImage: neonFluxCover
+        title: 'Pé de Café',
+        coverImage: pedecafeCover
     }
 };
 
@@ -94,7 +101,7 @@ const description = entry.data.description;
                 {/* Cell 3: Strategy */}
                 <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up delay-200">
                      <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-500">ESTRATÉGIA</span>
-                     <span class="font-mono text-xs text-white font-bold uppercase">TOTAL_IMMERSION</span>
+                     <span class="font-mono text-xs text-white font-bold uppercase">DATA_VISUALIZATION</span>
                 </div>
                  {/* Cell 4: Performance */}
                  <div class="p-6 md:p-8 flex flex-col gap-2 reveal-up delay-300">
@@ -126,7 +133,7 @@ const description = entry.data.description;
                  {/* Main Reveal Frame */}
                  <div class="relative aspect-[21/9] w-full overflow-hidden rounded-sm border border-zinc-800 reveal-up">
                      <Image 
-                        src={coverImage} 
+                        src={entryData.data.coverImage} 
                         alt={`${entry.data.title} Main Exhibit`}
                         class="w-full h-full object-cover transition-all duration-1000 scale-110 hover:scale-100 ease-out"
                         width={1920}
@@ -198,21 +205,14 @@ const description = entry.data.description;
                 <div class="reveal-up delay-100">
                      <div class="prose prose-invert prose-lg md:prose-xl prose-p:font-serif prose-p:leading-relaxed prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-p:text-zinc-400 prose-strong:text-white max-w-[45ch]">
                         
-                        {/* MANUAL CONTENT INJECTION FOR PEDECAFE */}
-                        
                         <h2 id="operational_overview">OPERATIONAL_OVERVIEW</h2>
                         <p>
-                            Desenvolvemos uma identidade visual baseada em tons terrosos e tipografia serifada, combinada com um site desenvolvido em Astro para performance extrema.
+                            Uma dashboard limpa, componentizada e tipada com TypeScript, garantindo estabilidade e fácil manutenção.
                         </p>
-                        
-                        <ScrollingPrototype 
-                            url="https://pede.cafe/cardapio" 
-                            title="LIVE_PREVIEW_v1.0"
-                        />
                         
                         <h3 id="system_architecture">SYSTEM_ARCHITECTURE</h3>
                         <p>
-                            A escolha do Astro permitiu que entregássemos uma experiência visual pesada (com muitas imagens de alta resolução) sem comprometer o tempo de carregamento, mantendo um Core Web Vital perfeito.
+                            A arquitetura baseada em React e TypeScript permitiu criar componentes reutilizáveis e altamente performáticos, com tipagem forte que previne erros em tempo de desenvolvimento.
                         </p>
                         
                         <InterfaceShowcase 
@@ -223,7 +223,7 @@ const description = entry.data.description;
                         
                         <h3 id="atomic_design">ATOMIC_DESIGN</h3>
                         <p>
-                            Cada elemento da interface foi pensado para refletir a organicidade do café. Desde os micro-states dos botões até as transições de página fluidas.
+                            Cada componente foi projetado seguindo princípios de atomic design, garantindo consistência visual e facilitando a manutenção e escalabilidade da interface.
                         </p>
                         
                         <ComponentZoom 
@@ -231,13 +231,13 @@ const description = entry.data.description;
                             details={[
                                 {
                                     image: mockup2,
-                                    label: "LOYALTY_SYSTEM",
-                                    description: "Interface de usuário para o sistema de fidelidade mobile, focada em clareza e facilidade de uso."
+                                    label: "DATA_VISUALIZATION",
+                                    description: "Gráficos e visualizações interativas para análise de dados financeiros em tempo real."
                                 },
                                 {
                                     image: mockup1,
-                                    label: "TYPOGRAPHY_SET",
-                                    description: "Combinação de fontes serifadas e mono para equilibrar o clássico com o técnico."
+                                    label: "ASSET_MANAGEMENT",
+                                    description: "Interface para gestão de ativos com filtros avançados e visualizações customizáveis."
                                 }
                             ]}
                         />
