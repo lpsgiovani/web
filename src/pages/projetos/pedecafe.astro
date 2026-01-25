@@ -1,5 +1,6 @@
 ---
-export const prerender = true;
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=60');
 import WebLayout from '../../layouts/WebLayout.astro';
 import { Image } from 'astro:assets';
 
