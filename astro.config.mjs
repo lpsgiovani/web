@@ -10,7 +10,7 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// https://astro.build/config
+// https://astro.build/config - Force Rebuild v1.1.1
 export default defineConfig({
     output: 'server', // Enable SSR for API routes and auth
     adapter: vercel({
