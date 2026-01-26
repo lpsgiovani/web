@@ -15,7 +15,7 @@ const site = isDev ? 'https://dev.primitiva.cc' : 'https://primitiva.cc';
 
 // https://astro.build/config - Force Rebuild v1.1.2
 export default defineConfig({
-    output: 'server', // Enable SSR for API routes and auth
+    output: 'static', // Pre-render all pages at build time
     adapter: vercel({
         webAnalytics: { enabled: true },
         imageService: true,

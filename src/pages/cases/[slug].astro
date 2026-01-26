@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+if (!entry) return Astro.redirect('/404');
 const { Content } = await entry.render();
 
 const title = `${entry.data.title} | Primitiva Cases`;
