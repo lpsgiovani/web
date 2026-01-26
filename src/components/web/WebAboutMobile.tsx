@@ -61,7 +61,7 @@ export default function WebAboutMobile() {
     const translateX = scrollProgress * 50;
 
     return (
-        <section ref={containerRef} id="about-mobile" className="relative h-[150vh] w-full bg-zinc-950">
+        <section ref={containerRef} id="about-mobile" className="relative h-[200vh] w-full bg-zinc-950">
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center items-center overflow-hidden">
 
                 {/* Cards Track */}
@@ -107,10 +107,33 @@ export default function WebAboutMobile() {
                     ))}
                 </div>
 
+                {/* Manifesto Phase */}
+                <div
+                    className={`mt-12 px-6 transition-all duration-700 w-full ${scrollProgress > 0.7 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                >
+                    <div className="border-t border-zinc-900 pt-10">
+                        <div className="font-mono text-[8px] uppercase tracking-[0.4em] text-zinc-700 mb-4">// DOMAIN: PRIMITIVA_STUDIO</div>
+                        <h3 className="text-2xl font-serif text-white leading-tight mb-8">
+                            A união entre o <span className="italic text-zinc-500">instinto artístico</span> e a lógica de negócios.
+                        </h3>
+                        <p className="text-base font-serif text-zinc-400 leading-relaxed mb-6">
+                            Diferente de agências convencionais, a Primitiva é um <strong className="text-white font-normal italic">estúdio de execução profunda</strong>.
+                        </p>
+                        <p className="text-base font-serif text-zinc-400 leading-relaxed italic border-l-2 border-zinc-800 pl-4 py-1 mb-8">
+                            “Entramos de cabeça no seu projeto como se fosse nosso.”
+                        </p>
+                        <div className="flex items-center gap-3">
+                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                            <span className="font-mono text-[9px] text-zinc-800 tracking-[0.3em] uppercase">SYSTEM_MANIFESTO_V1.1</span>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Pagination Indicators */}
                 <div className="flex justify-center items-center gap-3 mt-12 w-full">
-                    <div className={`w-2 h-2 border border-white transition-colors duration-300 ${scrollProgress < 0.5 ? 'bg-white' : 'bg-transparent'}`} />
-                    <div className={`w-2 h-2 border border-white transition-colors duration-300 ${scrollProgress >= 0.5 ? 'bg-white' : 'bg-transparent'}`} />
+                    <div className={`w-1.5 h-1.5 border border-white transition-colors duration-300 ${scrollProgress < 0.35 ? 'bg-white' : 'bg-transparent'}`} />
+                    <div className={`w-1.5 h-1.5 border border-white transition-colors duration-300 ${(scrollProgress >= 0.35 && scrollProgress < 0.7) ? 'bg-white' : 'bg-transparent'}`} />
+                    <div className={`w-1.5 h-1.5 border border-white transition-colors duration-300 ${scrollProgress >= 0.7 ? 'bg-white' : 'bg-transparent'}`} />
                 </div>
             </div>
         </section>

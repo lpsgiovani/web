@@ -5,26 +5,8 @@ import React, { useEffect, useRef, useState } from 'react';
 const SERVICES = [
     {
         id: 'SRV_01',
-        title: "Design",
-        description: "Identidades visuais de alto impacto que são impossíveis de ignorar. Estética focada na experiência do usuário e memorabilidade da marca.",
-        log: "VISUAL_IDENTITY.EXE",
-        visual: (
-            <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
-                <rect x="5" y="5" width="90" height="50" />
-                <line x1="5" y1="15" x2="95" y2="15" />
-                <rect x="15" y="25" width="30" height="5" />
-                <rect x="15" y="35" width="70" height="2" />
-                <rect x="15" y="40" width="70" height="2" />
-                <rect x="15" y="45" width="20" height="5" strokeWidth="1" />
-                <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-                <circle cx="15" cy="10" r="1.5" fill="currentColor" />
-            </svg>
-        )
-    },
-    {
-        id: 'SRV_02',
         title: "Estratégia",
-        description: "Inteligência de dados para conversão. Modelagem de decisões baseada em comportamentos reais para garantir autoridade.",
+        description: "O ponto de partida de todos os nossos sistemas. Modelamos decisões baseadas em comportamentos reais para garantir que sua marca tenha autoridade imediata e dominância de nicho.",
         log: "STRATEGY.LOG",
         visual: (
             <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
@@ -41,9 +23,27 @@ const SERVICES = [
         )
     },
     {
+        id: 'SRV_02',
+        title: "Design",
+        description: "Desenvolvemos sistemas visuais de alto impacto que são impossíveis de ignorar, focados na memorabilidade da marca e em uma experiência de usuário fluida e intencional.",
+        log: "VISUAL_IDENTITY.EXE",
+        visual: (
+            <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
+                <rect x="5" y="5" width="90" height="50" />
+                <line x1="5" y1="15" x2="95" y2="15" />
+                <rect x="15" y="25" width="30" height="5" />
+                <rect x="15" y="35" width="70" height="2" />
+                <rect x="15" y="40" width="70" height="2" />
+                <rect x="15" y="45" width="20" height="5" strokeWidth="1" />
+                <circle cx="10" cy="10" r="1.5" fill="currentColor" />
+                <circle cx="15" cy="10" r="1.5" fill="currentColor" />
+            </svg>
+        )
+    },
+    {
         id: 'SRV_03',
         title: "Performance",
-        description: "Código proprietário em Next.js e Astro. Performance extrema com Nota 99+ no Lighthouse e SEO nativo.",
+        description: "Performance não é um detalhe técnico, é lógica de negócios. Através de tecnologias como Astro e arquiteturas estáticas, entregamos sites com Nota 99+ que eliminam a rejeição e garantem conversão em milissegundos",
         log: "CORE_PERFORMANCE.SYS",
         visual: (
             <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
@@ -108,7 +108,7 @@ export default function WebServices() {
                 <div className="mb-24 md:mb-40 text-center reveal-up">
                     <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/30 block mb-4">/ NOSSA_EXPERTISE</span>
                     <h2 className="text-4xl md:text-7xl font-serif italic tracking-tight">
-                        Sistemas que <span className="text-white/40">convertem.</span>
+                        Sistemas que <span className="text-white/40"><br></br>convertem.</span>
                     </h2>
                 </div>
 

@@ -43,6 +43,9 @@ export default defineConfig({
     ],
     site: site,
     vite: {
+        server: {
+            allowedHosts: ['apryl-unawkward-nontemperamentally.ngrok-free.dev'],
+        },
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, './src'),

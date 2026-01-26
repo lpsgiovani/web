@@ -6,7 +6,7 @@ const TECH_PILLARS = [
     {
         id: '01',
         title: "Imersão",
-        description: "Extração de dados e análise de mercado para modelar o DNA da marca. Onde a estratégia encontra a viabilidade técnica.",
+        description: "Antes de desenhar, nós pensamos. Mapeamos seus concorrentes e o comportamento do seu público para garantir que a estratégia tenha viabilidade técnica e comercial.",
         label: "ghost-phase-01",
         file: "ghost-label-extraction",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
@@ -14,15 +14,15 @@ const TECH_PILLARS = [
     {
         id: '02',
         title: "Criação",
-        description: "Desenvolvimento da identidade e arquitetura de software. Tradução do DNA em sistemas visuais e código de alta performance.",
+        description: "Traduzimos o DNA da sua marca em um sistema visual impossível de ignorar e em um código de alta performance (Astro/Next.js) que carrega em milissegundos.",
         label: "ghost-phase-02",
         file: "ghost-label-assembly",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
     },
     {
         id: '03',
-        title: "Expansão",
-        description: "Lançamento assistido e monitoramento de performance. Otimização contínua através de GTM e Analytics para garantir crescimento.",
+        title: "Monitoramento",
+        description: "O trabalho não termina com o site no ar. Monitoramos a performance e o comportamento do usuário para garantir que o site seja um ativo de crescimento real e constante.",
         label: "ghost-phase-03",
         file: "ghost-label-growth",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
@@ -76,7 +76,7 @@ export default function TechOverviewMobile() {
                 <div className="absolute top-24 left-0 w-full text-center px-6 z-20 pointer-events-none">
                     <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500 mb-2 block select-none" aria-hidden="true">/ NOSSO_PROCESSO</span>
                     <h3 className="text-3xl font-serif text-black leading-tight italic">
-                        Ritual de desenvolvimento.
+                        Ritual de <br md:block></br>desenvolvimento.
                     </h3>
                 </div>
 
