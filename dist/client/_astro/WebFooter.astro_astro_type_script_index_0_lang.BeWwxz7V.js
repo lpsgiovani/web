@@ -1,1 +1,0 @@
-import{c as e}from"./analytics.B3WIDXpg.js";document.addEventListener("astro:page-load",()=>{const t=document.getElementById("footer-cta");t&&t.addEventListener("click",()=>{e("cta_clicked",{cta_text:"> INICIAR_",cta_location:"web_footer"})})});
