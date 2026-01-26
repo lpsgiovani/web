@@ -1,1 +1,0 @@
-import{c as a}from"./analytics.B3WIDXpg.js";document.querySelectorAll(".project-link").forEach(e=>{e.addEventListener("click",r=>{const t=r.currentTarget,c=t.getAttribute("data-project-title"),o=t.getAttribute("data-project-tag");a("project_viewed",{project_title:c,project_tag:o,source:"web_lp"})})});

@@ -11,7 +11,7 @@ const projects = ORDER.map((slug, idx) => {
     if (!entry) return null;
 
     return {
-        href: `/projetos/${entry.slug}/`,
+        href: `/cases/${entry.slug}/`,
         slug: entry.slug,
         image: entry.data.coverImage,
         alt: `${entry.data.title} - ${entry.data.description}`,
