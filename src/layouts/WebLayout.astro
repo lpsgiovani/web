@@ -15,12 +15,12 @@ interface Props {
 const {
   title = "Primitiva — Desenvolvimento Web de Alta Performance",
   description = "Sites ultra-rápidos que convertem. Estratégia, Design e Código proprietário.",
-  ogImage = "/assets/primitiva/thumb.jpg",
+  ogImage = "/assets-dev/primitiva/thumb.jpg",
   canonical = Astro.url.pathname,
 } = Astro.props;
 
 const fullTitle = title.includes("Primitiva") ? title : `${title} | Primitiva`;
-const siteUrl = "https://primitiva.cc";
+const siteUrl = Astro.site ? Astro.site.origin : "https://dev.primitiva.cc";
 ---
 
 <!DOCTYPE html>

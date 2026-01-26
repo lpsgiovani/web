@@ -1,5 +1,7 @@
 ---
 // Footer.astro - Static footer
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/primitiva/primitiva_logo.svg?url';
 ---
 
 <footer class="relative bg-black text-white py-24 px-6 overflow-hidden border-t border-zinc-800">
@@ -13,7 +15,7 @@
 
   <div class="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
     <img 
-      src="/assets/primitiva/primitiva_logo.svg" 
+      src={logoImg} 
       alt="Logo Primitiva"
       class="h-6 w-auto mb-12 reveal-up" 
       loading="lazy" 
@@ -27,7 +29,7 @@
 
   <a
       id="footer-cta"
-      href="/briefing"
+      href="/briefing/"
       class="w-[92%] md:w-full h-16 text-lg font-black uppercase tracking-widest flex items-center justify-center gap-2 max-w-sm md:mx-auto reveal-up delay-300
                  bg-white text-black border-2 border-black shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
                  hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] 

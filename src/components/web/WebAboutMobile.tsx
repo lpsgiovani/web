@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import giovaniRespImg from '../../assets/primitiva/giovani_responsive.webp?url';
+import temponeRespImg from '../../assets/primitiva/tempone_responsive.webp?url';
 
 const TEAM = [
     {
@@ -13,7 +15,7 @@ const TEAM = [
         specialtyStrong2: "UX/UI Design",
         bio: "Giovani garante que a estética nunca seja vazia. Seu trabalho é fundido à estratégia de negócio, assegurando propósito comercial em cada pixel.",
         file: "giovani.tsx",
-        img: "/assets/primitiva/giovani_responsive.webp",
+        img: giovaniRespImg,
         borderColor: "border-zinc-800",
         bgColor: "bg-zinc-950/80",
         hoverBorder: "hover:border-zinc-700"
@@ -27,7 +29,7 @@ const TEAM = [
         specialty2: ".",
         bio: "Gustavo transforma a estratégia em sistemas ultra-velozes, garantindo performance e escalabilidade de ponta a ponta.",
         file: "gustavo.tsx",
-        img: "/assets/primitiva/tempone_responsive.webp",
+        img: temponeRespImg,
         borderColor: "border-zinc-800",
         bgColor: "bg-zinc-900/50",
         hoverBorder: "hover:border-zinc-700"

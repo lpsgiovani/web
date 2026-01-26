@@ -10,16 +10,21 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// https://astro.build/config - Force Rebuild v1.1.1
+const isDev = process.env.VERCEL_ENV === 'preview' || process.env.NODE_ENV === 'development';
+const site = isDev ? 'https://dev.primitiva.cc' : 'https://primitiva.cc';
+
+// https://astro.build/config - Force Rebuild v1.1.2
 export default defineConfig({
     output: 'server', // Enable SSR for API routes and auth
     adapter: vercel({
         webAnalytics: { enabled: true },
         imageService: true,
     }),
+    trailingSlash: 'always',
     build: {
         inlineStylesheets: 'always',
         modulePreload: { polyfill: false },
+        format: 'directory',
     },
     prefetch: {
         prefetchAll: true,
@@ -35,7 +40,7 @@ export default defineConfig({
             },
         }),
     ],
-    site: 'https://primitiva.cc',
+    site: site,
     vite: {
         resolve: {
             alias: {

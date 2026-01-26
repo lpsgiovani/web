@@ -22,7 +22,7 @@ export default function WebFooterCTA() {
 
     return (
         <a
-            href="/briefing"
+            href="/briefing/"
             onClick={handleCtaClick}
             className="w-[92%] md:w-full h-16 text-lg font-black uppercase tracking-widest flex items-center justify-center gap-2 max-w-sm md:mx-auto reveal-up delay-300
                        bg-white text-black border-2 border-black shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] 
