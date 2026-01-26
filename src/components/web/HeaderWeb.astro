@@ -12,13 +12,13 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
     {/* Logo + System Log */}
     <div class="flex items-center gap-4">
       <a href="/">
-        <Image 
-          src={logoImg} 
+        <img 
+          src={logoImg.src} 
           alt="Logo Primitiva" 
           class="h-5 w-auto"
-          fetchpriority="high" 
-          width={100} 
-          height={20} 
+          loading="eager"
+          width="100"
+          height="20"
         />
       </a>
       <div class="hidden md:flex items-center" aria-hidden="true" role="presentation">

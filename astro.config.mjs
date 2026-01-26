@@ -18,11 +18,11 @@ export default defineConfig({
     output: 'static', // Pre-render all pages at build time
     adapter: vercel({
         webAnalytics: { enabled: true },
-        imageService: true,
+        imageService: !isDev,
     }),
     trailingSlash: 'always',
     build: {
-        assets: '_assets-dev', // Isolation for sub-domain assets
+        // assets: '_assets-dev', // Isolation for sub-domain assets
         inlineStylesheets: 'always',
         modulePreload: { polyfill: false },
         format: 'directory',
@@ -50,13 +50,6 @@ export default defineConfig({
         },
         build: {
             target: 'esnext',
-            rollupOptions: {
-                output: {
-                    entryFileNames: '_assets-dev/js/[name].[hash].js',
-                    chunkFileNames: '_assets-dev/js/chunks/[name].[hash].js',
-                    assetFileNames: '_assets-dev/[ext]/[name].[hash].[ext]',
-                }
-            }
         },
         ssr: {
             noExternal: ['@radix-ui/*'],
