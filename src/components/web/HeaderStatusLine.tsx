@@ -57,10 +57,10 @@ export default function HeaderStatusLine() {
     );
 
     return (
-        <p className="font-mono text-[10px] md:text-xs uppercase tracking-wide flex flex-wrap md:block items-center leading-relaxed">
+        <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-wide flex flex-col items-start leading-relaxed">
 
             {/* Part 1: Status */}
-            <span className="mr-0 md:mr-0 inline-flex items-center">
+            <span className="inline-flex items-center">
                 {/* We render the text1 using dangerouslySetInnerHTML or conditional styling? 
                     Actually TARGET_TEXT_1 has mixed colors: "> STATUS:" is green, rest is zinc.
                     Let's split it simply for rendering. 
@@ -73,10 +73,10 @@ export default function HeaderStatusLine() {
             </span>
 
             {/* Separator */}
-            <span className={`mx-2 text-zinc-600 hidden md:inline transition-opacity duration-300 ${phase >= 1 ? 'opacity-100' : 'opacity-0'}`}>//</span>
+            <span className={`hidden transition-opacity duration-300 ${phase >= 1 ? 'opacity-100' : 'opacity-0'}`}>//</span>
 
             {/* Part 2: Argument */}
-            <span className="w-full md:w-auto block md:inline mt-1 md:mt-0 text-white font-bold opacity-90">
+            <span className="block mt-1 text-white font-bold opacity-90 max-w-2xl">
                 {text2}
                 {/* Cursor for Phase 2 and 3 */}
                 {phase >= 2 && <Cursor />}

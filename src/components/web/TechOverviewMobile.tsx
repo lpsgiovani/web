@@ -6,25 +6,28 @@ const TECH_PILLARS = [
     {
         id: '01',
         title: "Imersão",
-        description: "Antes de desenhar, nós pensamos. Mapeamos seus concorrentes e o comportamento do seu público para garantir que a estratégia tenha viabilidade técnica e comercial.",
+        description: "Antes de desenhar, nós pensamos. Fazemos uma imersão no seu modelo de negócio para extrair o diferencial que você ainda não sabe como mostrar ao mundo. Mapeamos comportamentos, analisamos dados e definimos a estratégia que vai sustentar a sua autoridade.",
         label: "ghost-phase-01",
         file: "ghost-label-extraction",
+        tag: "[ DESCOBRINDO_ESSENCIA ]",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
     },
     {
         id: '02',
         title: "Criação",
-        description: "Traduzimos o DNA da sua marca em um sistema visual impossível de ignorar e em um código de alta performance (Astro/Next.js) que carrega em milissegundos.",
+        description: "Construímos um ecossistema visual proprietário onde o design de luxo e a engenharia de software são indissociáveis. O resultado é um sistema fluido, impossível de ignorar e tecnicamente imbatível.",
         label: "ghost-phase-02",
         file: "ghost-label-assembly",
+        tag: "[ GERANDO_LAYOUT_IRRESISTIVEL ]",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
     },
     {
         id: '03',
         title: "Monitoramento",
-        description: "O trabalho não termina com o site no ar. Monitoramos a performance e o comportamento do usuário para garantir que o site seja um ativo de crescimento real e constante.",
+        description: "Implementamos uma camada de inteligência de dados para rastrear cada movimento do usuário. Transformamos o seu site em um organismo vivo que escala, converte e otimiza o seu ROI em tempo real.",
         label: "ghost-phase-03",
         file: "ghost-label-growth",
+        tag: "[ OTIMIZANDO_CONVERSAO ]",
         colors: ["bg-red-500", "bg-yellow-500", "bg-green-500"]
     }
 ];
@@ -67,13 +70,17 @@ export default function TechOverviewMobile() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const translateX = scrollProgress * 66.66;
+    // We want the horizontal movement to finish at 80% of the scroll path,
+    // providing a "lock" effect on the last card before the section unscrolls.
+    const animationEnd = 0.8;
+    const effectiveProgress = Math.min(scrollProgress / animationEnd, 1);
+    const translateX = effectiveProgress * 66.66;
 
     return (
         <div ref={containerRef} className="relative h-[200vh] w-full bg-zinc-50 overflow-visible">
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden bg-zinc-50 border-t border-zinc-200">
 
-                <div className="absolute top-24 left-0 w-full text-center px-6 z-20 pointer-events-none">
+                <div className="absolute top-16 left-0 w-full text-center px-6 z-20 pointer-events-none">
                     <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500 mb-2 block select-none" aria-hidden="true">/ NOSSO_PROCESSO</span>
                     <h3 className="text-3xl font-serif text-black leading-tight italic">
                         Ritual de <br md:block></br>desenvolvimento.
@@ -81,7 +88,7 @@ export default function TechOverviewMobile() {
                 </div>
 
                 <div
-                    className="flex flex-nowrap w-[300%] items-center transition-transform duration-75 ease-out"
+                    className="flex flex-nowrap w-[300%] items-center mt-20 translate-y-6 transition-transform duration-75 ease-out"
                     style={{ transform: `translateX(-${translateX}%)`, willChange: 'transform' }}
                 >
                     {TECH_PILLARS.map((item) => (
@@ -101,7 +108,7 @@ export default function TechOverviewMobile() {
                                         </div>
                                         <div className="pt-4 border-t border-black/10 flex flex-col gap-2">
                                             <div className={`${item.label} font-mono text-[9px] uppercase tracking-widest leading-none text-black/20`} aria-hidden="true"></div>
-                                            <div className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">[ BUSINESS_READY ]</div>
+                                            <div className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">{item.tag}</div>
                                         </div>
                                     </div>
                                 </div>

@@ -6,53 +6,20 @@ const SERVICES = [
     {
         id: 'SRV_01',
         title: "Estratégia",
-        description: "O ponto de partida de todos os nossos sistemas. Modelamos decisões baseadas em comportamentos reais para garantir que sua marca tenha autoridade imediata e dominância de nicho.",
-        log: "STRATEGY.LOG",
-        visual: (
-            <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
-                <rect x="40" y="5" width="20" height="10" />
-                <line x1="50" y1="15" x2="50" y2="25" />
-                <line x1="20" y1="25" x2="80" y2="25" />
-                <line x1="20" y1="25" x2="20" y2="35" />
-                <line x1="50" y1="25" x2="50" y2="35" />
-                <line x1="80" y1="25" x2="80" y2="35" />
-                <rect x="10" y="35" width="20" height="15" />
-                <rect x="40" y="35" width="20" height="15" />
-                <rect x="70" y="35" width="20" height="15" />
-            </svg>
-        )
+        description: "A Primitiva não é apenas um time de desenvolvedores ou designers; somos, antes de tudo, uma agência de estratégia de marca. Cada entrega aqui é precedida por pesquisa profunda e método, garantindo que sua interface não seja apenas bonita, mas uma ferramenta de negócios intencional.",
+        log: "STRATEGY.LOG"
     },
     {
         id: 'SRV_02',
         title: "Design",
-        description: "Desenvolvemos sistemas visuais de alto impacto que são impossíveis de ignorar, focados na memorabilidade da marca e em uma experiência de usuário fluida e intencional.",
-        log: "VISUAL_IDENTITY.EXE",
-        visual: (
-            <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
-                <rect x="5" y="5" width="90" height="50" />
-                <line x1="5" y1="15" x2="95" y2="15" />
-                <rect x="15" y="25" width="30" height="5" />
-                <rect x="15" y="35" width="70" height="2" />
-                <rect x="15" y="40" width="70" height="2" />
-                <rect x="15" y="45" width="20" height="5" strokeWidth="1" />
-                <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-                <circle cx="15" cy="10" r="1.5" fill="currentColor" />
-            </svg>
-        )
+        description: "Nossa expertise em UX/UI designer é fundida à estratégia de branding. Desenvolvemos sistemas visuais de alta fidelidade que transformam a essência do seu negócio em uma presença digital impossível de ignorar e tecnicamente imbatível.",
+        log: "VISUAL_IDENTITY.EXE"
     },
     {
         id: 'SRV_03',
         title: "Performance",
-        description: "Performance não é um detalhe técnico, é lógica de negócios. Através de tecnologias como Astro e arquiteturas estáticas, entregamos sites com Nota 99+ que eliminam a rejeição e garantem conversão em milissegundos",
-        log: "CORE_PERFORMANCE.SYS",
-        visual: (
-            <svg viewBox="0 0 100 60" className="w-24 h-auto opacity-40 group-hover:opacity-100 transition-opacity fill-none stroke-current stroke-[0.5]">
-                <circle cx="50" cy="45" r="35" strokeDasharray="1 4" strokeLinecap="round" />
-                <path d="M50 45 L80 20" strokeWidth="1" />
-                <circle cx="50" cy="45" r="3" fill="currentColor" />
-                <path d="M20 55 Q 50 10 80 55" strokeDasharray="2 2" />
-            </svg>
-        )
+        description: "Performance não é um detalhe técnico, é lógica de negócios. Utilizamos tecnologias como Astro e arquiteturas estáticas para garantir que seu site tenha Nota 99+, eliminando a rejeição e convertendo milissegundos em lucro.",
+        log: "CORE_PERFORMANCE.SYS"
     }
 ];
 
@@ -98,14 +65,14 @@ export default function WebServices() {
     }, []);
 
     return (
-        <section className="bg-black text-white py-24 md:py-48 px-6 border-b border-white/10 relative overflow-hidden selection:bg-white selection:text-black">
+        <section className="bg-black text-white pt-24 pb-16 md:pt-26 md:pb-32 px-6 border-b border-white/10 relative overflow-hidden selection:bg-white selection:text-black">
             {/* Background Circuit Grid */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '100px 100px' }}></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Section Header */}
-                <div className="mb-24 md:mb-40 text-center reveal-up">
+                <div className="mb-16 md:mb-20 text-center reveal-up">
                     <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/30 block mb-4">/ NOSSA_EXPERTISE</span>
                     <h2 className="text-4xl md:text-7xl font-serif italic tracking-tight">
                         Sistemas que <span className="text-white/40"><br></br>convertem.</span>
@@ -116,8 +83,8 @@ export default function WebServices() {
                 <div ref={containerRef} className="relative">
 
                     {/* DESKTOP: Horizontal Circuit Line */}
-                    <div className="hidden md:block absolute top-[50%] left-[16.66%] right-[16.66%] h-[1px] bg-zinc-800 overflow-hidden">
-                        <div className="w-[50%] h-full bg-gradient-to-r from-transparent via-white to-transparent blur-[2px] opacity-80 animate-circuit-flow" />
+                    <div className="hidden md:block absolute top-[100px] left-[102px] right-[calc(33.33%-102px)] h-[1px] bg-white/10 overflow-hidden">
+                        <div className="w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent blur-[1px] animate-circuit-flow" />
                     </div>
 
                     {/* MOBILE: Vertical Timeline Line (Base) */}
@@ -130,43 +97,40 @@ export default function WebServices() {
                     />
 
                     {/* Services Loop */}
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center relative gap-16 md:gap-0">
+                    <div className="flex flex-col md:flex-row justify-between items-start relative gap-16 md:gap-0">
                         {SERVICES.map((item, idx) => (
                             <div
                                 key={item.id}
-                                className="group relative w-full md:w-1/3 flex flex-col items-start md:items-center px-4"
+                                className="group relative w-full md:w-1/3 flex flex-col items-start"
                             >
                                 {/* Node (Square) */}
-                                <div className="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-1.5 md:top-1/2 md:-translate-y-1/2 z-20">
+                                <div className="absolute left-[15px] md:left-24 top-1.5 md:top-[100px] md:-translate-y-1/2 z-20">
                                     <div
-                                        className="w-3 h-3 border border-zinc-700 bg-black group-hover:border-white transition-colors duration-300 animate-node-pulse"
+                                        className="w-3 h-3 border border-zinc-600 bg-black group-hover:bg-white group-hover:border-white transition-all duration-300"
                                         style={{ animationDelay: `${idx * 1.5}s` }}
                                     />
                                 </div>
 
                                 {/* Content: Title Area */}
-                                <div className="pl-12 md:pl-0 md:pb-16 w-full md:text-center order-1 transition-all duration-500 md:group-hover:-translate-y-2">
-                                    <div className="flex items-center md:justify-center gap-3 mb-2">
-                                        <span className="font-mono text-[10px] text-zinc-600 tracking-widest">[0{idx + 1}]</span>
+                                <div className="pl-12 md:pl-24 md:h-[100px] flex flex-col justify-end pb-3 w-full text-left transition-all duration-500 md:group-hover:-translate-y-1">
+                                    <div className="flex items-center gap-3 mb-1">
+                                        <span className="font-mono text-[10px] text-zinc-500 tracking-widest">[0{idx + 1}]</span>
                                         <h3 className="font-mono text-lg md:text-2xl font-bold uppercase tracking-tighter">
                                             {item.title}
                                         </h3>
                                     </div>
-                                    <div className="hidden md:flex justify-center mb-4">
-                                        {item.visual}
-                                    </div>
                                 </div>
 
                                 {/* Content: Description Area */}
-                                <div className="pl-12 md:pl-0 md:pt-16 w-full md:text-center order-2 transition-all duration-500 opacity-70 group-hover:opacity-100 md:group-hover:translate-y-2">
-                                    <p className="font-sans text-[13px] md:text-base leading-relaxed max-w-[280px] md:mx-auto">
+                                <div className="pl-12 md:pl-24 pt-3 w-full text-left transition-all duration-500 opacity-60 group-hover:opacity-100 md:group-hover:translate-y-1">
+                                    <p className="font-sans text-[13px] md:text-sm leading-relaxed max-w-[280px]">
                                         {item.description}
                                     </p>
 
                                     {/* Desktop Blueprint Annotations */}
-                                    <div className="hidden md:flex mt-6 items-center md:justify-center gap-4 font-mono text-[8px] tracking-[0.3em] text-white/10 uppercase">
+                                    <div className="hidden md:flex mt-4 items-center gap-4 font-mono text-[8px] tracking-[0.2em] text-white/20 uppercase group-hover:text-white/40 transition-colors">
                                         <span>Scale: 1:1</span>
-                                        <span className="hidden md:inline">/</span>
+                                        <span className="opacity-30">/</span>
                                         <span>Status: {item.log}</span>
                                     </div>
                                 </div>
@@ -175,7 +139,7 @@ export default function WebServices() {
                     </div>
                 </div>
 
-                <div className="mt-24"></div>
+                <div className="mt-12"></div>
             </div>
         </section>
     );
