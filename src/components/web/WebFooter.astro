@@ -1,7 +1,7 @@
 ---
 // Footer.astro - Static footer
 import { Image } from 'astro:assets';
-import logoImg from '../../assets/primitiva/primitiva_logo.svg?url';
+import logoImg from '../../assets/primitiva/primitiva_logo.svg';
 ---
 
 <footer class="relative bg-black text-white py-24 px-6 overflow-hidden border-t border-zinc-800">
@@ -14,13 +14,13 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg?url';
     </div>
 
   <div class="relative z-10 flex flex-col items-center text-center max-w-lg mx-auto">
-    <img 
+    <Image 
       src={logoImg} 
       alt="Logo Primitiva"
       class="h-6 w-auto mb-12 reveal-up" 
       loading="lazy" 
-      width="120" 
-      height="24" 
+      width={120} 
+      height={24} 
     />
     <h2 class="text-5xl md:text-6xl font-black leading-none uppercase tracking-tighter mb-6 reveal-up delay-100">
       Pront@<br />pra sair<br />na frente?

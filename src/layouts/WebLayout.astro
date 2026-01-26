@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import Analytics from '../components/web/Analytics.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { ClientRouter } from 'astro:transitions';
+import defaultOgImage from '../assets/primitiva/thumb.jpg?url';
 
 interface Props {
   title?: string;
@@ -15,7 +16,7 @@ interface Props {
 const {
   title = "Primitiva — Desenvolvimento Web de Alta Performance",
   description = "Sites ultra-rápidos que convertem. Estratégia, Design e Código proprietário.",
-  ogImage = "/assets-dev/primitiva/thumb.jpg",
+  ogImage = defaultOgImage,
   canonical = Astro.url.pathname,
 } = Astro.props;
 
@@ -54,14 +55,14 @@ const siteUrl = Astro.site ? Astro.site.origin : "https://dev.primitiva.cc";
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     
     <!-- Strategic Font Preloads -->
-    <link rel="preload" href="/fonts/space-grotesk-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
-    <link rel="preload" href="/fonts/space-grotesk-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/space-grotesk-normal-500.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/space-grotesk-normal-600.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/InstrumentSerif-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/space-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/space-mono-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/space-grotesk-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+    <link rel="preload" href="/fonts-dev/space-grotesk-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/space-grotesk-normal-500.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/space-grotesk-normal-600.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/InstrumentSerif-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/space-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts-dev/space-mono-normal-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     
     <Analytics />
 

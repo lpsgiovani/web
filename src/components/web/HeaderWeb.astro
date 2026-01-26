@@ -1,7 +1,7 @@
 ---
 // HeaderWeb.astro - System Window Hero Design
 import { Image } from 'astro:assets';
-import logoImg from '../../assets/primitiva/primitiva_logo.svg?url';
+import logoImg from '../../assets/primitiva/primitiva_logo.svg';
 ---
 
 <header class="relative bg-black text-white h-[100svh] flex flex-col p-6 md:p-12 border-b border-zinc-900 overflow-hidden">
@@ -12,13 +12,13 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg?url';
     {/* Logo + System Log */}
     <div class="flex items-center gap-4">
       <a href="/">
-        <img 
+        <Image 
           src={logoImg} 
           alt="Logo Primitiva" 
           class="h-5 w-auto"
           fetchpriority="high" 
-          width="100" 
-          height="20" 
+          width={100} 
+          height={20} 
         />
       </a>
       <div class="hidden md:flex items-center" aria-hidden="true" role="presentation">

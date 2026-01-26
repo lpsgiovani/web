@@ -22,6 +22,7 @@ export default defineConfig({
     }),
     trailingSlash: 'always',
     build: {
+        assets: '_assets-dev', // Isolation for sub-domain assets
         inlineStylesheets: 'always',
         modulePreload: { polyfill: false },
         format: 'directory',
@@ -51,7 +52,9 @@ export default defineConfig({
             target: 'esnext',
             rollupOptions: {
                 output: {
-                    manualChunks: undefined,
+                    entryFileNames: '_assets-dev/js/[name].[hash].js',
+                    chunkFileNames: '_assets-dev/js/chunks/[name].[hash].js',
+                    assetFileNames: '_assets-dev/[ext]/[name].[hash].[ext]',
                 }
             }
         },

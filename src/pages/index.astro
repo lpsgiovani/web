@@ -14,6 +14,7 @@ import WebFAQ from '../components/web/WebFAQ';
 import WebFooter from '../components/web/WebFooter.astro';
 import PerformanceInterface from '../components/web/PerformanceInterface.astro';
 import WebAbout from '../components/web/WebAbout.astro';
+import thumbImg from '../assets/primitiva/thumb.jpg?url';
 
 const title = "Desenvolvimento de Sites Rápidos e Otimizados | Primitiva";
 const description = "Criação de sites de alta performance focada em conversão e SEO. Next.js, Astro e Design Premium.";
@@ -23,7 +24,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Primitiva — Desenvolvimento Web",
-  "image": "https://primitiva.cc/assets-dev/primitiva/thumb.jpg",
+  "image": `https://primitiva.cc${thumbImg}`,
   "@id": "https://primitiva.cc/web",
   "url": "https://primitiva.cc/web",
   "telephone": "",
