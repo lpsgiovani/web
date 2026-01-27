@@ -51,7 +51,7 @@ const description = entry.data.description;
 
 <WebLayout title={title} description={description}>
     <fragment slot="head">
-        <link rel="preload" href="/assets-dev/pedecafe/lottie/orbit_lite.lottie" as="fetch" type="application/json" crossorigin />
+
         <link rel="preload" href="/assets-dev/pedecafe/lottie/desktop/animation2.lottie" as="fetch" type="application/json" crossorigin />
         <link rel="preload" href="/assets-dev/pedecafe/lottie/mobile/slider_animation.lottie" as="fetch" type="application/json" crossorigin />
     </fragment>
@@ -236,15 +236,14 @@ const description = entry.data.description;
              <div class="w-full relative">
                  {/* Main Reveal Frame */}
                  <div class="relative aspect-[3/4] w-full overflow-hidden reveal-up">
-                     <dotlottie-player
-                        src="/assets-dev/pedecafe/lottie/orbit_lite.lottie"
-                        background="transparent"
-                        speed="1"
-                        loop
-                        autoplay
+                     <video
+                        src="/assets-dev/pedecafe/lottie/orbit_lite.webm"
                         class="w-full h-full object-cover"
-                        style="object-fit: cover;"
-                     ></dotlottie-player>
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                     ></video>
                  </div>
              </div>
         </section>
@@ -275,14 +274,14 @@ const description = entry.data.description;
             </div>
 
             {/* Mobile Lottie - Animation 2 */}
-            <div class="block md:hidden w-full aspect-[9/16] bg-zinc-900/20">
+            <div class="block md:hidden w-full aspect-[9/16] bg-zinc-900/20 -my-32 relative z-0 pointer-events-none">
                  <dotlottie-player
                     src="/assets-dev/pedecafe/lottie/mobile/slider_animation.lottie"
                     background="transparent"
                     speed="1"
                     loop
                     autoplay
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover scale-110"
                     style="object-fit: cover;"
                  ></dotlottie-player>
             </div>
