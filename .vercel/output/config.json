@@ -22,7 +22,7 @@
 			"handle": "filesystem"
 		},
 		{
-			"src": "^/_assets-dev/(.*)$",
+			"src": "^/_astro/(.*)$",
 			"headers": {
 				"cache-control": "public, max-age=31536000, immutable"
 			},

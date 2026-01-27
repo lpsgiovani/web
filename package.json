@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
-        "build": "astro build",
+        "build": "NEXT_PUBLIC_VERCEL_ENV=$VERCEL_ENV astro build",
         "preview": "astro preview",
         "astro": "astro"
     },
