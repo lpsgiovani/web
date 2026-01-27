@@ -9,6 +9,7 @@ interface Props {
   height?: string;
   title?: string;
   loading?: "lazy" | "eager";
+  skipLink?: string;
 }
 
 const { 
@@ -17,7 +18,8 @@ const {
     alt = "Live Preview", 
     height = "h-[600px]", 
     title = "LIVE_SYSTEM_OVERRIDE",
-    loading = "lazy"
+    loading = "lazy",
+    skipLink
 } = Astro.props;
 ---
 
@@ -29,12 +31,19 @@ const {
             <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
         </div>
-        <div class="font-mono text-[10px] text-zinc-500 tracking-[0.2em] flex items-center gap-4">
-             <span class="animate-pulse">●</span>
+        <div class="font-mono text-[10px] text-zinc-500 tracking-[0.2em] flex items-center gap-4 pl-8">
              {title}
              <span class="opacity-30">|</span>
-             {url ? url.replace('https://', '') : 'INTERNAL_ASSET'}
+             {skipLink ? (
+                <a href={skipLink} class="text-zinc-400 hover:text-white transition-colors cursor-pointer uppercase flex items-center gap-1 group/btn border-b border-transparent hover:border-zinc-500 pb-0.5">
+                    <span>PULAR PREVIEW</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="translate-y-px"><path d="M7 13l5 5 5-5M12 15V3"/></svg>
+                </a>
+             ) : (
+                <>{url ? url.replace('https://', '') : 'INTERNAL_ASSET'}</>
+             )}
         </div>
+        
         <div class="w-12"></div> {/* Spacer */}
     </div>
 
