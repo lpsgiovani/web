@@ -1,0 +1,312 @@
+---
+export const prerender = true;
+import WebLayout from '../../layouts/WebLayout.astro';
+import { Image } from 'astro:assets';
+
+// Case Study Components
+import ScrollingPrototype from '../../components/content/ScrollingPrototype.astro';
+
+// Hardcoded Assets (Using existing ones as placeholders for structure)
+import coverImage from '../../content/projetos/assets/pedecafe.webp'; // Placeholder
+import asset1 from '@/assets/pedecafe/image/asset1.webp'; // Placeholder
+import comboDesktop from '@/assets/pedecafe/image/combo_desktop.webp'; // Placeholder
+
+const entry = {
+  slug: "vickysaudavel",
+  data: {
+    title: "Vicky Saudável",
+    description: "Rebranding e plataforma de alta performance para um método de emagrecimento focado no mindset.",
+    category: "Saúde & Bem-estar",
+    client: "Vicky Saudável",
+    year: "2025",
+    techStack: ["NEXT.JS", "REACT"],
+    challenge: "O site anterior em WordPress sofria com baixa performance e uma comunicação visual/copy que não refletia a essência da Vicky. Leads eram perdidos pela demora no carregamento ou falta de conexão com o conteúdo.",
+    outcome: "Uma plataforma ultra-fluída que transmite sinceridade e clareza, eliminando barreiras técnicas e convertendo leads através de uma experiência de leitura e navegação superior."
+  }
+};
+
+const nextProject = {
+    slug: 'pedecafe',
+    data: {
+        title: 'Pé de Café',
+        coverImage: coverImage // Placeholder
+    }
+};
+
+const title = `${entry.data.title} | Primitiva Cases`;
+const description = entry.data.description;
+---
+
+<WebLayout title={title} description={description}>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <main class="bg-black min-h-screen text-white selection:bg-zinc-800 selection:text-white font-display">
+        
+        {/* 1. Full-Screen Intro & Technical Grid */}
+        <section class="h-screen flex flex-col relative bg-[#0f172a] overflow-hidden">
+             
+             {/* Background Image - Immersive & Tinted */}
+             <div class="absolute inset-0 z-0">
+                 <Image 
+                    src="/assets-dev/vickysaudavel/header.webp"
+                    alt="Vicky Saudável Hero"
+                    class="w-full h-full object-cover opacity-60 mix-blend-overlay"
+                    width={1920}
+                    height={1080}
+                 />
+                 <div class="absolute inset-0 bg-emerald-950/20 mix-blend-multiply"></div>
+                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+             </div>
+
+             {/* Main Content Wrapper */}
+             <div class="absolute inset-0 z-20 flex flex-col justify-end pointer-events-none">
+                 
+                 {/* Title Section */}
+                 <div class="px-6 md:px-12 pb-12 w-full">
+                     <div class="flex flex-col gap-6 reveal-up">
+                         {/* Category Tag */}
+                         <div class="flex items-center gap-3">
+                             <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+                             <span class="font-bold text-xs md:text-sm tracking-[0.2em] uppercase text-white/90">
+                                 {entry.data.category}
+                             </span>
+                         </div>
+                         
+                         {/* Title Stacked */}
+                         <h1 class="text-[clamp(4rem,15vw,12rem)] leading-[0.85] font-black tracking-tighter uppercase text-white drop-shadow-2xl">
+                             VICKY<br/>SAUDÁVEL
+                         </h1>
+                     </div>
+                 </div>
+
+                 {/* Technical Grid (Fixed at Bottom) */}
+                 <div class="w-full border-t border-white/20 bg-black/60 backdrop-blur-md pointer-events-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
+                        {/* Cell 1: Year */}
+                        <div class="p-4 md:p-6 flex flex-col gap-1 reveal-up">
+                            <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">ANO</span>
+                            <span class="font-mono text-xs text-white font-bold uppercase">{entry.data.year}</span>
+                        </div>
+                        {/* Cell 2: Stack */}
+                        <div class="p-4 md:p-6 flex flex-col gap-1 reveal-up delay-100">
+                             <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">STACK</span>
+                             <span class="font-mono text-xs text-white font-bold uppercase">{entry.data.techStack.join(' + ')}</span>
+                        </div>
+                    </div>
+                 </div>
+
+             </div>
+        </section>
+
+        {/* 2. THE CONCEPT: A New Relationship with Health */}
+        <section class="border-b border-zinc-900 bg-zinc-950">
+             <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                 
+                 {/* Text Content */}
+                 <div class="p-8 md:p-24 md:pb-12 flex flex-col justify-center reveal-up delay-100">
+                     <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">01 — O CONCEITO</span>
+                     <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8 leading-[1.1]">
+                        Sinceridade e<br/> Identidade
+                     </h2>
+                     <p class="font-serif text-zinc-400 leading-relaxed text-xl mb-12">
+                        Refizemos toda a copy e a identidade visual do site, buscando transmitir com mais sinceridade quem é realmente a Vicky Saudável e o que é o método que ela vende.
+                        <br/><br/>
+                        A premissa é ajudar as pessoas a terem uma melhor relação consigo mesmas, fazendo da comida saudável e do exercício um aliado, e não um inimigo.
+                     </p>
+                 </div>
+             </div>
+        </section>
+
+        {/* 3. EXPERIENCE: Fluidity in Reading */}
+        <section class="border-b border-zinc-900 bg-black">
+             <div class="grid grid-cols-1 md:grid-cols-2">
+                 {/* Text Content (Left) */}
+                 <div class="p-8 md:py-8 md:px-24 flex flex-col justify-center border-r border-zinc-900 order-2 md:order-1 reveal-up">
+                     <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">02 — EXPERIÊNCIA</span>
+                     <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8">Conteúdo sem atrito</h2>
+                     <p class="font-sans text-zinc-500 max-w-md leading-relaxed">
+                        Transformamos a copy em algo mais esclarecedor, direto e fluido, reforçado por um layout que acompanha toda essa fluidez e prendem a atenção do lead do início ao fim.
+                     </p>
+                 </div>
+
+                 {/* Visual Asset (Right) */}
+                 <div class="hidden md:block relative w-full h-full bg-zinc-900/20 order-1 md:order-2 reveal-img border-b md:border-b-0 border-zinc-900 min-h-[500px] md:min-h-auto">
+                     <Image 
+                        src="/assets-dev/vickysaudavel/deusa_suprema.webp" 
+                        alt="Vicky Saudável - Deusa Suprema"
+                        class="w-full h-full object-cover"
+                        width={1200}
+                        height={1600}
+                     />
+                 </div>
+             </div>
+        </section>
+
+        {/* 4. DIGITAL CHALLENGE */}
+        <section class="border-b border-zinc-900 bg-zinc-950/50">
+            <div class="grid grid-cols-1 md:grid-cols-12 min-h-[400px]">
+                {/* Sidebar Label */}
+                <div class="md:col-span-4 p-8 md:p-24 border-r border-zinc-900 bg-zinc-900/30">
+                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest sticky top-32 block reveal-up">
+                        03 — O DESAFIO
+                    </span>
+                </div>
+                
+                {/* Content */}
+                <div class="md:col-span-8 p-8 md:p-24 flex items-center reveal-up delay-100">
+                     <p class="text-2xl md:text-4xl leading-relaxed font-serif text-white text-balance">
+                        O site em WordPress tinha uma performance afetada, além de uma copy e visual que não conversavam com o novo posicionamento. Leads abandonavam o site antes mesmo da primeira frase carregar.
+                     </p>
+                </div>
+            </div>
+        </section>
+
+        {/* 04. SOLUTIONS */}
+        <section class="border-b border-zinc-900 bg-black text-white">
+            <div class="p-8 md:p-24 border-b border-zinc-900">
+                <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-16 reveal-up">
+                    04 — SOLUÇÕES
+                </span>
+
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-12 list-none reveal-up delay-100">
+                    <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-emerald-500 hidden md:block shrink-0">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                            </svg>
+                            <strong class="text-white text-xl font-mono uppercase">Performance</strong>
+                        </div>
+                        <p class="text-zinc-400 text-lg leading-relaxed">Eliminamos o WordPress e reconstruímos tudo em Next.JS, garantindo que o lead não desista por causa da lentidão.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-emerald-500 hidden md:block shrink-0">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                            <strong class="text-white text-xl font-mono uppercase">Copy Estratégico</strong>
+                        </div>
+                        <p class="text-zinc-400 text-lg leading-relaxed">Reformulamos toda a narrativa para torná-la direta, fluida e sincera, convertendo tráfego em conexão Real.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-emerald-500 hidden md:block shrink-0">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-3.012 3.015V21a.75.75 0 01-1.5 0v-1.863a4.5 4.5 0 014.545-4.512l.06-.013m1.065-2.572a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z" />
+                            </svg>
+                            <strong class="text-white text-xl font-mono uppercase">UX Emocional</strong>
+                        </div>
+                        <p class="text-zinc-400 text-lg leading-relaxed">Um layout que não apenas exibe informações, mas acolhe e guia o lead através do método Vicky Saudável.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
+                        <div class="flex items-center gap-4 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-emerald-500 hidden md:block shrink-0">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                            </svg>
+                            <strong class="text-white text-xl font-mono uppercase">Monitoramento</strong>
+                        </div>
+                        <p class="text-zinc-400 text-lg leading-relaxed">Implementação da API de Conversão (CAPI) e Pixel da Meta, reduzindo o custo por ação (CPA) e garantindo dados íntegros para escala.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        {/* Showcase Animation/Video (Screens) */}
+        <section class="w-full h-[80vh] bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
+             {/* Desktop: Lottie Animation */}
+             <div class="hidden md:block w-full h-full">
+                 <dotlottie-player
+                    src="/assets-dev/vickysaudavel/screens.json"
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                    class="w-full h-full object-cover scale-150"
+                 ></dotlottie-player>
+             </div>
+
+             {/* Mobile: WebM Video */}
+             <video 
+                id="screens-video"
+                src="/assets-dev/vickysaudavel/screens.webm" 
+                class="block md:hidden w-full h-full object-cover"
+                autoplay 
+                loop 
+                muted 
+                playsinline
+             ></video>
+        </section>
+
+        {/* Outcome Section */}
+        {entry.data.outcome && (
+            <section id="next-section" class="border-b border-zinc-900 bg-zinc-950/30">
+                <div class="grid grid-cols-1 md:grid-cols-12 min-h-[400px]">
+                    <div class="md:col-span-4 p-8 md:p-12 border-r border-zinc-900">
+                        <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest sticky top-32 block reveal-up">
+                            05 — RESULTADOS
+                        </span>
+                    </div>
+                    <div class="md:col-span-8 p-8 md:p-24 flex items-center reveal-up delay-100">
+                        <p class="text-2xl md:text-5xl font-mono leading-relaxed text-white">
+                            "{entry.data.outcome}"
+                        </p>
+                    </div>
+                </div>
+            </section>
+        )}
+
+        {/* Next Project Footer */}
+        {nextProject && (
+            <a href={`/cases/${nextProject.slug}/`} class="block relative w-full h-[60vh] overflow-hidden group border-t border-zinc-900">
+                 <div class="absolute inset-0">
+                     <Image 
+                        src={nextProject.data.coverImage} 
+                        alt={nextProject.data.title}
+                        class="w-full h-full object-cover opacity-20 group-hover:opacity-60 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
+                        width={1200}
+                     />
+                     <div class="absolute inset-0 bg-black/80 group-hover:bg-black/40 transition-colors duration-700"></div>
+                 </div>
+                 
+                 <div class="absolute inset-0 flex flex-col items-start justify-center z-10 p-8 md:p-24">
+                     <span class="font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-6 group-hover:text-white transition-colors bg-black/50 px-4 py-2 border border-zinc-800 rounded-full">
+                        PRÓXIMO PROJETO
+                     </span>
+                     <h2 class="font-display font-black text-6xl md:text-9xl text-neutral-800 group-hover:text-white uppercase tracking-tighter transition-colors duration-500 mix-blend-difference text-left">
+                          {nextProject.data.title}
+                     </h2>
+                 </div>
+            </a>
+        )}
+
+    </main>
+</WebLayout>
+
+<script>
+    // Animation Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.addEventListener('astro:page-load', () => {
+        const elements = document.querySelectorAll('.reveal-up, .reveal-text, .reveal-img, .line-grow');
+        elements.forEach(el => observer.observe(el));
+
+        // Robust Infinite Loop for Video
+        const video = document.getElementById('screens-video') as HTMLVideoElement;
+        if (video) {
+            video.addEventListener('ended', () => {
+                video.currentTime = 0;
+                video.play();
+            });
+        }
+    });
+</script>

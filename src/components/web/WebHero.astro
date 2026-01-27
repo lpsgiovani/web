@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projetos');
 // Explicit order to match design aesthetics
-const ORDER = ['pedecafe', 'neon-flux', 'fintech'];
+const ORDER = ['pedecafe', 'oqfjf', 'vickysaudavel'];
 
 const projects = ORDER.map((slug, idx) => {
     const entry = allProjects.find(p => p.slug === slug);
@@ -19,7 +19,7 @@ const projects = ORDER.map((slug, idx) => {
         title: entry.data.title,
         stack: entry.data.techStack.join(' + '),
         delay: idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : '',
-        extraClasses: entry.slug === 'fintech' ? 'grayscale brightness-50' : ''
+        extraClasses: ''
     };
 }).filter(p => p !== null);
 ---
@@ -38,7 +38,7 @@ const projects = ORDER.map((slug, idx) => {
                     data-project-title={project.title}
                     data-project-tag={project.tag}
                     data-astro-prefetch
-                    class={`group shrink-0 w-[85vw] max-w-[85vw] snap-center flex flex-col border border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 project-link overflow-hidden`}
+                    class={`group shrink-0 w-[85vw] max-w-[85vw] snap-center flex flex-col border border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 project-link mobile-project-card overflow-hidden`}
                 >
                     {/* Compact Window Header */}
                     <div class="h-[16px] border-b border-black flex items-center px-1.5 gap-1 bg-neutral-100">
@@ -55,7 +55,7 @@ const projects = ORDER.map((slug, idx) => {
                         <Image
                             src={project.image}
                             alt={project.alt}
-                            class={`w-full h-full object-cover object-center grayscale ${project.extraClasses || ''}`}
+                            class={`w-full h-full object-cover object-center grayscale transition-all duration-500 ${project.extraClasses || ''}`}
                             loading="lazy"
                             transition:name={`project-image-${project.slug}`}
                         />
@@ -113,7 +113,7 @@ const projects = ORDER.map((slug, idx) => {
                         <Image
                             src={project.image}
                             alt={project.alt}
-                            class={`w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500 ${project.extraClasses || ''}`}
+                            class={`w-full h-full object-cover object-center transition-all duration-500 ${project.extraClasses || ''}`}
                             loading="lazy"
                             transition:name={`project-image-${project.slug}`}
                         />
@@ -165,5 +165,28 @@ const projects = ORDER.map((slug, idx) => {
                 source: 'web_lp'
             });
         });
+    });
+
+    // Mobile Active Card Color Effect
+    const observerOptions = {
+        root: document.querySelector('.snap-x'),
+        threshold: 0.6
+    };
+
+    const mobileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const img = entry.target.querySelector('img');
+            if (!img) return;
+
+            if (entry.isIntersecting) {
+                img.classList.remove('grayscale');
+            } else {
+                img.classList.add('grayscale');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.mobile-project-card').forEach(card => {
+        mobileObserver.observe(card);
     });
 </script>

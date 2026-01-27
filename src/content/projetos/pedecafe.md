@@ -1,8 +1,8 @@
 ---
 title: "Pé de Café"
 description: "Identidade visual completa e website para uma cafeteria de cafés especiais."
-category: "Branding & Web"
-coverImage: "../../assets/cover/pedecafe.webp"
+category: "Concurso de Cafeterias"
+coverImage: "./assets/pedecafe.webp"
 techStack: ["ASTRO", "TAILWIND"]
 ---
 ## O Desafio
