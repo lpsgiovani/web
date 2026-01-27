@@ -45,9 +45,20 @@ const description = entry.data.description;
     <main class="bg-black min-h-screen text-white selection:bg-zinc-800 selection:text-white font-display">
         
         {/* 1. Full-Screen Intro (The Hook) */}
-        <section class="min-h-[90vh] flex flex-col relative border-b border-zinc-900 bg-black pt-24 pb-12 px-6 md:px-12">
+        <section class="min-h-[90vh] flex flex-col relative border-b border-zinc-900 bg-black pt-24 pb-12 px-6 md:px-12 overflow-hidden">
+             
+             {/* Background Image */}
+             <div class="absolute inset-0 z-0">
+                 <Image 
+                    src={coverImage}
+                    alt="Background Texture"
+                    class="w-full h-full object-cover opacity-20 grayscale"
+                 />
+                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+             </div>
+
              {/* Status Line */}
-             <div class="w-full flex justify-between items-center py-4 border-b border-zinc-900 mb-auto reveal-up">
+             <div class="w-full flex justify-between items-center py-4 border-b border-zinc-900 mb-auto reveal-up relative z-10">
                  <div class="flex gap-4 md:gap-8 font-mono text-[9px] md:text-[10px] text-zinc-500 tracking-widest uppercase">
                      <span>PROJECT_STATUS: ARCHIVED</span>
                      <span class="hidden md:inline">ENCRYPTION: AES-256</span>
