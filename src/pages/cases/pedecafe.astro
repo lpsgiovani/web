@@ -187,29 +187,18 @@ const description = entry.data.description;
                      </p>
                  </div>
 
-                 {/* Visual Assets (Right - Desktop Lottie) */}
+                 {/* Visual Assets (Right - Desktop Image now) */}
                  <div class="hidden md:block relative w-full h-full bg-zinc-900/20 order-1 md:order-2 reveal-img border-b md:border-b-0 border-zinc-900 min-h-[500px] md:min-h-auto">
-                     <dotlottie-player
-                        src="/assets-dev/pedecafe/lottie/mobile/slider_animation.lottie"
-                        background="transparent"
-                        speed="1"
-                        loop
-                        autoplay
+                     <Image 
+                        src={comboDesktop} 
+                        alt="Contexto Mesa Pé de Café Desktop"
                         class="w-full h-full object-cover"
-                        style="object-fit: cover;"
-                     ></dotlottie-player>
+                     />
                  </div>
              </div>
         </section>
 
-        {/* Experience Context Image (Desktop Position) */}
-        <section class="hidden md:block w-full h-[65vh] bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
-             <Image 
-                src={comboDesktop} 
-                alt="Contexto Mesa Pé de Café Desktop"
-                class="w-full h-full object-cover"
-             />
-        </section>
+
 
 
 
@@ -291,6 +280,19 @@ const description = entry.data.description;
         </script>
 
 
+
+        {/* Experience Context Lottie (Desktop Position - Between Challenge and Solutions) */}
+        <section class="hidden md:block w-full h-[80vh] bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
+             <dotlottie-player
+                src="/assets-dev/pedecafe/lottie/desktop/slider_animation.lottie"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+                class="w-full h-full object-cover scale-150"
+                style="width: 100%; height: 100%; object-fit: cover;"
+             ></dotlottie-player>
+        </section>
 
         {/* 04. SOLUTIONS (Horizontal Layout) */}
         <section class="border-b border-zinc-900 bg-black text-white">
