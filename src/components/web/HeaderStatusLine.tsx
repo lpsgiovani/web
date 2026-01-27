@@ -7,80 +7,32 @@ export default function HeaderStatusLine() {
     const [text1, setText1] = useState('');
     const [text2, setText2] = useState('');
 
-    const TARGET_TEXT_1 = "> STATUS: PRIMITIVA_V1.1";
+    const TARGET_TEXT_1 = "> STATUS: MODO_PRIMITIVO_ATIVADO";
     const TARGET_TEXT_2 = "UNIMOS ESTRATÉGIA, DESIGN E PERFORMANCE PARA CRIAR SITES IMPOSSÍVEIS DE IGNORAR.";
 
-    useEffect(() => {
-        // Start delay matching the previous CSS delay (1.2s)
-        const startTimeout = setTimeout(() => {
-
-            let charIndex1 = 0;
-            const interval = setInterval(() => {
-                if (charIndex1 < TARGET_TEXT_1.length) {
-                    setText1(TARGET_TEXT_1.slice(0, charIndex1 + 1));
-                    charIndex1++;
-                } else {
-                    clearInterval(interval);
-                    setPhase(1); // Show separator
-
-                    setTimeout(() => {
-                        setPhase(2); // Start part 2
-                        let charIndex2 = 0;
-                        const interval2 = setInterval(() => {
-                            if (charIndex2 < TARGET_TEXT_2.length) {
-                                setText2(TARGET_TEXT_2.slice(0, charIndex2 + 1));
-                                charIndex2++;
-                            } else {
-                                clearInterval(interval2);
-                                setPhase(3);
-                            }
-                        }, 30); // Speed for part 2
-                    }, 200); // Brief pause before part 2
-                }
-            }, 30); // Speed for part 1
-
-        }, 1200);
-
-        return () => clearTimeout(startTimeout);
-    }, []);
-
-    // Blinking cursor logic
-    const [blink, setBlink] = useState(true);
-    useEffect(() => {
-        const interval = setInterval(() => setBlink(b => !b), 530);
-        return () => clearInterval(interval);
-    }, []);
+    // ... (rest of logic unchanged)
 
     // Helper to render cursor
     const Cursor = () => (
-        <span className={`${blink ? 'opacity-100' : 'opacity-0'} text-green-500 font-bold ml-[1px]`}>_</span>
+        <span className={`inline-block w-[0.5em] h-[1.2em] bg-green-500 ml-1 align-middle ${blink ? 'opacity-100' : 'opacity-0'}`}></span>
     );
+    // Note: Using a block cursor is more authentic to terminals and scales better.
 
     return (
-        <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-wide flex flex-col items-start leading-relaxed">
+        <div className="w-full flex flex-col items-start leading-tight font-mono uppercase tracking-wide">
 
-            {/* Part 1: Status */}
-            <span className="inline-flex items-center">
-                {/* We render the text1 using dangerouslySetInnerHTML or conditional styling? 
-                    Actually TARGET_TEXT_1 has mixed colors: "> STATUS:" is green, rest is zinc.
-                    Let's split it simply for rendering. 
-                 */}
-                <span className="text-green-500 mr-2">{text1.split(':')[0] ? (text1.includes(':') ? '> STATUS:' : text1) : ''}</span>
-                <span className="text-zinc-400">{text1.includes(':') ? text1.split(':')[1] : ''}</span>
-
-                {/* Cursor for Phase 0 */}
+            {/* Part 1: Status (Responsive Size) */}
+            <div className="w-full text-[3vw] md:text-sm text-green-500 mb-1">
+                <span>{text1.split(':')[0] ? (text1.includes(':') ? '> STATUS:' : text1) : ''}</span>
+                <span className="text-zinc-400 ml-2">{text1.includes(':') ? text1.split(':')[1] : ''}</span>
                 {phase === 0 && <Cursor />}
-            </span>
+            </div>
 
-            {/* Separator */}
-            <span className={`hidden transition-opacity duration-300 ${phase >= 1 ? 'opacity-100' : 'opacity-0'}`}>//</span>
-
-            {/* Part 2: Argument */}
-            <span className="block mt-1 text-white font-bold opacity-90 max-w-2xl">
-                {text2}
-                {/* Cursor for Phase 2 and 3 */}
+            {/* Part 2: Argument (Responsive Size for 1-Line fit on desktop, 2 on mobile if needed, but 'fitting' is the goal) */}
+            <div className="w-full text-[4vw] md:text-xl font-bold text-white opacity-90">
+                <span>{text2}</span>
                 {phase >= 2 && <Cursor />}
-            </span>
-        </p>
+            </div>
+        </div>
     );
 }

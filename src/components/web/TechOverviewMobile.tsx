@@ -88,7 +88,7 @@ export default function TechOverviewMobile() {
                 </div>
 
                 <div
-                    className="flex flex-nowrap w-[300%] items-center mt-20 translate-y-6 transition-transform duration-75 ease-out"
+                    className="flex flex-nowrap w-[300%] items-center mt-0 translate-y-6 transition-transform duration-75 ease-out"
                     style={{ transform: `translateX(-${translateX}%)`, willChange: 'transform' }}
                 >
                     {TECH_PILLARS.map((item) => (

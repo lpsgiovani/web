@@ -8,6 +8,7 @@ interface Props {
   url?: string;
   height?: string;
   title?: string;
+  loading?: "lazy" | "eager";
 }
 
 const { 
@@ -15,7 +16,8 @@ const {
     url, 
     alt = "Live Preview", 
     height = "h-[600px]", 
-    title = "LIVE_SYSTEM_OVERRIDE" 
+    title = "LIVE_SYSTEM_OVERRIDE",
+    loading = "lazy"
 } = Astro.props;
 ---
 
@@ -44,7 +46,7 @@ const {
                 src={url} 
                 class="w-full h-full border-none opacity-90 group-hover:opacity-100 transition-all duration-700" 
                 title={alt}
-                loading="lazy"
+                loading={loading}
                 sandbox="allow-scripts allow-same-origin"
             ></iframe>
         ) : src ? (
