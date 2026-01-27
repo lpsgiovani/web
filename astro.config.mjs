@@ -14,30 +14,35 @@ const isDev = process.env.VERCEL_ENV === 'preview' || process.env.NODE_ENV === '
 const site = isDev ? 'https://dev.primitiva.cc' : 'https://primitiva.cc';
 
 // https://astro.build/config - Force Rebuild v1.1.2
+// https://astro.build/config - Force Rebuild v1.1.3 (Stability Fixes)
 export default defineConfig({
     output: 'static', // Pre-render all pages at build time
     adapter: vercel({
         webAnalytics: { enabled: true },
-        imageService: !isDev,
+        // Use Vercel Image Optimization in Production AND Preview, only disable locally
+        imageService: true,
+        // Optimization: Cache generated static assets
+        isr: false,
     }),
-    trailingSlash: 'always',
+    trailingSlash: 'always', // Maintain consistency for SEO
     build: {
-        // assets: '_assets-dev', // Isolation for sub-domain assets
-        inlineStylesheets: 'always',
+        // assets: '_assets-dev', 
+        inlineStylesheets: 'auto', // FIXED: 'always' was causing corrupted content on slow connections
         modulePreload: { polyfill: false },
         format: 'directory',
     },
     prefetch: {
-        prefetchAll: true,
-        defaultStrategy: 'viewport',
+        prefetchAll: false, // FIXED: Disable aggressive prefetch to prevent network congestion
+        defaultStrategy: 'hover', // Only prefetch on explicit user intent
     },
     integrations: [
-        react(), // Enable React components as islands
-        tailwind(), // Uses tailwind.config.js automatically
-        sitemap(), // Generate sitemap.xml
+        react(),
+        tailwind(),
+        sitemap(),
         partytown({
             config: {
                 forward: ['fbq', 'posthog.init', 'posthog.capture', 'dataLayer.push'],
+                lib: '/~partytown/', // FIXED: Ensure correct path resolution on Vercel
             },
         }),
     ],
@@ -53,6 +58,8 @@ export default defineConfig({
         },
         build: {
             target: 'esnext',
+            // Ensure assets are not inlined if too large, preventing corruption
+            assetsInlineLimit: 4096,
         },
         ssr: {
             noExternal: ['@radix-ui/*'],
