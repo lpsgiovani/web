@@ -6,19 +6,19 @@ const SERVICES = [
     {
         id: 'SRV_01',
         title: "Estratégia",
-        description: "A Primitiva não é apenas um time de desenvolvedores ou designers; somos, antes de tudo, uma agência de estratégia de marca. Cada entrega aqui é precedida por pesquisa profunda e método, garantindo que sua interface não seja apenas bonita, mas uma ferramenta de negócios intencional.",
+        description: "Antes de codificar, desenhamos o caminho para a sua escala. Unimos análise de mercado e design de experiência para garantir que cada decisão tenha um objetivo comercial.",
         log: "STRATEGY.LOG"
     },
     {
         id: 'SRV_02',
         title: "Design",
-        description: "Nossa expertise em UX/UI designer é fundida à estratégia de branding. Desenvolvemos sistemas visuais de alta fidelidade que transformam a essência do seu negócio em uma presença digital impossível de ignorar e tecnicamente imbatível.",
+        description: "Nossa expertise em UX/UI é fundida à estratégia de marca. Desenvolvemos interfaces que transformam a essência do seu negócio em uma presença digital impossível de ignorar.",
         log: "VISUAL_IDENTITY.EXE"
     },
     {
         id: 'SRV_03',
         title: "Performance",
-        description: "Performance não é um detalhe técnico, é lógica de negócios. Utilizamos tecnologias como Astro e arquiteturas estáticas para garantir que seu site tenha Nota 99+, eliminando a rejeição e convertendo milissegundos em lucro.",
+        description: "Utilizamos arquiteturas modernas que garantem segurança absoluta e zero custo de manutenção constante com plugins ou instabilidades.",
         log: "CORE_PERFORMANCE.SYS"
     }
 ];

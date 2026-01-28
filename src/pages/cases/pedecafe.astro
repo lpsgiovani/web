@@ -13,8 +13,8 @@ import ScrollingPrototype from '../../components/content/ScrollingPrototype.astr
 import coverImage from '../../content/projetos/assets/pedecafe.webp';
 import mockup1 from '../../content/projetos/assets/pedecafe_mockup1.png';
 import mockup2 from '../../content/projetos/assets/pedecafe_mockup2.png';
-import neonFluxCover from '../../content/projetos/assets/neon-flux.png';
-import oqfjfCover from '../../content/projetos/assets/oqfjf.webp';
+// import neonFluxCover from '../../content/projetos/assets/neon-flux.png';
+// import oqfjfCover from '../../content/projetos/assets/oqfjf.webp';
 import siteHeaderImage from '../../assets/cover/pedecafe_site_header.webp';
 import siteHeaderImageMobile from '../../assets/cover/pedecafe_site_header_mobile.webp';
 // Branding Assets
@@ -30,19 +30,11 @@ const entry = {
     description: "Identidade visual completa e website para uma cafeteria de cafés especiais focada em origem e pureza.",
     category: "Concurso de Cafeterias",
     client: "Pé de Café",
-    year: "2024",
-    techStack: ["NEXT.JS", "TAILWIND"],
+    year: "2025",
+    techStack: ["NEXT.JS", "FIREBASE"],
     challenge: "O Pé de Café precisava de mais do que uma vitrine; precisava de uma infraestrutura robusta para um concurso que foi febre em Juiz de Fora. O desafio era criar um ecossistema digital que suportasse picos de tráfego, garantisse a integridade dos votos e oferecesse uma gestão de dados em tempo real.",
     outcome: "O Pé de Café agora possui uma base digital sólida que não apenas suporta o crescimento do concurso, mas o impulsiona através de dados precisos e uma experiência de usuário impecável."
   }
-};
-
-const nextProject = {
-    slug: 'oqfjf',
-    data: {
-        title: 'O que fazer em JF?',
-        coverImage: oqfjfCover
-    }
 };
 
 const title = `${entry.data.title} | Primitiva Cases`;
@@ -404,29 +396,37 @@ const description = entry.data.description;
             </section>
         )}
 
-        {/* Next Project Footer */}
-        {nextProject && (
-            <a href={`/cases/${nextProject.slug}/`} class="block relative w-full h-[60vh] overflow-hidden group border-t border-zinc-900">
-                 <div class="absolute inset-0">
-                     <Image 
-                        src={nextProject.data.coverImage} 
-                        alt={nextProject.data.title}
-                        class="w-full h-full object-cover opacity-20 group-hover:opacity-60 transition-all duration-700 ease-out grayscale group-hover:grayscale-0"
-                        width={1200}
-                     />
-                     <div class="absolute inset-0 bg-black/80 group-hover:bg-black/40 transition-colors duration-700"></div>
+        {/* Next Level CTA Footer */}
+        <section class="relative w-full h-[60vh] md:h-[80vh] overflow-hidden group border-t border-zinc-900 bg-black">
+             <a href="/contato/" class="absolute inset-0 z-20"></a>
+             
+             <div class="absolute inset-0 z-0 text-white/5 pointer-events-none flex items-center justify-center overflow-hidden">
+                <span class="text-[30vw] font-black uppercase tracking-tighter opacity-10 blur-sm">PRIMITIVA</span>
+             </div>
+
+             <div class="absolute inset-0 z-0">
+                 {/* Background Accent */}
+                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-950/20 via-transparent to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
+                 <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700"></div>
+             </div>
+             
+             <div class="absolute inset-0 flex flex-col items-start justify-center z-10 p-8 md:p-12 lg:p-24 pointer-events-none">
+                 <span class="font-mono text-[10px] md:text-xs uppercase tracking-[0.5em] text-zinc-500 mb-8 transition-colors bg-white/5 px-4 py-2 border border-white/10 rounded-full group-hover:text-white group-hover:border-white/30">
+                    PRÓXIMO PROJETO
+                 </span>
+                 <h2 class="font-display font-black text-[20vw] md:text-[15vw] text-white uppercase tracking-tighter leading-[0.8] mb-12 transition-transform duration-700 group-hover:scale-[1.02]">
+                      O SEU.
+                 </h2>
+                 <div class="flex items-center gap-6 group-hover:translate-x-4 transition-transform duration-500">
+                    <span class="bg-white text-black px-8 py-4 md:px-12 md:py-6 text-lg md:text-2xl font-bold uppercase tracking-tighter">
+                        [AGENDAR ANÁLISE DE PROJETO]
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-white hidden md:block">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
                  </div>
-                 
-                 <div class="absolute inset-0 flex flex-col items-start justify-center z-10 p-8 md:p-24">
-                     <span class="font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-6 group-hover:text-white transition-colors bg-black/50 px-4 py-2 border border-zinc-800 rounded-full">
-                        PRÓXIMO PROJETO
-                     </span>
-                     <h2 class="font-display font-black text-6xl md:text-9xl text-neutral-800 group-hover:text-white uppercase tracking-tighter transition-colors duration-500 mix-blend-difference text-left">
-                          {nextProject.data.title}
-                     </h2>
-                 </div>
-            </a>
-        )}
+             </div>
+        </section>
 
     </main>
 </WebLayout>
