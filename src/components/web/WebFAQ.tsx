@@ -10,11 +10,12 @@ interface FAQItem {
 }
 
 const faqs: FAQItem[] = [
-    { q: "Vocês usam WordPress?", a: "Evitamos WordPress para projetos de alta performance. Utilizamos tecnologias modernas como Astro e Next.js, que garantem segurança superior, velocidade extrema e zero manutenção constante de plugins." },
+    { q: "Vocês usam WordPress?", a: "Não utilizamos WordPress ou construtores de arrastar e soltar. Trabalhamos com código proprietário e arquiteturas modernas (como Astro e Next.js), garantindo que seu projeto seja exclusivo, imune às vulnerabilidades comuns de plugins e muito mais veloz." },
     { q: "O site é otimizado para SEO?", a: "Sim, o SEO é nativo em nossa metodologia. Entregamos o site com estrutura semântica correta, meta-tags dinâmicas, sitemap automático e otimização de performance, garantindo que o Google 'leia' e priorize seu site." },
-    { q: "Consigo editar o conteúdo depois?", a: "Com certeza. Caso opte por um Sistema de Gerenciamento de Conteúdo (CMS), integramos seu site a um CMS headless. Você terá um painel intuitivo para alterar textos, trocar imagens e criar novas páginas de blog ou produtos sem precisar tocar em uma linha de código." },
-    { q: "Quanto tempo demora para ficar pronto?", a: "Sites institucionais e Landing Pages levam em média de 2 a 4 semanas. E-commerces e projetos complexos podem variar de 6 a 8 semanas." },
-    { q: "O site vai funcionar em celulares?", a: "Desenvolvemos com a metodologia 'Mobile First'. Seu site será perfeitamente responsivo, adaptando-se fluidamente a qualquer tamanho de tela, garantindo a melhor experiência para usuários móveis." }
+    { q: "Como funciona a manutenção do site após a entrega?", a: "Como utilizamos arquiteturas estáticas e código limpo, seu site não precisará de atualizações constantes de segurança ou manutenção de plugins. Se houver necessidade de gestão de conteúdo, entregamos um painel administrativo intuitivo (CMS Headless) para que você tenha autonomia total sobre os dados." },
+    { q: "Quanto tempo demora para ficar pronto?", a: "O prazo de entrega é calculado sob medida após o diagnóstico inicial, pois depende diretamente da complexidade da engenharia e da profundidade estratégica necessária. Projetos focados em conversão rápida, como Landing Pages, costumam ser entregues entre 2 a 3 semanas. Já ecossistemas mais robustos, como dashboards e softwares personalizados, possuem cronogramas modulares definidos por etapas de entrega, garantindo que o desenvolvimento acompanhe o ritmo e a necessidade de escala do seu negócio." },
+    { q: "Vocês fazem apenas o site ou também a identidade visual?", a: "Somos um estúdio focado em branding e design. Nosso diferencial é justamente a união dessas frentes. Podemos construir sua marca do zero, desde o logotipo e posicionamento até a engenharia final do software, garantindo que a sua essência visual e a performance técnica caminhem juntas em um único ecossistema." },
+    { q: "O site será meu ou ficarei dependente da Primitiva?", a: "Todo o código proprietário desenvolvido e os ativos de design são de sua total propriedade após a entrega. Além disso, utilizamos tecnologias de mercado que permitem que qualquer desenvolvedor sênior possa dar continuidade ao projeto caso você decida escalar sua equipe interna no futuro." }
 ];
 
 export default function WebFAQ() {

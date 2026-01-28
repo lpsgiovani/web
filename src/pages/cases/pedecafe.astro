@@ -50,6 +50,19 @@ const description = entry.data.description;
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <main class="bg-black min-h-screen text-white selection:bg-zinc-800 selection:text-white font-display">
         
+        {/* Absolute Back Button (Inside Header) */}
+        <div class="absolute top-6 left-6 md:top-12 md:left-12 z-50 reveal-up pointer-events-auto">
+            <a 
+                href="/" 
+                class="group flex items-center gap-3 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 hover:border-white/30"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-300 group-hover:-translate-x-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                <span class="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-white">Voltar</span>
+            </a>
+        </div>
+
         {/* 1. Full-Screen Intro (The Hook) & Technical Grid */}
         <section class="h-screen flex flex-col relative bg-[#0a101f] overflow-hidden">
              
