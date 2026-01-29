@@ -214,78 +214,71 @@ const description = entry.data.description;
             </div>
         </section>
 
-         {/* Showcase Lottie - Only Desktop here */}
-        <section class="hidden md:block w-full h-[60vh] md:h-[80vh] bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
-             <dotlottie-player
-                src="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie"
-                background="transparent"
-                speed="1"
-                loop
-                autoplay
-                class="w-full h-full object-cover scale-110"
-                style="width: 100%; height: 100%; object-fit: cover;"
-             ></dotlottie-player>
+        {/* 04. DESENVOLVIMENTO & SHOWCASE */}
+        <section class="border-b border-zinc-900 bg-black text-white overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                {/* Solutions Side */}
+                <div class="p-8 md:p-24 border-b md:border-b-0 md:border-r border-zinc-900 flex flex-col justify-center">
+                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-16 reveal-up">
+                        04 — DESENVOLVIMENTO
+                    </span>
+
+                    <ul class="flex flex-col gap-10 list-none reveal-up delay-100">
+                        <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
+                            <div class="flex items-center gap-4 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                                <strong class="text-white text-lg font-mono uppercase">Busca por Experiência</strong>
+                            </div>
+                            <p class="text-zinc-500 text-base leading-relaxed">Taxonomia inteligente onde o usuário filtra por "Date" ou "Pet-friendly". Lógica de busca resiliente e rápida.</p>
+                        </li>
+                        <li class="border-t border-zinc-800 pt-8">
+                            <div class="flex items-center gap-4 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                                </svg>
+                                <strong class="text-white text-lg font-mono uppercase">Curadoria High-Fidelity</strong>
+                            </div>
+                            <p class="text-zinc-500 text-base leading-relaxed">Preview de vídeos curtos otimizados para uma experiência de consumo ultra-rápida e dicas exclusivas.</p>
+                        </li>
+                        <li class="border-t border-zinc-800 pt-8">
+                            <div class="flex items-center gap-4 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                </svg>
+                                <strong class="text-white text-lg font-mono uppercase">Core Tecnológico</strong>
+                            </div>
+                            <p class="text-zinc-500 text-base leading-relaxed">Reconstrução em Next.js para performance extrema e escalabilidade pronta para picos de tráfego.</p>
+                        </li>
+                        <li class="border-t border-zinc-800 pt-8">
+                            <div class="flex items-center gap-4 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 18.4V14.15m16.5 0a2.25 2.25 0 00-2.25-2.25H4.875a2.25 2.25 0 00-2.25 2.25m16.5 0V8.25a2.25 2.25 0 00-2.25-2.25H4.875A2.25 2.25 0 002.625 8.25V14.15M12 15.75h.008v.008H12v-.008z" />
+                                </svg>
+                                <strong class="text-white text-lg font-mono uppercase">Ecossistema B2B</strong>
+                            </div>
+                            <p class="text-zinc-500 text-base leading-relaxed">Área logada para parceiros com cupons e faturamento automatizado, monetizando a influência cultural.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* Showcase Side */}
+                <div class="relative bg-zinc-950 min-h-[500px] md:min-h-0">
+                     <div class="flex items-center justify-center w-full h-full md:sticky md:top-0 h-[60vh] md:h-screen overflow-hidden">
+                          <dotlottie-player
+                            src="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie"
+                            background="transparent"
+                            speed="1"
+                            loop
+                            autoplay
+                            class="w-full h-full object-cover scale-110"
+                            style="width: 100%; height: 100%; object-fit: cover;"
+                         ></dotlottie-player>
+                     </div>
+                </div>
+            </div>
         </section>
-
-        {/* 04. DESENVOLVIMENTO & SOLUÇÕES */}
-        <section class="border-b border-zinc-900 bg-black text-white">
-            <div class="p-8 md:p-24 border-b border-zinc-900">
-                <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-16 reveal-up">
-                    04 — DESENVOLVIMENTO
-                </span>
-
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-12 list-none reveal-up delay-100">
-                    <li class="border-t border-zinc-800 pt-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-zinc-500 hidden md:block shrink-0">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                            </svg>
-                            <strong class="text-white text-xl font-mono uppercase">Busca por Experiência</strong>
-                        </div>
-                        <p class="text-zinc-400 text-lg leading-relaxed">Taxonomia inteligente onde o usuário filtra por "Date", "Família" ou "Pet-friendly", em vez de apenas tipos de comida. Lógica de busca resiliente e rápida.</p>
-                    </li>
-                    <li class="border-t border-zinc-800 pt-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-zinc-500 hidden md:block shrink-0">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                            </svg>
-                            <strong class="text-white text-xl font-mono uppercase">Curadoria High-Fidelity</strong>
-                        </div>
-                        <p class="text-zinc-400 text-lg leading-relaxed">Sistema de preview de vídeos curtos otimizados e área dedicada a dicas exclusivas, garantindo uma experiência de consumo ultra-rápida.</p>
-                    </li>
-                    <li class="border-t border-zinc-800 pt-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-zinc-500 hidden md:block shrink-0">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                            </svg>
-                            <strong class="text-white text-xl font-mono uppercase">Core Tecnológico</strong>
-                        </div>
-                        <p class="text-zinc-400 text-lg leading-relaxed">Reconstrução total em Next.js para performance extrema e SEO. Infraestrutura escalável pronta para picos de tráfego de toda a cidade.</p>
-                    </li>
-                    <li class="border-t border-zinc-800 pt-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-8 h-8 text-zinc-500 hidden md:block shrink-0">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 18.4V14.15m16.5 0a2.25 2.25 0 00-2.25-2.25H4.875a2.25 2.25 0 00-2.25 2.25m16.5 0V8.25a2.25 2.25 0 00-2.25-2.25H4.875A2.25 2.25 0 002.625 8.25V14.15M12 15.75h.008v.008H12v-.008z" />
-                            </svg>
-                            <strong class="text-white text-xl font-mono uppercase">Ecossistema B2B</strong>
-                        </div>
-                        <p class="text-zinc-400 text-lg leading-relaxed">Área logada para parceiros com gestão de cupons, favoritos e integração de faturamento automatizado, monetizando a influência.</p>
-                    </li>
-                </ul>
-            </div>
-
-            {/* Showcase Lottie - Mobile positioned after development */}
-            <div class="block md:hidden w-full h-[60vh] bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
-                 <dotlottie-player
-                    src="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie"
-                    background="transparent"
-                    speed="1"
-                    loop
-                    autoplay
-                    class="w-full h-full object-cover scale-110"
-                    style="width: 100%; height: 100%; object-fit: cover;"
-                 ></dotlottie-player>
-            </div>
 
         {/* 05. RESULTADOS */}
         {entry.data.outcome && (
