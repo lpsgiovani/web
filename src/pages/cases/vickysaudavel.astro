@@ -105,15 +105,24 @@ const description = entry.data.description;
         {/* 2. THE CONCEPT: A New Relationship with Health */}
         <section class="border-b border-zinc-900 bg-zinc-950">
              <div class="grid grid-cols-1 md:grid-cols-2">
-                
+                 {/* Desktop Image */}
+                 <div class="hidden md:block relative aspect-[3/4] md:aspect-auto md:h-full overflow-hidden border-r border-zinc-900 reveal-img">
+                     <Image 
+                        src="/assets-dev/vickysaudavel/header.webp" 
+                        alt="Vicky Saudável Concept"
+                        width={1200}
+                        height={1600}
+                        class="w-full h-full object-cover"
+                     />
+                 </div>
                  
                  {/* Text Content */}
-                 <div class="p-8 md:p-24 md:pb-12 flex flex-col justify-center reveal-up delay-100">
+                 <div class="p-8 md:p-24 flex flex-col justify-center reveal-up delay-100">
                      <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">01 — O CONCEITO</span>
                      <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8 leading-[1.1]">
                         Sinceridade e<br/> Identidade
                      </h2>
-                     <p class="font-serif text-zinc-400 leading-relaxed text-xl mb-12">
+                     <p class="font-serif text-zinc-400 leading-relaxed text-xl max-w-lg">
                         Refizemos toda a copy e a identidade visual do site, buscando transmitir com mais sinceridade quem é realmente a Vicky Saudável e o que é o método que ela vende.
                         <br/><br/>
                         A premissa é ajudar as pessoas a terem uma melhor relação consigo mesmas, fazendo da comida saudável e do exercício um aliado, e não um inimigo.
@@ -122,19 +131,28 @@ const description = entry.data.description;
              </div>
         </section>
 
+        {/* Mobile-only Image position between Sections 01 and 02 */}
+        <div class="block md:hidden w-full aspect-[4/5] overflow-hidden bg-zinc-900 reveal-img border-b border-zinc-900">
+             <Image 
+                src="/assets-dev/vickysaudavel/header.webp" 
+                alt="Vicky Saudável - Divisor Mobile 1"
+                width={1200}
+                height={1600}
+                class="w-full h-full object-cover"
+             />
+        </div>
+
         {/* 3. EXPERIENCE: Fluidity in Reading */}
         <section class="border-b border-zinc-900 bg-black">
              <div class="grid grid-cols-1 md:grid-cols-2">
-                 {/* Text Content (Left) */}
-                 <div class="p-8 md:py-8 md:px-24 flex flex-col justify-center border-r border-zinc-900 order-2 md:order-1 reveal-up">
+                 <div class="p-8 md:p-32 flex flex-col justify-center border-r border-zinc-900 order-2 md:order-1 reveal-up">
                      <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">02 — EXPERIÊNCIA</span>
-                     <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8">Conteúdo sem atrito</h2>
+                     <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8 leading-[1.1]">Conteúdo sem atrito</h2>
                      <p class="font-sans text-zinc-500 max-w-md leading-relaxed">
                         Transformamos a copy em algo mais esclarecedor, direto e fluido, reforçado por um layout que acompanha toda essa fluidez e prendem a atenção do lead do início ao fim.
                      </p>
                  </div>
 
-                 {/* Visual Asset (Right) */}
                  <div class="hidden md:block relative w-full h-full bg-zinc-900/20 order-1 md:order-2 reveal-img border-b md:border-b-0 border-zinc-900 min-h-[500px] md:min-h-auto">
                      <Image 
                         src="/assets-dev/vickysaudavel/deusa_suprema.webp" 
@@ -165,6 +183,17 @@ const description = entry.data.description;
                 </div>
             </div>
         </section>
+
+        {/* Mobile-only Image position between Sections 03 and 04 */}
+        <div class="block md:hidden w-full aspect-[4/5] overflow-hidden bg-zinc-900 reveal-img border-b border-zinc-900">
+             <Image 
+                src="/assets-dev/vickysaudavel/deusa_suprema.webp" 
+                alt="Vicky Saudável - Divisor Mobile 2"
+                width={1200}
+                height={1600}
+                class="w-full h-full object-cover"
+             />
+        </div>
 
         {/* 4. ENGENHARIA DE ELITE */}
         <section class="border-b border-zinc-900 bg-black">
