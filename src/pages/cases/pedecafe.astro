@@ -39,9 +39,10 @@ const entry = {
 
 const title = `${entry.data.title} | Primitiva Cases`;
 const description = entry.data.description;
+const ogImage = coverImage.src;
 ---
 
-<WebLayout title={title} description={description}>
+<WebLayout title={title} description={description} ogImage={ogImage}>
     <fragment slot="head">
         <link rel="preload" href="/assets-dev/pedecafe/lottie/orbit_lite.webm" as="video" type="video/webm" crossorigin />
         <link rel="preload" href="/assets-dev/pedecafe/lottie/desktop/animation2.lottie" as="fetch" type="application/json" crossorigin />

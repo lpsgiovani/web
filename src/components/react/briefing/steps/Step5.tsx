@@ -11,7 +11,7 @@ interface StepProps {
 }
 
 export default function Step5({ onNext, onBack, selectedValue, onSelect, error, isTransitioning = false }: StepProps) {
-    const options = ['Branding', 'Identidade Visual', 'Site', 'Design de Produto', 'Full Experience'];
+    const options = ['Landing Page', 'Site Institucional', 'E-commerce', 'Plataforma Web'];
 
     return (
         <StepContainer isActive={true} step={5}>
@@ -21,10 +21,10 @@ export default function Step5({ onNext, onBack, selectedValue, onSelect, error, 
                     <OptionCard
                         key={opt}
                         label={
-                            opt === 'Site' ? 'Landing Page / Site UX' :
-                                opt === 'Full Experience' ? 'Full Experience (Tudo)' :
-                                    opt === 'Branding' ? 'Branding Completo' :
-                                        opt === 'Design de Produto' ? 'Design de Produto / Embalagem' :
+                            opt === 'Landing Page' ? 'Landing Page / Página de Vendas' :
+                                opt === 'Site Institucional' ? 'Site Institucional / Corporativo' :
+                                    opt === 'E-commerce' ? 'E-commerce / Loja Virtual' :
+                                        opt === 'Plataforma Web' ? 'Plataforma Web / SaaS / App' :
                                             opt
                         }
                         selected={selectedValue === opt}

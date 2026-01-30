@@ -10,19 +10,19 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
     {
-        quote: "A velocidade do site mudou completamente nossa campanha de Ads. O custo por conversão caiu 40% na primeira semana.",
-        author: "Ricardo M.",
-        role: "E-commerce Manager"
+        quote: "Superou minhas expectativas, e olha que eu já esperava muito. Fiquei um bom tempo navegando, descendo a página, apaixonada pelo resultado final. Eu amei demais!",
+        author: "Victoria Boccanera",
+        role: "@vickysaudavel"
     },
     {
-        quote: "Tecnicamente impecável. O código é limpo, escalável e o SEO técnico nos colocou na primeira página em 3 meses.",
-        author: "Sofia L.",
-        role: "Diretora de Marketing"
+        quote: "Eu ameiii. O layout transmitiu a essência do Pé de Café de uma forma que eu nem imaginava ser possível. Além de bonito, todo o sistema fluiu muito bem.",
+        author: "Mirella Motta",
+        role: "@concursopedecafe"
     },
     {
-        quote: "Finalmente um parceiro que entende que design e performance precisam andar juntos. O painel administrativo é super fácil de usar.",
-        author: "André V.",
-        role: "Fundador Startup"
+        quote: "Conseguiu me tirar um sorriso imenso e o silêncio de satisfação. Estou apaixonada, para dizer o mínimo.",
+        author: "Paola Gatti",
+        role: "@paolagatti.tattoo"
     }
 ];
 
@@ -45,7 +45,7 @@ export default function WebTestimonials() {
                         key={idx}
                         className={`testimonial-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${currentTestimonial === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                     >
-                        <blockquote className="font-serif text-3xl md:text-5xl italic leading-tight mb-8">
+                        <blockquote className="font-serif text-2xl md:text-5xl italic leading-tight mb-8 text-balance px-4 md:px-0">
                             "{test.quote}"
                         </blockquote>
                         <cite className="not-italic flex flex-col items-center gap-1">

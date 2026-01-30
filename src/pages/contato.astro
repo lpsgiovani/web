@@ -6,10 +6,13 @@ import ContactChannels from '../components/astro/ContactChannels.astro';
 import MinimalFooter from '../components/astro/MinimalFooter.astro';
 import ContactOptions from '../components/react/ContactOptions';
 
+import thumbImg from '../assets/primitiva/thumb.jpg?url';
+
 // SEO metadata
 const title = "Contato — Desenvolvimento Web de Alta Performance";
 const description = "Fale com a Primitiva. Transforme sua presença digital com sites de ultra performance. Orçamentos para desenvolvimento web, engenharia de software e design estratégico.";
 const canonical = "/contato/";
+const ogImage = thumbImg;
 
 // JSON-LD Structured Data
 const structuredData = {
@@ -29,7 +32,7 @@ const structuredData = {
 };
 ---
 
-<WebLayout title={title} description={description} canonical={canonical}>
+<WebLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
   <main class="bg-background-light dark:bg-background-dark font-display antialiased text-[#181010] dark:text-[#f8f5f5] md:h-screen md:overflow-hidden md:flex md:flex-col">
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

@@ -12,11 +12,11 @@ interface StepProps {
 export default function Step8({ register, onNext, onBack, error }: StepProps) {
     return (
         <StepContainer isActive={true} step={8}>
-            <StepHeader stepNumber="08" title="Profundidade" question="Fale um pouco sobre o projeto." />
+            <StepHeader stepNumber="08" title="Profundidade" question="Qual o objetivo central deste projeto?" />
             <TextareaWithArrow
                 register={register}
                 name="descricao"
-                placeholder="Descrição do projeto"
+                placeholder="Ex: Aumentar conversão, automatizar processos, nova presença digital, resolver problemas de performance..."
                 onNext={onNext}
             />
             <ErrorDisplay message={error} />

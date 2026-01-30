@@ -11,7 +11,7 @@ interface StepProps {
 }
 
 export default function Step6({ onNext, onBack, selectedValue, onSelect, error, isTransitioning = false }: StepProps) {
-    const options = ['Até 3k', '3k-6k', '6k-12k', '12k-20k', '20k+'];
+    const options = ['Até 5k', '5k-15k', '15k-30k', '30k-60k', '60k+'];
 
     return (
         <StepContainer isActive={true} step={6}>
@@ -21,11 +21,11 @@ export default function Step6({ onNext, onBack, selectedValue, onSelect, error, 
                     <OptionCard
                         key={opt}
                         label={
-                            opt === 'Até 3k' ? 'Até R$ 3.000' :
-                                opt === '20k+' ? 'Acima de R$ 20.000' :
-                                    opt === '3k-6k' ? 'R$ 3.000 — R$ 6.000' :
-                                        opt === '6k-12k' ? 'R$ 6.000 — R$ 12.000' :
-                                            'R$ 12.000 — R$ 20.000'
+                            opt === 'Até 5k' ? 'Até R$ 5.000' :
+                                opt === '60k+' ? 'Acima de R$ 60.000' :
+                                    opt === '5k-15k' ? 'R$ 5.000 — R$ 15.000' :
+                                        opt === '15k-30k' ? 'R$ 15.000 — R$ 30.000' :
+                                            'R$ 30.000 — R$ 60.000'
                         }
                         selected={selectedValue === opt}
                         onClick={() => onSelect(opt)}

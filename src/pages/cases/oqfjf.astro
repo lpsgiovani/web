@@ -26,9 +26,10 @@ const entry = {
 
 const title = `${entry.data.title} | Primitiva Cases`;
 const description = entry.data.description;
+const ogImage = coverImage.src;
 ---
 
-<WebLayout title={title} description={description}>
+<WebLayout title={title} description={description} ogImage={ogImage}>
     <fragment slot="head">
         <link rel="preload" href="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie" as="fetch" type="application/json" crossorigin />
     </fragment>
@@ -126,7 +127,7 @@ const description = entry.data.description;
                         Diversidade como<br/> ponto de partida
                      </h2>
                      <p class="font-serif text-zinc-400 leading-relaxed text-xl mb-12 max-w-lg">
-                        Antes de qualquer linha de código, projetamos um ecossistema visual que suportasse a magnitude do projeto. O Que Fazer em JF não é apenas um guia, é um ponto de encontro. 
+                        Antes de qualquer linha de código, projetamos um ecossistema visual que suportasse a magnitude do projeto. O Que Fazer em JF não é apenas um guia urbano, é uma curadoria humana e personalizada. 
                         <br/><br/>
                         O desafio era traduzir a diversidade infinita de Juiz de Fora, dos rolês alternativos aos clássicos, em uma linguagem que conversasse com todos os públicos, sem distinções.
                      </p>

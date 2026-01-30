@@ -18,8 +18,8 @@ import WebAbout from '../components/web/WebAbout.astro';
 import WebProcessManifesto from '../components/web/WebProcessManifesto.astro';
 import thumbImg from '../assets/primitiva/thumb.jpg?url';
 
-const title = "Desenvolvimento de Sites Rápidos e Otimizados | Primitiva";
-const description = "Criação de sites de alta performance focada em conversão e SEO. Next.js, Astro e Design Premium.";
+const title = "Desenvolvimento de Sites Rápidos e Otimizados";
+const description = "Sites ultra-rápidos que convertem. Especialistas em Astro, Next.js e Design Estratégico de alta performance.";
 
 // JSON-LD Structured Data
 const structuredData = {
@@ -60,7 +60,7 @@ const structuredData = {
 };
 ---
 
-<WebLayout title={title} description={description}>
+<WebLayout title={title} description={description} ogImage={thumbImg}>
   <main class="relative flex w-full flex-col">
     <!-- Header with modified Headline for Web -->
     <HeaderWeb transition:persist />

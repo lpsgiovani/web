@@ -16,10 +16,13 @@ export const prerender = false; // Add this if the page itself needs to be dynam
 // For the page itself, it can be static.
 
 // Let's check 'astro.config.mjs' to be sure about the output mode.
+import thumbImg from '../assets/primitiva/thumb.jpg?url';
+
 // SEO metadata
 const title = "Briefing — Inicie seu Projeto de Alta Performance";
 const description = "Explique as necessidades do seu projeto e receba uma proposta estratégica. Especialistas em sites rápidos, conversão e infraestrutura digital.";
 const canonical = "/briefing/";
+const ogImage = thumbImg;
 
 // JSON-LD Structured Data
 const structuredData = {
@@ -39,7 +42,7 @@ const structuredData = {
 };
 ---
 
-<WebLayout title={title} description={description} canonical={canonical}>
+<WebLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
