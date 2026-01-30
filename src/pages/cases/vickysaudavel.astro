@@ -168,15 +168,19 @@ const description = entry.data.description;
             </div>
         </section>
 
-        {/* Mobile-only Image position between Sections 03 and 04 */}
-        <div class="block md:hidden w-full aspect-[4/5] overflow-hidden bg-zinc-900 reveal-img border-b border-zinc-900">
-             <Image 
-                src="/assets-dev/vickysaudavel/deusa_suprema.webp" 
-                alt="Vicky Saudável - Divisor Mobile 2"
-                width={1200}
-                height={1600}
-                class="w-full h-full object-cover"
-             />
+        {/* Mobile-only Lottie Showcase (Moved from bottom) */}
+        <div class="block md:hidden w-full aspect-[4/5] overflow-hidden bg-zinc-900 reveal-img border-b border-zinc-900 relative">
+             <div class="absolute inset-0 w-full h-full">
+                  <dotlottie-player
+                    src="/assets-dev/vickysaudavel/showreel_vicky.lottie"
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                    class="w-full h-full scale-110"
+                    style="width: 100%; height: 100%; object-fit: cover;"
+                  ></dotlottie-player>
+             </div>
         </div>
 
         {/* 4. TECNOLOGIA */}
@@ -249,7 +253,8 @@ const description = entry.data.description;
                 </div>
 
                 {/* Showcase Side */}
-                <div class="relative bg-zinc-950 min-h-[500px] md:min-h-0">
+                {/* Showcase Side (Desktop Only) */}
+                <div class="hidden md:block relative bg-zinc-950 min-h-[500px] md:min-h-0">
                      <div class="flex items-center justify-center w-full h-full md:sticky md:top-0">
                           <dotlottie-player
                             src="/assets-dev/vickysaudavel/showreel_vicky.lottie"

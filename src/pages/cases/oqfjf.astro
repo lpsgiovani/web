@@ -19,7 +19,7 @@ const entry = {
     client: "O que fazer em JF?",
     year: "2026",
     techStack: ["NEXT.JS", "FIREBASE", "PWA"],
-    challenge: "Transpor a conexão emocional do Instagram para um ecossistema escalável. Precisávamos de uma infraestrutura que suportasse o tráfego de uma comunidade massiva, garantindo carregamento instantâneo e uma lógica de navegação que priorizasse a curadoria humana.",
+    challenge: "O desafio era transportar a conexão emocional do Instagram para um ecossistema escalável. Precisávamos de uma infraestrutura que suportasse o tráfego de uma comunidade massiva, garantindo carregamento instantâneo e uma lógica de navegação que priorizasse a curadoria humana.",
     outcome: "Um ecossistema em constante evolução. Estamos transformando influência social em infraestrutura sólida, criando uma plataforma que organiza a inteligência cultural da cidade e abre novas avenidas de monetização, garantindo que o legado do OQFJF cresça junto com sua comunidade."
   }
 };
@@ -128,7 +128,7 @@ const description = entry.data.description;
                      <p class="font-serif text-zinc-400 leading-relaxed text-xl mb-12 max-w-lg">
                         Antes de qualquer linha de código, projetamos um ecossistema visual que suportasse a magnitude do projeto. O Que Fazer em JF não é apenas um guia, é um ponto de encontro. 
                         <br/><br/>
-                        O desafio era traduzir a diversidade infinita de Juiz de Fora — dos rolês alternativos aos clássicos — em uma linguagem que conversasse com todos os públicos, sem distinções.
+                        O desafio era traduzir a diversidade infinita de Juiz de Fora, dos rolês alternativos aos clássicos, em uma linguagem que conversasse com todos os públicos, sem distinções.
                      </p>
                      <div class="flex gap-16 border-t border-zinc-800 pt-12">
                          <div>
@@ -153,7 +153,7 @@ const description = entry.data.description;
                         Uma identidade<br/> sem fronteiras
                      </h2>
                      <p class="font-sans text-zinc-500 max-w-md leading-relaxed mb-12">
-                        Essa explosão de cores representa a pluralidade da cidade: queríamos deixar claro que, no "O Que Fazer", todos são bem-vindos. É o design que abraça a todos e mostra, de forma autêntica, realmente tudo o que JF tem a oferecer.
+                        Essa explosão de cores representa a pluralidade da cidade: queríamos deixar claro que todos são bem-vindos. É o design que abraça a todos e mostra, de forma autêntica, realmente tudo o que JF tem a oferecer.
                      </p>
                  </div>
 
@@ -206,8 +206,72 @@ const description = entry.data.description;
             </div>
         </section>
 
-        {/* 04. DESENVOLVIMENTO & SHOWCASE */}
-        <section class="border-b border-zinc-900 bg-black text-white overflow-hidden">
+        {/* 04. DESENVOLVIMENTO & SHOWCASE - MOBILE (LOTTIE BEFORE TEXT) */}
+        <section class="block md:hidden border-b border-zinc-900 bg-zinc-950 overflow-hidden">
+             
+             {/* Showcase Lottie Mobile Only */}
+             <div class="aspect-[4/3] w-full relative bg-[#050505] overflow-hidden border-b border-zinc-900">
+                   <div class="absolute inset-0 w-full h-full overflow-hidden">
+                        <dotlottie-player
+                          src="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie"
+                          background="transparent"
+                          speed="1"
+                          loop
+                          autoplay
+                          class="w-full h-full scale-[1.01]"
+                          style="width: 100.5%; height: 100.5%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.01);"
+                       ></dotlottie-player>
+                   </div>
+             </div>
+
+             {/* Content Mobile Only */}
+             <div class="p-8 pb-12 bg-black">
+                 <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-12 reveal-up">
+                        04 — DESENVOLVIMENTO
+                 </span>
+                 <ul class="flex flex-col gap-8 list-none reveal-up delay-100">
+                    <li class="border-t border-zinc-800 pt-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 shrink-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                            </svg>
+                            <strong class="text-white text-base font-mono uppercase">Busca por Experiência</strong>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Taxonomia inteligente por "Date" ou "Pet-friendly". Lógica de busca resiliente e rápida.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 shrink-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+                            <strong class="text-white text-base font-mono uppercase">Curadoria Humana</strong>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Preview de vídeos curtos otimizados para consumo ultra-rápido e dicas exclusivas.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 shrink-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                            </svg>
+                            <strong class="text-white text-base font-mono uppercase">Core Tecnológico</strong>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Construção com foco em performance extrema e escalabilidade para novos features futuros.</p>
+                    </li>
+                    <li class="border-t border-zinc-800 pt-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 shrink-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 18.4V14.15m16.5 0a2.25 2.25 0 00-2.25-2.25H4.875a2.25 2.25 0 00-2.25 2.25m16.5 0V8.25a2.25 2.25 0 00-2.25-2.25H4.875A2.25 2.25 0 002.625 8.25V14.15M12 15.75h.008v.008H12v-.008z" />
+                            </svg>
+                            <strong class="text-white text-base font-mono uppercase">Ecossistema B2B</strong>
+                        </div>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Área logada para parceiros com faturamento automatizado e cupons.</p>
+                    </li>
+                 </ul>
+             </div>
+        </section>
+
+        {/* 04. DESENVOLVIMENTO & SHOWCASE - DESKTOP (ORIGINAL) */}
+        <section class="hidden md:block border-b border-zinc-900 bg-black text-white overflow-hidden">
             <div class="grid grid-cols-1 md:grid-cols-12 items-stretch">
                 {/* Solutions Side */}
                 <div class="md:col-span-4 p-8 md:p-12 lg:p-20 border-b md:border-b-0 md:border-r border-zinc-900 flex flex-col justify-center bg-black relative z-10">
