@@ -16,9 +16,33 @@ export const prerender = false; // Add this if the page itself needs to be dynam
 // For the page itself, it can be static.
 
 // Let's check 'astro.config.mjs' to be sure about the output mode.
+// SEO metadata
+const title = "Briefing — Inicie seu Projeto de Alta Performance";
+const description = "Explique as necessidades do seu projeto e receba uma proposta estratégica. Especialistas em sites rápidos, conversão e infraestrutura digital.";
+const canonical = "/briefing/";
+
+// JSON-LD Structured Data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://dev.primitiva.cc"
+  }, {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Briefing",
+    "item": "https://dev.primitiva.cc/briefing/"
+  }]
+};
 ---
 
-<WebLayout title="Briefing" description="Fale sobre seu projeto">
+<WebLayout title={title} description={description} canonical={canonical}>
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
     <div class="bg-[#09090b] min-h-screen pt-24 pb-12">
         <BriefingForm client:only="react" />
     </div>

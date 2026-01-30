@@ -1,0 +1,100 @@
+---
+// ContactHeaderWeb.astro - Adapted HeaderWeb for Contact Page
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/primitiva/primitiva_logo.svg';
+---
+
+<header class="relative bg-black text-white min-h-[50vh] md:min-h-0 md:h-full flex flex-col p-6 md:py-8 md:px-12 border-b border-zinc-900 overflow-hidden">
+  {/* Background Grid - Matching WebIdentity/HeaderWeb for consistency */}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
+  
+  {/* System Header Bar (Identical to Home) */}
+  <div class="w-full max-w-4xl md:max-w-none mx-auto md:mx-0 border-b border-zinc-900 bg-black px-2 md:px-0 py-3 flex items-center justify-between reveal-up active z-50 mb-2 md:mb-0">
+    
+    {/* Logo + System Log */}
+    <div class="flex items-center gap-4">
+      <a href="/">
+        <img 
+          src={logoImg.src} 
+          alt="Logo Primitiva" 
+          class="h-5 w-auto"
+          loading="eager"
+          width="100"
+          height="20"
+        />
+      </a>
+      <div class="hidden md:flex items-center" aria-hidden="true" role="presentation">
+        <svg width="120" height="20" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-30">
+          <text x="0" y="14" fill="white" font-family="monospace" font-size="10" letter-spacing="2">V1.0 // JF_BR</text>
+        </svg>
+      </div>
+    </div>
+
+    {/* Navigation */}
+    <nav class="flex items-center gap-4 md:gap-8">
+      <a 
+        href="/"
+        class="nav-link-01 group flex items-center gap-1 font-mono text-[10px] md:text-xs font-bold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors cursor-pointer"
+      >
+        <span>INICIO</span>
+      </a>
+
+      <a 
+        href="/contato/"
+        class="nav-link-02 group flex items-center gap-2 font-mono text-[10px] md:font-display md:text-xs font-bold tracking-wider uppercase text-white md:border md:border-zinc-800 md:rounded md:bg-zinc-900/50 px-0 md:px-3 py-1.5 hover:border-zinc-600 transition-colors cursor-pointer"
+      >
+        <span>CONTATO</span>
+        <span class="relative flex h-2 w-2 ml-1">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+      </a>
+    </nav>
+  </div>
+
+  {/* Content Area - BORA CONVERSAR */}
+  <div class="flex-1 flex flex-col justify-end items-start mt-10 relative z-10 w-full max-w-4xl md:max-w-none mx-auto md:mx-0">
+    <div class="relative overflow-hidden w-full">
+      <h1 class="font-display font-black text-[14vw] md:text-[10vw] leading-[0.8] tracking-tighter uppercase text-white reveal-up delay-100 mix-blend-difference">
+        ESTABELECER<br />
+        CONEXÃO<span class="animate-blink text-green-500">_</span>
+      </h1>
+    </div>
+  </div>
+
+  {/* Technical Footer Details (Optional, keeping consistent with grid theme) */}
+  <div class="hidden md:block absolute bottom-6 right-12 font-mono text-[8px] uppercase tracking-widest text-zinc-800 pointer-events-none">
+    INIT_CONTACT_PROTOCOL_V1
+  </div>
+
+</header>
+
+<style>
+    .nav-link-01::before {
+        content: '[01]';
+        color: rgba(255, 255, 255, 0.3);
+        margin-right: 0.25rem;
+        transition: color 0.2s ease;
+    }
+    .nav-link-01:hover::before {
+        color: white;
+    }
+
+    .nav-link-02::before {
+        content: '[02]';
+        color: rgba(255, 255, 255, 0.3);
+        margin-right: 0.5rem;
+        transition: color 0.2s ease;
+    }
+    .nav-link-02:hover::before {
+        color: white;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    .animate-blink {
+        animation: blink 0.8s infinite;
+    }
+</style>
