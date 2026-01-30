@@ -103,9 +103,9 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
 
 
       <script is:inline>
-          (function() {
+          function setupHeader() {
               const TARGET_TEXT_1 = "> STATUS: ";
-              const TARGET_TEXT_2 = "Projetamos ativos para escalar seu negócio com segurança e autoridade absoluta.";
+              const TARGET_TEXT_2 = "Projetamos ativos para escalar seu negócio com segurança e autoridade";
               
               const statusText1El = document.getElementById('status-text-1');
               const statusText2El = document.getElementById('status-text-2');
@@ -116,12 +116,15 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
               
               if (!statusText1El || !statusText2El || !statusText3El || !cursor1El || !cursor2El || !separatorEl) return;
               
+              // Only run typewriter logic once if persistence is used (to avoid overlapping intervals)
+              if (window.headerInitialized) return;
+              window.headerInitialized = true;
+
               // Blinking cursor logic
               let blinkState = true;
               setInterval(() => {
                   blinkState = !blinkState;
                   const opacity = blinkState ? '1' : '0';
-                  // Only show cursor if active phase
                   if (cursor1El.dataset.active === 'true') cursor1El.style.opacity = opacity;
                   if (cursor2El.dataset.active === 'true') cursor2El.style.opacity = opacity;
               }, 530);
@@ -156,22 +159,71 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
                                        charIndex2++;
                                    } else {
                                        clearInterval(text2Interval);
-                                       // Keep cursor 2 blinking at the end
                                    }
                                }, 30);
                            }, 200);
                        }
                   }, 30);
-                  
               }, 1200);
-          })();
+
+              // Scroll to next section logic
+              const scrollTrigger = document.getElementById('scroll-trigger');
+              
+              const scrollToNext = () => {
+                  const nextSection = document.getElementById('identity');
+                  if (nextSection) {
+                      nextSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+              };
+
+              // Click action on indicator
+              if (scrollTrigger) {
+                  scrollTrigger.style.cursor = 'pointer';
+                  scrollTrigger.classList.add('pointer-events-auto');
+                  scrollTrigger.addEventListener('click', scrollToNext);
+              }
+
+              // Navigation-safe Scroll Actions (Using debouncing/isScrolling flag)
+              let scrollActive = false;
+              
+              const handleWheel = (e) => {
+                  if (window.scrollY < 50 && e.deltaY > 0 && !scrollActive) {
+                      scrollActive = true;
+                      scrollToNext();
+                      setTimeout(() => { scrollActive = false; }, 1500);
+                  }
+              };
+
+              let touchStartY = 0;
+              const handleTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
+              const handleTouchMove = (e) => {
+                  const touchEndY = e.touches[0].clientY;
+                  if (window.scrollY < 50 && touchStartY - touchEndY > 70 && !scrollActive) {
+                      scrollActive = true;
+                      scrollToNext();
+                      setTimeout(() => { scrollActive = false; }, 1500);
+                  }
+              };
+
+              window.addEventListener('wheel', handleWheel, { passive: true });
+              window.addEventListener('touchstart', handleTouchStart, { passive: true });
+              window.addEventListener('touchmove', handleTouchMove, { passive: true });
+          }
+
+          // Handle initialization for both first load and View Transitions
+          if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', setupHeader);
+          } else {
+              setupHeader();
+          }
+          document.addEventListener('astro:page-load', setupHeader);
       </script>
 
       {/* Hero Footer - Eliminating the black void */}
       <div class="absolute bottom-10 left-6 right-6 md:left-12 md:right-12 flex flex-col md:flex-row items-center justify-between gap-6 pointer-events-none z-20">
           
           {/* Scroll Indicator */}
-          <div class="flex flex-col items-center gap-3 animate-fade-in" style="animation-delay: 1.5s">
+          <div id="scroll-trigger" class="flex flex-col items-center gap-3 animate-fade-in" style="animation-delay: 1.5s">
               <span class="font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-600">SCROLL_TO_MANIFESTO</span>
               <div class="w-[1px] h-12 bg-gradient-to-b from-zinc-800 to-transparent relative overflow-hidden">
                   <div class="absolute inset-0 w-full h-full bg-white animate-scroll-line"></div>

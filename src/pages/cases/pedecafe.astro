@@ -124,7 +124,6 @@ const description = entry.data.description;
 
 
 
-        </section>
 
         {/* 2. BRANDING: The Concept (Split Screen) */}
         <section class="border-b border-zinc-900 bg-zinc-950">
@@ -246,42 +245,59 @@ const description = entry.data.description;
         </section>
 
         <script>
-            // Hardened Video Autoplay Fix for Mobile Navigation
-            document.addEventListener('astro:page-load', () => {
-                const video = document.getElementById('mobile-orbit-video') as HTMLVideoElement;
-                if (!video) return;
-
-                // Force play function
-                const playVideo = async () => {
-                    try {
-                        if (video.paused) {
-                            await video.play();
-                        }
-                    } catch (err) {
-                        console.warn('Auto-play blocked:', err);
-                    }
-                };
-
-                // 1. Try immediate play
-                playVideo();
-
-                // 2. Use IntersectionObserver to ensure it plays when visible/loaded
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            playVideo();
-                        }
-                    });
-                }, { threshold: 0.1 });
+            // Hardened Video Autoplay Fix for Mobile & View Transitions
+            function initVideos() {
+                const videos = document.querySelectorAll('video');
                 
-                // 3. Force loop manually if native loop fails
-                video.addEventListener('ended', () => {
-                    video.currentTime = 0;
-                    playVideo();
-                });
+                videos.forEach(video => {
+                    // Force attributes for mobile autoplay
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('muted', '');
+                    video.muted = true;
 
-                observer.observe(video);
-            });
+                    const playVideo = async () => {
+                        try {
+                            if (video.paused) {
+                                await video.play();
+                            }
+                        } catch (err) {
+                            // If blocked, try again on first user interaction
+                            const playOnGesture = () => {
+                                video.play();
+                                document.removeEventListener('touchstart', playOnGesture);
+                                document.removeEventListener('mousedown', playOnGesture);
+                            };
+                            document.addEventListener('touchstart', playOnGesture, { once: true });
+                            document.addEventListener('mousedown', playOnGesture, { once: true });
+                        }
+                    };
+
+                    // Try playing immediately
+                    playVideo();
+
+                    // Ensure it plays when it becomes visible
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                playVideo();
+                            } else {
+                                video.pause(); // Pause when off-screen to save battery/perf
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
+                    observer.observe(video);
+
+                    // Robust Loop
+                    video.addEventListener('ended', () => {
+                        video.currentTime = 0;
+                        video.play();
+                    });
+                });
+            }
+
+            // Initialization on first load and subsequent navigations
+            document.addEventListener('astro:page-load', initVideos);
         </script>
 
 

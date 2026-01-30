@@ -336,14 +336,5 @@ const description = entry.data.description;
     document.addEventListener('astro:page-load', () => {
         const elements = document.querySelectorAll('.reveal-up, .reveal-text, .reveal-img, .line-grow');
         elements.forEach(el => observer.observe(el));
-
-        // Robust Infinite Loop for Video
-        const video = document.getElementById('screens-video') as HTMLVideoElement;
-        if (video) {
-            video.addEventListener('ended', () => {
-                video.currentTime = 0;
-                video.play();
-            });
-        }
     });
 </script>
