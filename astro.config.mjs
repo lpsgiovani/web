@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
+import vercel from '@astrojs/vercel';
 
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -13,6 +14,11 @@ const site = 'https://dev.primitiva.cc';
 
 export default defineConfig({
     output: 'static',
+    adapter: vercel({
+        webAnalytics: {
+            enabled: true,
+        },
+    }),
     trailingSlash: 'always',
     site,
 
