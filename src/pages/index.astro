@@ -105,31 +105,24 @@ const structuredData = {
 
 <style is:global>
   /**
-   * HYBRID NATIVE AUTO-SCROLL (SCROLL SNAP)
-   * MOBILE: Mandatory snap only between Hero and Identity.
-   * DESKTOP: Full mandatory snap sequence across all sections.
+   * RELIABLE NATIVE AUTO-SCROLL (SCROLL SNAP)
+   * Restored to DESKTOP ONLY to ensure 100% reliability on Mobile.
    */
   html {
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    scroll-padding-top: 0px; 
   }
 
-  /* 
-     GLOBAL SNAP TARGETS (Mobile & Desktop)
-     This ensures the transition from Hero to Identity is always mandatory.
-  */
-  #hero,
-  #identity {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  /* 
-     DESKTOP ONLY SNAP TARGETS
-     Maintains the premium feel for larger screens throughout the page.
-  */
   @media (min-width: 1024px) {
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-padding-top: 0px; 
+    }
+
+    /* 
+       Snap targets for Desktop only. 
+    */
+    #hero,
+    #identity, 
     #expertise,
     #performance,
     #tech,
@@ -139,22 +132,6 @@ const structuredData = {
     #free-zone {
       scroll-snap-align: start;
       scroll-snap-stop: always;
-    }
-  }
-
-  /* 
-     MOBILE FLUIDITY:
-     From Expertise downwards, we release the snap so user can scroll naturally.
-  */
-  @media (max-width: 1023px) {
-    #expertise,
-    #performance,
-    #tech,
-    #manifesto, 
-    #portfolio,
-    #about,
-    #free-zone {
-      scroll-snap-align: none;
     }
   }
 

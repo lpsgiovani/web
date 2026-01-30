@@ -112,13 +112,22 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
               
               if (!statusText1El || !statusText2El || !statusText3El || !cursor1El || !cursor2El || !separatorEl) return;
               
-              // Only run typewriter logic once if persistence is used (to avoid overlapping intervals)
-              if (window.headerInitialized) return;
-              window.headerInitialized = true;
+              // Reset state for View Transitions re-runs
+              statusText1El.textContent = '';
+              statusText2El.textContent = '';
+              statusText3El.textContent = '';
+              cursor1El.dataset.active = 'false';
+              cursor2El.dataset.active = 'false';
+              cursor1El.style.opacity = '0';
+              cursor2El.style.opacity = '0';
+              separatorEl.classList.add('opacity-0');
+              separatorEl.classList.remove('opacity-100');
 
-              // Blinking cursor logic
+              // Blinking cursor logic (ensure only one interval exists)
+              if (window.headerBlinkInterval) clearInterval(window.headerBlinkInterval);
+              
               let blinkState = true;
-              setInterval(() => {
+              window.headerBlinkInterval = setInterval(() => {
                   blinkState = !blinkState;
                   const opacity = blinkState ? '1' : '0';
                   if (cursor1El.dataset.active === 'true') cursor1El.style.opacity = opacity;

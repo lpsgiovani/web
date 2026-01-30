@@ -36,7 +36,7 @@ export default function ContactOptions() {
                 </a>
 
                 <a
-                    href="/briefing"
+                    href="/briefing/"
                     className="group border-b border-white/20 py-8 md:py-12 flex items-center justify-between hover:bg-white/5 transition-colors cursor-pointer"
                 >
                     <div className="flex flex-col gap-2">
