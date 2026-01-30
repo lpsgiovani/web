@@ -62,11 +62,11 @@ const structuredData = {
 
 <WebLayout title={title} description={description}>
   <main class="relative flex w-full flex-col">
-    <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    
     <!-- Header with modified Headline for Web -->
     <HeaderWeb transition:persist />
+    
+    <!-- Structured Data (Moved after header to avoid top-offset issues) -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
     <!-- Manifesto: O Fim da Internet Industrial -->
     <WebIdentity />
@@ -89,13 +89,75 @@ const structuredData = {
     <!-- Quem Somos (Célula) -->
     <WebAbout />
 
-    <!-- Interactive Web Testimonials Carousel -->
-    <WebTestimonials client:visible />
+    {/* SEÇÃO LIVRE: Dali para baixo o scroll volta a ser natural */}
+    <div id="free-zone">
+      <!-- Interactive Web Testimonials Carousel -->
+      <WebTestimonials client:visible />
 
-    <!-- Interactive Web FAQ Accordion -->
-    <WebFAQ client:visible />
-    
-    <!-- Footer with CTA tracking (Web Specific) -->
-    <WebFooter />
+      <!-- Interactive Web FAQ Accordion -->
+      <WebFAQ client:visible />
+      
+      <!-- Footer with CTA tracking (Web Specific) -->
+      <WebFooter />
+    </div>
   </main>
 </WebLayout>
+
+<style is:global>
+  /**
+   * RELIABLE NATIVE AUTO-SCROLL (SCROLL SNAP)
+   */
+  html {
+    /* Use proximity on mobile to avoid skipping sections with internal animations */
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    scroll-padding-top: 0px; 
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      /* Forced-jump feel for desktop only */
+      scroll-snap-type: y mandatory;
+    }
+  }
+
+  /* 
+     Impact sections IDs. 
+     Every section MUST stay as a target globally to prevent the 'skipping' bug.
+  */
+  #hero,
+  #identity, 
+  #expertise,
+  #performance,
+  #tech,
+  #manifesto, 
+  #portfolio,
+  #about,
+  #free-zone {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* 
+     MOBILE EXEMPTION: 
+     On mobile, we 'release' the anchor for sections with internal scroll logic.
+     Combined with 'proximity' on the html tag, this allows them to be fluid 
+     WITHOUT skipping them.
+  */
+  @media (max-width: 1023px) {
+    #expertise, 
+    #tech {
+      scroll-snap-align: none;
+    }
+  }
+
+  /* Free mode after the "About" section */
+  #free-zone {
+    scroll-snap-align: start;
+  }
+
+  /* Header stays neutral */
+  header {
+    scroll-snap-align: none;
+  }
+</style>

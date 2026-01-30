@@ -6,7 +6,7 @@ const TECH_PILLARS = [
     {
         id: '01',
         title: "Imersão",
-        description: "Antes de desenhar, nós pensamos. Fazemos uma imersão no seu modelo de negócio para extrair o diferencial que você ainda não sabe como mostrar ao mundo. Mapeamos comportamentos, analisamos dados e definimos a estratégia que vai sustentar todas as decisões do projeto.",
+        description: "Fazemos uma imersão no seu modelo de negócio para extrair o diferencial que você ainda não sabe como mostrar ao mundo. Mapeamos comportamentos, analisamos dados e definimos a estratégia que vai sustentar todas as decisões do projeto.",
         label: "ghost-phase-01",
         file: "ghost-label-extraction",
         tag: "[ MAPEANDO_OPORTUNIDADES ]",

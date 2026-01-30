@@ -6,7 +6,7 @@ const SERVICES = [
     {
         id: 'SRV_01',
         title: "Estratégia",
-        description: "Antes de codificar, desenhamos o caminho para a sua escala. Unimos análise de mercado e design de experiência para garantir que cada decisão tenha um objetivo comercial.",
+        description: "Onde começam todas as nossas entregas. Antes de qualquer esboço, desenhamos o caminho para a sua escala. Unimos análise de mercado e design de experiência para garantir que cada decisão tenha um objetivo comercial.",
         log: "STRATEGY.LOG"
     },
     {
@@ -97,44 +97,50 @@ export default function WebServices() {
 
                     {/* Services Loop */}
                     <div className="flex flex-col md:flex-row justify-between items-start relative gap-16 md:gap-0">
-                        {SERVICES.map((item, idx) => (
-                            <div
-                                key={item.id}
-                                className="group relative w-full md:w-1/3 flex flex-col items-start"
-                            >
-                                {/* Node (Square) */}
-                                <div className="absolute left-[15px] md:left-24 top-1.5 md:top-[100px] md:-translate-y-1/2 z-20">
-                                    <div
-                                        className="w-3 h-3 border border-zinc-300 bg-white group-hover:bg-black group-hover:border-black transition-all duration-300"
-                                        style={{ animationDelay: `${idx * 1.5}s` }}
-                                    />
-                                </div>
+                        {SERVICES.map((item, idx) => {
+                            const isActive = scrollProgress > (idx / SERVICES.length);
+                            return (
+                                <div
+                                    key={item.id}
+                                    className="group relative w-full md:w-1/3 flex flex-col items-start"
+                                >
+                                    {/* Node (Square) */}
+                                    <div className="absolute left-[15px] md:left-24 top-[9px] md:top-[100px] md:-translate-y-1/2 z-20">
+                                        <div
+                                            className={`w-3 h-3 border transition-all duration-300 ${isActive
+                                                ? 'bg-black border-black scale-110 md:bg-white md:border-zinc-300 md:scale-100'
+                                                : 'border-zinc-300 bg-white'
+                                                } group-hover:bg-black group-hover:border-black`}
+                                            style={{ animationDelay: `${idx * 1.5}s` }}
+                                        />
+                                    </div>
 
-                                {/* Content: Title Area */}
-                                <div className="pl-12 md:pl-24 md:h-[100px] flex flex-col justify-end pb-3 w-full text-left transition-all duration-500 md:group-hover:-translate-y-1">
-                                    <div className="flex items-center gap-3 mb-1">
-                                        <span className="font-mono text-[10px] text-zinc-400 tracking-widest">[0{idx + 1}]</span>
-                                        <h3 className="font-mono text-lg md:text-2xl font-bold uppercase tracking-tighter">
-                                            {item.title}
-                                        </h3>
+                                    {/* Content: Title Area */}
+                                    <div className={`pl-12 md:pl-24 md:h-[100px] flex flex-col justify-end pb-3 w-full text-left transition-all duration-500 md:group-hover:-translate-y-1 ${isActive ? 'opacity-100' : 'opacity-60 md:opacity-100'}`}>
+                                        <div className="flex items-center gap-3 mb-1">
+                                            <span className={`font-mono text-[10px] tracking-widest transition-colors duration-300 ${isActive ? 'text-black md:text-zinc-400' : 'text-zinc-400'}`}>[0{idx + 1}]</span>
+                                            <h3 className="font-mono text-lg md:text-2xl font-bold uppercase tracking-tighter">
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    {/* Content: Description Area */}
+                                    <div className={`pl-12 md:pl-24 pt-3 w-full text-left transition-all duration-500 group-hover:opacity-100 md:group-hover:translate-y-1 ${isActive ? 'opacity-100 md:opacity-60' : 'opacity-40 md:opacity-60'}`}>
+                                        <p className="font-sans text-[13px] md:text-sm leading-relaxed max-w-[280px] text-zinc-600">
+                                            {item.description}
+                                        </p>
+
+                                        {/* Desktop Blueprint Annotations */}
+                                        <div className="hidden md:flex mt-4 items-center gap-4 font-mono text-[8px] tracking-[0.2em] text-black/20 uppercase group-hover:text-black/40 transition-colors">
+                                            <span>Scale: 1:1</span>
+                                            <span className="opacity-30">/</span>
+                                            <span>Status: {item.log}</span>
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Content: Description Area */}
-                                <div className="pl-12 md:pl-24 pt-3 w-full text-left transition-all duration-500 opacity-60 group-hover:opacity-100 md:group-hover:translate-y-1">
-                                    <p className="font-sans text-[13px] md:text-sm leading-relaxed max-w-[280px] text-zinc-600">
-                                        {item.description}
-                                    </p>
-
-                                    {/* Desktop Blueprint Annotations */}
-                                    <div className="hidden md:flex mt-4 items-center gap-4 font-mono text-[8px] tracking-[0.2em] text-black/20 uppercase group-hover:text-black/40 transition-colors">
-                                        <span>Scale: 1:1</span>
-                                        <span className="opacity-30">/</span>
-                                        <span>Status: {item.log}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 

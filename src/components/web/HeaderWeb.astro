@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import logoImg from '../../assets/primitiva/primitiva_logo.svg';
 ---
 
-<header class="relative bg-black text-white h-[100svh] flex flex-col p-6 md:py-8 md:px-12 border-b border-zinc-900 overflow-hidden">
+<header id="hero" class="relative bg-black text-white h-[100svh] flex flex-col p-6 md:py-8 md:px-12 border-b border-zinc-900 overflow-hidden">
   {/* Background Grid - Matching WebIdentity for consistency */}
   <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
   
@@ -164,50 +164,16 @@ import logoImg from '../../assets/primitiva/primitiva_logo.svg';
 
               // Scroll to next section logic
               const scrollTrigger = document.getElementById('scroll-trigger');
-              
-              const scrollToNext = () => {
-                  const nextSection = document.getElementById('identity');
-                  if (nextSection) {
-                      nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-              };
-
-              // Click action on indicator
               if (scrollTrigger) {
                   scrollTrigger.style.cursor = 'pointer';
                   scrollTrigger.classList.add('pointer-events-auto');
-                  scrollTrigger.addEventListener('click', scrollToNext);
+                  scrollTrigger.addEventListener('click', () => {
+                      const nextSection = document.getElementById('identity');
+                      if (nextSection) {
+                          nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                  });
               }
-
-              // Navigation-safe Scroll Actions (Using debouncing/isScrolling flag)
-              let scrollActive = false;
-              
-              const handleWheel = (e) => {
-                  if (window.scrollY < 50 && e.deltaY > 0 && !scrollActive) {
-                      scrollActive = true;
-                      scrollToNext();
-                      setTimeout(() => { scrollActive = false; }, 1500);
-                  }
-              };
-
-              let touchStartY = 0;
-              const handleTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
-              
-              const handleTouchMove = (e) => {
-                  const touchEndY = e.touches[0].clientY;
-                  const touchDiff = touchStartY - touchEndY;
-                  
-                  // Relaxed constraints for mobile (higher tolerance for initial native scroll)
-                  if (window.scrollY < 150 && touchDiff > 30 && !scrollActive) {
-                      scrollActive = true;
-                      scrollToNext();
-                      setTimeout(() => { scrollActive = false; }, 1500);
-                  }
-              };
-
-              window.addEventListener('wheel', handleWheel, { passive: true });
-              window.addEventListener('touchstart', handleTouchStart, { passive: true });
-              window.addEventListener('touchmove', handleTouchMove, { passive: true });
           }
 
           // Handle initialization for both first load and View Transitions

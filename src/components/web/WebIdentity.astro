@@ -25,10 +25,10 @@
             </p>
             <div class="space-y-6 text-base md:text-xl font-light leading-relaxed text-zinc-500">
                 <p>
-                    Se sua presença digital não traduz sua essência, ela se torna um <span class="text-white font-normal">obstáculo.</span>
+                    Se sua presença digital não traduz seu valor, ela se torna um <span class="text-white font-normal">obstáculo.</span>
                 </p>
                 <p>
-                    Nós construímos o que não pode ser copiado: <span class="text-zinc-300">arquiteturas de autoridade que unem design e engenharia para sua marca dominar o mercado.</span>
+                    Nós construímos o que não pode ser imitado: ecossistemas proprietários recusam ficar só na média e impõem sua autoridade no mercado.
                 </p>
             </div>
 
@@ -73,65 +73,6 @@
         document.querySelectorAll('.reveal-up').forEach(el => {
             revealObserver.observe(el);
         });
-
-        // --- Auto Scroll to Expertise Logic ---
-        const identitySection = document.getElementById('identity');
-        let scrollActive = false;
-
-        if (identitySection) {
-            const scrollToExpertise = () => {
-                const nextSection = document.getElementById('expertise');
-                if (nextSection) {
-                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            };
-
-            const handleWheel = (e) => {
-                if (scrollActive) return;
-
-                // Check if user is viewing Identity section
-                const rect = identitySection.getBoundingClientRect();
-                const isViewable = rect.top >= -50 && rect.bottom <= (window.innerHeight + 50);
-                
-                // If viewing identity and scrolling down
-                if (isViewable && e.deltaY > 0) {
-                    e.preventDefault();
-                    scrollActive = true;
-                    scrollToExpertise();
-                    setTimeout(() => { scrollActive = false; }, 1500); // Debounce
-                }
-            };
-
-            let touchStartY = 0;
-            const handleTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
-            
-            const handleTouchMove = (e) => {
-                if (scrollActive) return;
-                
-                const touchEndY = e.touches[0].clientY;
-                const touchDiff = touchStartY - touchEndY;
-
-                // Check visibility
-                const rect = identitySection.getBoundingClientRect();
-                const isViewable = rect.top >= -100 && rect.bottom <= (window.innerHeight + 100);
-
-                // Swipe UP (Scroll Down)
-                if (isViewable && touchDiff > 30) {
-                    scrollActive = true;
-                    scrollToExpertise();
-                    setTimeout(() => { scrollActive = false; }, 1500);
-                }
-            };
-
-            // Enable listeners only when Identity is in view to save performance? 
-            // Better: Add listeners globally but check bounds inside handler, simpler for SPA.
-            // Or add listeners to window specifically for this logic.
-            
-            // To be safe and avoid conflicts, we'll check if we are basically "centered" on this section.
-            window.addEventListener('wheel', handleWheel, { passive: false }); // passive: false needed for preventDefault
-            window.addEventListener('touchstart', handleTouchStart, { passive: true });
-            window.addEventListener('touchmove', handleTouchMove, { passive: true });
-        }
     };
 
     if (document.readyState === 'loading') {
