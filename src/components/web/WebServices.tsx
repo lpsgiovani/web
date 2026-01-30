@@ -65,7 +65,7 @@ export default function WebServices() {
     }, []);
 
     return (
-        <section className="bg-white text-black py-24 md:py-40 px-6 border-b border-black/5 relative overflow-hidden selection:bg-black selection:text-white">
+        <section id="expertise" className="bg-white text-black py-24 md:py-40 px-6 border-b border-black/5 relative overflow-hidden selection:bg-black selection:text-white">
 
 
             <div className="max-w-7xl mx-auto relative z-10">
