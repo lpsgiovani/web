@@ -105,55 +105,57 @@ const structuredData = {
 
 <style is:global>
   /**
-   * RELIABLE NATIVE AUTO-SCROLL (SCROLL SNAP)
+   * HYBRID NATIVE AUTO-SCROLL (SCROLL SNAP)
+   * MOBILE: Mandatory snap only between Hero and Identity.
+   * DESKTOP: Full mandatory snap sequence across all sections.
    */
   html {
-    /* Use proximity on mobile to avoid skipping sections with internal animations */
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scroll-padding-top: 0px; 
   }
 
-  @media (min-width: 1024px) {
-    html {
-      /* Forced-jump feel for desktop only */
-      scroll-snap-type: y mandatory;
-    }
-  }
-
   /* 
-     Impact sections IDs. 
-     Every section MUST stay as a target globally to prevent the 'skipping' bug.
+     GLOBAL SNAP TARGETS (Mobile & Desktop)
+     This ensures the transition from Hero to Identity is always mandatory.
   */
   #hero,
-  #identity, 
-  #expertise,
-  #performance,
-  #tech,
-  #manifesto, 
-  #portfolio,
-  #about,
-  #free-zone {
+  #identity {
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
 
   /* 
-     MOBILE EXEMPTION: 
-     On mobile, we 'release' the anchor for sections with internal scroll logic.
-     Combined with 'proximity' on the html tag, this allows them to be fluid 
-     WITHOUT skipping them.
+     DESKTOP ONLY SNAP TARGETS
+     Maintains the premium feel for larger screens throughout the page.
   */
-  @media (max-width: 1023px) {
-    #expertise, 
-    #tech {
-      scroll-snap-align: none;
+  @media (min-width: 1024px) {
+    #expertise,
+    #performance,
+    #tech,
+    #manifesto, 
+    #portfolio,
+    #about,
+    #free-zone {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
   }
 
-  /* Free mode after the "About" section */
-  #free-zone {
-    scroll-snap-align: start;
+  /* 
+     MOBILE FLUIDITY:
+     From Expertise downwards, we release the snap so user can scroll naturally.
+  */
+  @media (max-width: 1023px) {
+    #expertise,
+    #performance,
+    #tech,
+    #manifesto, 
+    #portfolio,
+    #about,
+    #free-zone {
+      scroll-snap-align: none;
+    }
   }
 
   /* Header stays neutral */
