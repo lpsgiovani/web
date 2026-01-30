@@ -9,13 +9,7 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const isDev =
-    process.env.VERCEL_ENV === 'preview' ||
-    process.env.NODE_ENV === 'development';
-
-const site = isDev
-    ? 'https://dev.primitiva.cc'
-    : 'https://primitiva.cc';
+const site = 'https://dev.primitiva.cc';
 
 export default defineConfig({
     output: 'static',
