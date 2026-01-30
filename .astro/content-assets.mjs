@@ -1,8 +1,8 @@
 
-import __ASTRO_IMAGE_IMPORT_1GMCar from "./assets/oqfjf.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Foqfjf.md";
-import __ASTRO_IMAGE_IMPORT_2jnDwT from "./assets/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fpedecafe.md";
-import __ASTRO_IMAGE_IMPORT_2rnSic from "./assets/vickysaudavel_cover.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fvickysaudavel.md";
 import __ASTRO_IMAGE_IMPORT_1sQIcy from "../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Ffintech.md";
+import __ASTRO_IMAGE_IMPORT_1GMCar from "./assets/oqfjf.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Foqfjf.md";
 import __ASTRO_IMAGE_IMPORT_Z1m63UQ from "../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fneon-flux.md";
-export default new Map([["./assets/oqfjf.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Foqfjf.md", __ASTRO_IMAGE_IMPORT_1GMCar], ["./assets/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fpedecafe.md", __ASTRO_IMAGE_IMPORT_2jnDwT], ["./assets/vickysaudavel_cover.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fvickysaudavel.md", __ASTRO_IMAGE_IMPORT_2rnSic], ["../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Ffintech.md", __ASTRO_IMAGE_IMPORT_1sQIcy], ["../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fneon-flux.md", __ASTRO_IMAGE_IMPORT_Z1m63UQ]]);
+import __ASTRO_IMAGE_IMPORT_2rnSic from "./assets/vickysaudavel_cover.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fvickysaudavel.md";
+import __ASTRO_IMAGE_IMPORT_2jnDwT from "./assets/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fpedecafe.md";
+export default new Map([["../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Ffintech.md", __ASTRO_IMAGE_IMPORT_1sQIcy], ["./assets/oqfjf.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Foqfjf.md", __ASTRO_IMAGE_IMPORT_1GMCar], ["../../assets/cover/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fneon-flux.md", __ASTRO_IMAGE_IMPORT_Z1m63UQ], ["./assets/vickysaudavel_cover.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fvickysaudavel.md", __ASTRO_IMAGE_IMPORT_2rnSic], ["./assets/pedecafe.webp?astroContentImageFlag=&importer=src%2Fcontent%2Fprojetos%2Fpedecafe.md", __ASTRO_IMAGE_IMPORT_2jnDwT]]);
 		

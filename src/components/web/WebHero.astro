@@ -7,17 +7,19 @@ const allProjects = await getCollection('projetos');
 const ORDER = ['pedecafe', 'oqfjf', 'vickysaudavel'];
 
 const projects = ORDER.map((slug, idx) => {
-    const entry = allProjects.find(p => p.slug === slug);
+    const entry = allProjects.find(p => p.slug === slug || p.id === slug || p.id === `${slug}.md`);
     if (!entry) return null;
 
     return {
         href: `/cases/${entry.slug}/`,
         slug: entry.slug,
         image: entry.data.coverImage,
-        alt: `${entry.data.title} - ${entry.data.description}`,
-        tag: entry.data.category,
-        title: entry.data.title,
-        stack: entry.data.techStack.join(' + '),
+        alt: `${entry.data.title || ''} - ${entry.data.description || ''}`,
+        tag: entry.data.category || 'PROJECT',
+        title: entry.data.title || 'UNTITLED',
+        stack: (entry.data.techStack || []).join(' + '),
+        year: entry.data.year || "2024",
+        projectType: entry.data.projectType || "PROJECT",
         delay: idx === 1 ? 'delay-100' : idx === 2 ? 'delay-200' : '',
         extraClasses: ''
     };
@@ -29,8 +31,6 @@ const projects = ORDER.map((slug, idx) => {
     <div class="absolute inset-0 z-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
     
     <div class="max-w-7xl mx-auto relative z-10 md:pl-8">
-        
-        {/* MOBILE LAYOUT (Carousel) */}
         <div class="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 px-4 scrollbar-hide pb-8">
             {projects.map((project) => (
                 <a
@@ -72,7 +72,7 @@ const projects = ORDER.map((slug, idx) => {
                             </span>
                         </div>
                         <div class="font-mono text-[10px] text-black/70 pt-2 border-t border-black/10 mt-1 whitespace-nowrap overflow-hidden text-ellipsis" aria-hidden="true">
-                            {`[ STACK: ${project.stack} // PERF: 100% ]`}
+                            {`[ TIPO: ${project.projectType} // ANO: ${project.year} ]`}
                         </div>
                     </div>
                 </a>
@@ -130,7 +130,7 @@ const projects = ORDER.map((slug, idx) => {
                             </span>
                         </div>
                         <div class="font-mono text-[10px] text-black/70 pt-2 border-t border-black/10 mt-2" aria-hidden="true">
-                            {`[ STACK: ${project.stack} // PERF: 100% ]`}
+                            {`[ TIPO: ${project.projectType} // ANO: ${project.year} ]`}
                         </div>
                     </div>
                 </a>

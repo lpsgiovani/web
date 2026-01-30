@@ -4,6 +4,8 @@ description: "Rebranding e plataforma de alta performance para um método de ema
 category: "Saúde & Bem-estar"
 coverImage: "./assets/vickysaudavel_cover.webp"
 techStack: ["NEXT.JS", "REACT"]
+year: "2025"
+projectType: "PÁGINA DE VENDAS"
 ---
 ## O Desafio
 

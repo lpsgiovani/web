@@ -4,6 +4,8 @@ description: "Um portal vibrante que conecta a cidade através de curadoria, cul
 category: "Plataforma de Curadoria"
 coverImage: "./assets/oqfjf.webp"
 techStack: ["NEXT.JS", "PAYLOAD CMS"]
+year: "2026"
+projectType: "APLICATIVO"
 ---
 ## O Desafio
 

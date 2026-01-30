@@ -65,17 +65,17 @@ export default function WebServices() {
     }, []);
 
     return (
-        <section className="bg-black text-white pt-24 pb-16 md:pt-26 md:pb-32 px-6 border-b border-white/10 relative overflow-hidden selection:bg-white selection:text-black">
+        <section className="bg-white text-black py-24 md:py-40 px-6 border-b border-black/5 relative overflow-hidden selection:bg-black selection:text-white">
             {/* Background Circuit Grid */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '100px 100px' }}></div>
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '100px 100px' }}></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Section Header */}
-                <div className="mb-16 md:mb-20 text-center reveal-up">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/30 block mb-4">/ NOSSA_EXPERTISE</span>
-                    <h2 className="text-4xl md:text-7xl font-serif italic tracking-tight">
-                        Sistemas que <span className="text-white/40"><br></br>convertem.</span>
+                <div className="mb-16 md:mb-24 text-center px-6 reveal-up">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-black/30 block mb-6">/ NOSSA_EXPERTISE</span>
+                    <h2 className="text-4xl md:text-7xl font-serif leading-[1.1] tracking-tighter">
+                        Sistemas que <br /><span className="italic text-black/40">convertem.</span>
                     </h2>
                 </div>
 
@@ -83,17 +83,17 @@ export default function WebServices() {
                 <div ref={containerRef} className="relative">
 
                     {/* DESKTOP: Horizontal Circuit Line */}
-                    <div className="hidden md:block absolute top-[100px] left-[102px] right-[calc(33.33%-102px)] h-[1px] bg-white/10 overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent blur-[1px] animate-circuit-flow" />
+                    <div className="hidden md:block absolute top-[100px] left-[102px] right-[calc(33.33%-102px)] h-[1px] bg-zinc-200 overflow-hidden">
+                        <div className="w-full h-full bg-gradient-to-r from-transparent via-black/10 to-transparent blur-[1px] animate-circuit-flow" />
                     </div>
 
                     {/* MOBILE: Vertical Timeline Line (Base) */}
-                    <div className="md:hidden absolute left-[21px] top-[7px] bottom-[7px] w-[1px] bg-white/5" />
+                    <div className="md:hidden absolute left-[21px] top-[7px] bottom-[7px] w-[1px] bg-zinc-200" />
 
                     {/* MOBILE: Vertical Timeline Line (Scroll Progress) */}
                     <div
                         style={{ height: `${scrollProgress * 100}%` }}
-                        className="md:hidden absolute left-[21px] top-[7px] w-[1px] bg-gradient-to-b from-transparent via-white to-transparent opacity-80 z-10 transition-all duration-300 ease-out"
+                        className="md:hidden absolute left-[21px] top-[7px] w-[1px] bg-gradient-to-b from-transparent via-black to-transparent opacity-80 z-10 transition-all duration-300 ease-out"
                     />
 
                     {/* Services Loop */}
@@ -106,7 +106,7 @@ export default function WebServices() {
                                 {/* Node (Square) */}
                                 <div className="absolute left-[15px] md:left-24 top-1.5 md:top-[100px] md:-translate-y-1/2 z-20">
                                     <div
-                                        className="w-3 h-3 border border-zinc-600 bg-black group-hover:bg-white group-hover:border-white transition-all duration-300"
+                                        className="w-3 h-3 border border-zinc-300 bg-white group-hover:bg-black group-hover:border-black transition-all duration-300"
                                         style={{ animationDelay: `${idx * 1.5}s` }}
                                     />
                                 </div>
@@ -114,7 +114,7 @@ export default function WebServices() {
                                 {/* Content: Title Area */}
                                 <div className="pl-12 md:pl-24 md:h-[100px] flex flex-col justify-end pb-3 w-full text-left transition-all duration-500 md:group-hover:-translate-y-1">
                                     <div className="flex items-center gap-3 mb-1">
-                                        <span className="font-mono text-[10px] text-zinc-500 tracking-widest">[0{idx + 1}]</span>
+                                        <span className="font-mono text-[10px] text-zinc-400 tracking-widest">[0{idx + 1}]</span>
                                         <h3 className="font-mono text-lg md:text-2xl font-bold uppercase tracking-tighter">
                                             {item.title}
                                         </h3>
@@ -123,12 +123,12 @@ export default function WebServices() {
 
                                 {/* Content: Description Area */}
                                 <div className="pl-12 md:pl-24 pt-3 w-full text-left transition-all duration-500 opacity-60 group-hover:opacity-100 md:group-hover:translate-y-1">
-                                    <p className="font-sans text-[13px] md:text-sm leading-relaxed max-w-[280px]">
+                                    <p className="font-sans text-[13px] md:text-sm leading-relaxed max-w-[280px] text-zinc-600">
                                         {item.description}
                                     </p>
 
                                     {/* Desktop Blueprint Annotations */}
-                                    <div className="hidden md:flex mt-4 items-center gap-4 font-mono text-[8px] tracking-[0.2em] text-white/20 uppercase group-hover:text-white/40 transition-colors">
+                                    <div className="hidden md:flex mt-4 items-center gap-4 font-mono text-[8px] tracking-[0.2em] text-black/20 uppercase group-hover:text-black/40 transition-colors">
                                         <span>Scale: 1:1</span>
                                         <span className="opacity-30">/</span>
                                         <span>Status: {item.log}</span>

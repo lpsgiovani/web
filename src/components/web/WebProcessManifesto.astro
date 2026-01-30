@@ -1,0 +1,139 @@
+---
+// src/components/web/WebProcessManifesto.astro
+---
+
+<!-- Agency Manifesto Section -->
+<section id="manifesto" class="bg-[#050505] py-24 md:py-40 px-6 selection:bg-white selection:text-black relative overflow-hidden border-t border-zinc-900">
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center relative z-10">
+        
+        {/* Column 1: The Philosophy */}
+        <div class="flex flex-col gap-6 md:gap-12">
+             <h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-white leading-[1.1] reveal-up">
+                 Nosso processo <br>é estratégico, <br>técnico e<br />
+                 <span class="text-zinc-500">próximo!</span>
+             </h2>
+
+             {/* Mobile-Only Visual Block (Reordered) */}
+             <div class="relative h-[250px] w-full block md:hidden items-center justify-center pointer-events-none select-none my-4">
+                 {/* Subtle Axis Line */}
+                 <div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-zinc-900 to-transparent"></div>
+    
+                 {/* Floating Tags */}
+                 <div class="absolute top-[15%] right-[10%] z-20 reveal-up delay-150">
+                    <span class="px-5 py-2 rounded-full border border-zinc-800 bg-[#050505]/80 backdrop-blur-md text-[10px] font-mono text-zinc-300 tag-label hover:border-white/50 transition-colors shadow-2xl animate-float-slow inline-block">
+                        [ DESIGN_ESTRATÉGICO ]
+                    </span>
+                 </div>
+    
+                 <div class="absolute top-[45%] left-[5%] z-10 w-max reveal-up delay-300">
+                    <span class="px-6 py-3 rounded-full border border-zinc-700 bg-[#050505] text-xs font-mono text-white tag-label hover:border-white transition-colors shadow-2xl animate-float-medium inline-block">
+                        [ PARCERIA_DE_NEGÓCIO ]
+                    </span>
+                 </div>
+    
+                 <div class="absolute bottom-[15%] right-[5%] z-20 reveal-up delay-500">
+                    <span class="px-5 py-2 rounded-full border border-zinc-800 bg-[#050505]/80 backdrop-blur-md text-[10px] font-mono text-zinc-300 tag-label hover:border-white/50 transition-colors shadow-2xl animate-float-reverse inline-block">
+                         [ ENGENHARIA_DE_ALTO_NIVEL ]
+                    </span>
+                 </div>
+            </div>
+             
+             <div class="space-y-8 text-lg md:text-xl font-light text-zinc-400 leading-relaxed max-w-xl reveal-up delay-700">
+                <p>
+                    Acreditamos que autoridade se constrói nos detalhes, com o carinho de quem realmente coloca a mão na massa. Aqui, seu projeto é construído com a dedicação de quem se importa com o resultado tanto quanto você.  No final, o que entregamos é mais que um site: é uma peça que carrega nossa assinatura e nosso orgulho.
+                </p>
+             </div>
+        </div>
+
+        {/* Column 2: The Machine (Simplified - Desktop Only) */}
+        <div class="relative h-[250px] md:h-[400px] w-full hidden md:flex items-center justify-center pointer-events-none select-none reveal-up delay-200">
+             
+             {/* Subtle Axis Line */}
+             <div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-zinc-900 to-transparent"></div>
+
+             {/* Floating Tags */}
+             <div class="absolute animate-float-slow top-[15%] right-[10%] md:right-[20%] z-20">
+                <span class="px-5 py-2 rounded-full border border-zinc-800 bg-[#050505]/80 backdrop-blur-md text-[10px] md:text-xs font-mono text-zinc-300 tag-label hover:border-white/50 transition-colors shadow-2xl">
+                    [ DESIGN_ESTRATÉGICO ]
+                </span>
+             </div>
+
+             <div class="absolute animate-float-medium top-[45%] left-[5%] md:left-[10%] z-10 w-max">
+                <span class="px-6 py-3 rounded-full border border-zinc-700 bg-[#050505] text-xs md:text-sm font-mono text-white tag-label hover:border-white transition-colors shadow-2xl">
+                    [ PARCERIA_DE_NEGÓCIO ]
+                </span>
+             </div>
+
+             <div class="absolute animate-float-reverse bottom-[15%] right-[5%] md:right-[10%] z-20">
+                <span class="px-5 py-2 rounded-full border border-zinc-800 bg-[#050505]/80 backdrop-blur-md text-[10px] md:text-xs font-mono text-zinc-300 tag-label hover:border-white/50 transition-colors shadow-2xl">
+                     [ ENGENHARIA_DE_ALTO_NIVEL ]
+                </span>
+             </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    @keyframes float-reverse {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(15px); }
+    }
+
+    .animate-float-slow {
+        animation: float 6s ease-in-out infinite;
+    }
+    .animate-float-medium {
+        animation: float 5s ease-in-out infinite;
+    }
+    .animate-float-reverse {
+        animation: float-reverse 7s ease-in-out infinite;
+    }
+
+    .reveal-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .tag-label {
+        cursor: crosshair;
+    }
+</style>
+
+<script>
+    const setupManifesto = () => {
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            revealObserver.observe(el);
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupManifesto);
+    } else {
+        setupManifesto();
+    }
+    document.addEventListener('astro:page-load', setupManifesto);
+</script>

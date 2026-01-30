@@ -13,7 +13,9 @@ import WebTestimonials from '../components/web/WebTestimonials';
 import WebFAQ from '../components/web/WebFAQ';
 import WebFooter from '../components/web/WebFooter.astro';
 import PerformanceInterface from '../components/web/PerformanceInterface.astro';
+import WebIdentity from '../components/web/WebIdentity.astro';
 import WebAbout from '../components/web/WebAbout.astro';
+import WebProcessManifesto from '../components/web/WebProcessManifesto.astro';
 import thumbImg from '../assets/primitiva/thumb.jpg?url';
 
 const title = "Desenvolvimento de Sites Rápidos e Otimizados | Primitiva";
@@ -67,24 +69,30 @@ const structuredData = {
     <!-- Header with modified Headline for Web -->
     <HeaderWeb transition:persist />
     
-    <!-- Performance X-Ray Section -->
-    <PerformanceInterface />
+    <!-- Manifesto: O Fim da Internet Industrial -->
+    <WebIdentity />
     
     <!-- Interactive Web Services Accordion -->
     <WebServices client:visible />
     
+    <!-- Performance X-Ray Section -->
+    <PerformanceInterface />
+    
     <!-- Tech Overview (Matched with original /web) -->
     <TechOverview />
 
-    <!-- Interactive Web Testimonials Carousel -->
-    <WebTestimonials client:visible />
+    <!-- Manifesto do Processo -->
+    <WebProcessManifesto />
 
     <!-- Filtered Projects Grid (Only Web) -->
     <WebHero />
 
     <!-- Quem Somos (Célula) -->
     <WebAbout />
-    
+
+    <!-- Interactive Web Testimonials Carousel -->
+    <WebTestimonials client:visible />
+
     <!-- Interactive Web FAQ Accordion -->
     <WebFAQ client:visible />
     

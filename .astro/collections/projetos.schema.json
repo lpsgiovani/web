@@ -22,17 +22,16 @@
             "type": "string"
           }
         },
+        "year": {
+          "type": "string"
+        },
+        "projectType": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
       },
-      "required": [
-        "title",
-        "description",
-        "category",
-        "coverImage",
-        "techStack"
-      ],
       "additionalProperties": false
     }
   },

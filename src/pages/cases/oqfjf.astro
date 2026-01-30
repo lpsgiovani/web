@@ -15,12 +15,12 @@ const entry = {
   data: {
     title: "O que fazer em JF?",
     description: "A maior autoridade em curadoria urbana de Juiz de Fora, agora com uma plataforma proprietária de elite.",
-    category: "Product Management & Engenharia",
+    category: "Curadoria Urbana",
     client: "O que fazer em JF?",
-    year: "2024",
+    year: "2026",
     techStack: ["NEXT.JS", "FIREBASE", "PWA"],
     challenge: "Transpor a conexão emocional do Instagram para um ecossistema escalável. Precisávamos de uma infraestrutura que suportasse o tráfego de uma comunidade massiva, garantindo carregamento instantâneo e uma lógica de navegação que priorizasse a curadoria humana.",
-    outcome: "Mais do que um guia, estamos entregando a infraestrutura digital que sustenta a nova fase do OQFJF. O resultado é um produto que não apenas informa, mas monetiza e organiza a inteligência cultural da cidade."
+    outcome: "Um ecossistema em constante evolução. Estamos transformando influência social em infraestrutura sólida, criando uma plataforma que organiza a inteligência cultural da cidade e abre novas avenidas de monetização, garantindo que o legado do OQFJF cresça junto com sua comunidade."
   }
 };
 
@@ -81,7 +81,7 @@ const description = entry.data.description;
                          </div>
                          
                          <h1 class="text-[clamp(3.5rem,10vw,10rem)] leading-[0.9] font-black tracking-tighter uppercase text-white drop-shadow-2xl">
-                             O QUE FAZER<br/>EM JF?
+                             O QUE FAZER EM JF?
                          </h1>
                      </div>
                  </div>
@@ -96,6 +96,11 @@ const description = entry.data.description;
                         <div class="p-4 md:p-6 flex flex-col gap-1 reveal-up delay-100">
                              <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">STACK</span>
                              <span class="font-mono text-xs text-white font-bold uppercase">{entry.data.techStack.join(' + ')}</span>
+                        </div>
+                        {/* Cell 3: Services (Deliverables) */}
+                        <div class="p-4 md:p-6 flex flex-col gap-1 reveal-up delay-200 col-span-2">
+                             <span class="font-mono text-[9px] uppercase tracking-widest text-zinc-400">SERVIÇOS</span>
+                             <span class="font-mono text-xs text-white font-bold uppercase">BRANDING, ID VISUAL & VERBAL, WEB (APLICATIVO)</span>
                         </div>
                     </div>
                  </div>
@@ -145,24 +150,11 @@ const description = entry.data.description;
                  <div class="py-20 px-8 md:p-32 flex flex-col justify-center border-r border-zinc-900 order-2 md:order-1 reveal-up">
                      <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">02 — IDENTIDADE VISUAL</span>
                      <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8 leading-[1.1]">
-                        Psicodelia Moderna<br/> e Boas-Vindas
+                        Uma identidade<br/> sem fronteiras
                      </h2>
                      <p class="font-sans text-zinc-500 max-w-md leading-relaxed mb-12">
-                        Unimos a estética vibrante e as formas fluidas do psicodélico dos anos 70 a uma releitura moderna e limpa. Essa explosão de cores representa a pluralidade da cidade: queríamos deixar claro que, no "O Que Fazer", todos são bem-vindos. É o design que abraça a todos e mostra, de forma autêntica, realmente tudo o que JF tem a oferecer.
+                        Essa explosão de cores representa a pluralidade da cidade: queríamos deixar claro que, no "O Que Fazer", todos são bem-vindos. É o design que abraça a todos e mostra, de forma autêntica, realmente tudo o que JF tem a oferecer.
                      </p>
-                     
-                     <div class="reveal-up delay-200">
-                         <a 
-                             href="https://primitiva.cc/projetos/oqfjf" 
-                             target="_blank"
-                             class="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full transition-all duration-300 hover:border-white/30 group"
-                         >
-                             <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 group-hover:text-white">Ver sobre o projeto de identidade</span>
-                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5 text-white/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white">
-                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                             </svg>
-                         </a>
-                     </div>
                  </div>
 
                  <div class="relative w-full h-full bg-zinc-900/20 order-1 md:order-2 reveal-img border-b md:border-b-0 border-zinc-900 min-h-[500px] md:min-h-auto">
@@ -216,64 +208,64 @@ const description = entry.data.description;
 
         {/* 04. DESENVOLVIMENTO & SHOWCASE */}
         <section class="border-b border-zinc-900 bg-black text-white overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="grid grid-cols-1 md:grid-cols-12 items-stretch">
                 {/* Solutions Side */}
-                <div class="p-8 md:p-24 border-b md:border-b-0 md:border-r border-zinc-900 flex flex-col justify-center">
-                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-16 reveal-up">
+                <div class="md:col-span-4 p-8 md:p-12 lg:p-20 border-b md:border-b-0 md:border-r border-zinc-900 flex flex-col justify-center bg-black relative z-10">
+                    <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest block mb-12 reveal-up">
                         04 — DESENVOLVIMENTO
                     </span>
 
-                    <ul class="flex flex-col gap-10 list-none reveal-up delay-100">
-                        <li class="border-t border-zinc-800 pt-8 md:border-none md:pt-0">
-                            <div class="flex items-center gap-4 mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                    <ul class="flex flex-col gap-8 list-none reveal-up delay-100">
+                        <li class="border-t border-zinc-800 pt-6 md:border-none md:pt-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 hidden md:block shrink-0">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                                 </svg>
-                                <strong class="text-white text-lg font-mono uppercase">Busca por Experiência</strong>
+                                <strong class="text-white text-base font-mono uppercase">Busca por Experiência</strong>
                             </div>
-                            <p class="text-zinc-500 text-base leading-relaxed">Taxonomia inteligente onde o usuário filtra por "Date" ou "Pet-friendly". Lógica de busca resiliente e rápida.</p>
+                            <p class="text-zinc-500 text-sm leading-relaxed">Taxonomia inteligente por "Date" ou "Pet-friendly". Lógica de busca resiliente e rápida.</p>
                         </li>
-                        <li class="border-t border-zinc-800 pt-8">
-                            <div class="flex items-center gap-4 mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                        <li class="border-t border-zinc-800 pt-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 hidden md:block shrink-0">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                                 </svg>
-                                <strong class="text-white text-lg font-mono uppercase">Curadoria High-Fidelity</strong>
+                                <strong class="text-white text-base font-mono uppercase">Curadoria Humana</strong>
                             </div>
-                            <p class="text-zinc-500 text-base leading-relaxed">Preview de vídeos curtos otimizados para uma experiência de consumo ultra-rápida e dicas exclusivas.</p>
+                            <p class="text-zinc-500 text-sm leading-relaxed">Preview de vídeos curtos otimizados para consumo ultra-rápido e dicas exclusivas.</p>
                         </li>
-                        <li class="border-t border-zinc-800 pt-8">
-                            <div class="flex items-center gap-4 mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                        <li class="border-t border-zinc-800 pt-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 hidden md:block shrink-0">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                                 </svg>
-                                <strong class="text-white text-lg font-mono uppercase">Core Tecnológico</strong>
+                                <strong class="text-white text-base font-mono uppercase">Core Tecnológico</strong>
                             </div>
-                            <p class="text-zinc-500 text-base leading-relaxed">Reconstrução em Next.js para performance extrema e escalabilidade pronta para picos de tráfego.</p>
+                            <p class="text-zinc-500 text-sm leading-relaxed">Construção com foco em performance extrema e escalabilidade para novos features futuros.</p>
                         </li>
-                        <li class="border-t border-zinc-800 pt-8">
-                            <div class="flex items-center gap-4 mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-6 h-6 text-zinc-500 hidden md:block shrink-0">
+                        <li class="border-t border-zinc-800 pt-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-5 h-5 text-zinc-500 hidden md:block shrink-0">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 18.4V14.15m16.5 0a2.25 2.25 0 00-2.25-2.25H4.875a2.25 2.25 0 00-2.25 2.25m16.5 0V8.25a2.25 2.25 0 00-2.25-2.25H4.875A2.25 2.25 0 002.625 8.25V14.15M12 15.75h.008v.008H12v-.008z" />
                                 </svg>
-                                <strong class="text-white text-lg font-mono uppercase">Ecossistema B2B</strong>
+                                <strong class="text-white text-base font-mono uppercase">Ecossistema B2B</strong>
                             </div>
-                            <p class="text-zinc-500 text-base leading-relaxed">Área logada para parceiros com cupons e faturamento automatizado, monetizando a influência cultural.</p>
+                            <p class="text-zinc-500 text-sm leading-relaxed">Área logada para parceiros com faturamento automatizado e cupons.</p>
                         </li>
                     </ul>
                 </div>
 
                 {/* Showcase Side */}
-                <div class="relative bg-zinc-950 min-h-[500px] md:min-h-0">
-                     <div class="flex items-center justify-center w-full h-full md:sticky md:top-0 h-[60vh] md:h-screen overflow-hidden">
+                <div class="md:col-span-8 relative bg-[#050505] overflow-hidden aspect-[4/3] md:min-h-full">
+                     <div class="absolute inset-0 w-full h-full md:sticky md:top-0 overflow-hidden">
                           <dotlottie-player
                             src="/assets-dev/oqfjf/lottie/slider_oqfjf.lottie"
                             background="transparent"
                             speed="1"
                             loop
                             autoplay
-                            class="w-full h-full object-cover scale-110"
-                            style="width: 100%; height: 100%; object-fit: cover;"
+                            class="w-full h-full scale-[1.01]"
+                            style="width: 100.5%; height: 100.5%; object-fit: cover; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.01);"
                          ></dotlottie-player>
                      </div>
                 </div>
@@ -290,7 +282,7 @@ const description = entry.data.description;
                         </span>
                     </div>
                     <div class="md:col-span-8 p-8 md:p-24 flex items-center reveal-up delay-100">
-                        <p class="text-2xl md:text-5xl font-mono leading-relaxed text-white">
+                        <p class="text-lg md:text-4xl font-mono leading-relaxed text-white">
                             "{entry.data.outcome}"
                         </p>
                     </div>

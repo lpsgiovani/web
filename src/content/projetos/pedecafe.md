@@ -4,6 +4,8 @@ description: "Identidade visual completa e website para uma cafeteria de cafés 
 category: "Concurso de Cafeterias"
 coverImage: "./assets/pedecafe.webp"
 techStack: ["ASTRO", "TAILWIND"]
+year: "2025"
+projectType: "ECOSSISTEMA"
 ---
 ## O Desafio
 

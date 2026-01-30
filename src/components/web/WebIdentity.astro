@@ -1,0 +1,84 @@
+---
+// WebIdentity.astro - Identity Translation Section
+---
+
+<section id="identity" class="bg-black text-white py-24 md:py-40 px-6 border-b border-zinc-900 relative overflow-hidden">
+    {/* Background Grid Pattern - Subtle */}
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+        
+        {/* Left Column: Title */}
+        <div class="lg:col-span-7 reveal-up">
+            <span class="font-mono text-[10px] uppercase tracking-[0.5em] text-zinc-500 block mb-6">/ MANIFESTO_01</span>
+            <h2 class="text-4xl md:text-7xl lg:text-8xl font-display leading-[0.9] tracking-tighter uppercase mb-8">
+                AUTORIDADE<br />
+                <span class="text-zinc-600">NÃO SE ENCONTRA</span> <br />
+                NA PRATELEIRA.
+            </h2>
+        </div>
+
+        {/* Right Column: Content */}
+        <div class="lg:col-span-5 lg:pt-12 flex flex-col gap-8 reveal-up delay-200">
+            <p class="text-xl md:text-2xl font-light leading-relaxed text-zinc-300">
+                Existe um abismo entre a qualidade do que você entrega e a forma como o mercado te enxerga. 
+            </p>
+            <div class="space-y-6 text-lg md:text-xl font-light leading-relaxed text-zinc-500">
+                <p>
+                    Se sua presença digital não traduz sua essência, <span class="text-white font-normal">ela é um obstáculo.</span>
+                </p>
+                <p>
+                    Nós construímos o que não pode ser mimetizado: <span class="text-zinc-300">uma arquitetura de autoridade que une design e engenharia para que sua marca pare de apenas existir e passe a dominar.</span>
+                </p>
+            </div>
+
+            {/* Technical Detail Label */}
+            <div class="mt-8 flex items-center gap-4 font-mono text-[10px] tracking-widest text-zinc-700 uppercase">
+                <div class="w-12 h-px bg-zinc-800"></div>
+                <span>Arquitetura_de_Autoridade</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .reveal-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    const setupIdentity = () => {
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            revealObserver.observe(el);
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupIdentity);
+    } else {
+        setupIdentity();
+    }
+    document.addEventListener('astro:page-load', setupIdentity);
+</script>

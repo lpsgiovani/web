@@ -101,15 +101,15 @@ export default function TechOverviewMobile() {
         <div ref={containerRef} className="relative h-[350vh] w-full bg-zinc-50 overflow-visible">
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden bg-zinc-50 border-t border-zinc-200">
 
-                <div className="absolute top-16 left-0 w-full text-center px-6 z-20 pointer-events-none">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-zinc-500 mb-2 block select-none" aria-hidden="true">/ NOSSO_PROCESSO</span>
-                    <h3 className="text-3xl font-serif text-black leading-tight italic">
-                        Protocolo de <br md:block></br>desenvolvimento.
+                <div className="absolute top-24 left-0 w-full text-center px-6 z-20 pointer-events-none">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-black/20 block mb-4">/ NOSSO_PROCESSO</span>
+                    <h3 className="text-4xl font-serif text-black leading-[1.1] tracking-tighter">
+                        Como nós <br md:block></br><span className="italic">desenvolvemos.</span>
                     </h3>
                 </div>
 
                 <div
-                    className="flex flex-nowrap w-[300%] items-center mt-0 translate-y-6 will-change-transform"
+                    className="flex flex-nowrap w-[300%] items-center mt-0 will-change-transform"
                     style={{ transform: `translateX(-${translateX}%)` }}
                 >
                     {TECH_PILLARS.map((item) => (
