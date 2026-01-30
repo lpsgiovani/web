@@ -15,7 +15,7 @@ const TECH_PILLARS = [
     {
         id: '02',
         title: "Criação",
-        description: "Construímos um ecossistema visual proprietário onde o design de luxo e a engenharia de software são indissociáveis. O resultado é um sistema fluido, impossível de ignorar e tecnicamente imbatível.",
+        description: "Construímos um ecossistema visual proprietário onde o design e a engenharia de software são indissociáveis. O resultado é um sistema fluido, impossível de ignorar e tecnicamente imbatível.",
         label: "ghost-phase-02",
         file: "ghost-label-assembly",
         tag: "[ DESENVOLVENDO_EXPERIENCIA ]",

@@ -66,8 +66,7 @@ export default function WebServices() {
 
     return (
         <section className="bg-white text-black py-24 md:py-40 px-6 border-b border-black/5 relative overflow-hidden selection:bg-black selection:text-white">
-            {/* Background Circuit Grid */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '100px 100px' }}></div>
+
 
             <div className="max-w-7xl mx-auto relative z-10">
 

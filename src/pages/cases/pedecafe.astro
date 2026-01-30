@@ -245,59 +245,58 @@ const description = entry.data.description;
         </section>
 
         <script>
-            // Hardened Video Autoplay Fix for Mobile & View Transitions
-            function initVideos() {
-                const videos = document.querySelectorAll('video');
+            // Aggressive Mobile Video Autoplay Fix
+            document.addEventListener('astro:page-load', () => {
+                const video = document.getElementById('mobile-orbit-video');
+                if (!video) return;
                 
-                videos.forEach(video => {
-                    // Force attributes for mobile autoplay
-                    video.setAttribute('playsinline', '');
-                    video.setAttribute('muted', '');
-                    video.muted = true;
+                // Explicitly set text tracks/audio to allow autoplay policies
+                video.muted = true;
+                video.playsInline = true;
 
-                    const playVideo = async () => {
-                        try {
-                            if (video.paused) {
-                                await video.play();
-                            }
-                        } catch (err) {
-                            // If blocked, try again on first user interaction
-                            const playOnGesture = () => {
-                                video.play();
-                                document.removeEventListener('touchstart', playOnGesture);
-                                document.removeEventListener('mousedown', playOnGesture);
-                            };
-                            document.addEventListener('touchstart', playOnGesture, { once: true });
-                            document.addEventListener('mousedown', playOnGesture, { once: true });
+                // Force a reload of the media source to clear any SPA styling states
+                video.load();
+
+                const attemptPlay = async () => {
+                    try {
+                        const playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            await playPromise;
                         }
-                    };
+                    } catch (error) {
+                        // If blocked, wait for ANY user interaction
+                        const forcePlayByUser = () => {
+                            video.play().catch(e => console.error("User interaction play failed", e));
+                            ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => 
+                                document.removeEventListener(evt, forcePlayByUser)
+                            );
+                        };
+                        
+                        ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => 
+                            document.addEventListener(evt, forcePlayByUser, { once: true, passive: true })
+                        );
+                    }
+                };
 
-                    // Try playing immediately
-                    playVideo();
-
-                    // Ensure it plays when it becomes visible
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                playVideo();
-                            } else {
-                                video.pause(); // Pause when off-screen to save battery/perf
-                            }
-                        });
-                    }, { threshold: 0.1 });
-
-                    observer.observe(video);
-
-                    // Robust Loop
-                    video.addEventListener('ended', () => {
-                        video.currentTime = 0;
-                        video.play();
+                // Observer to only play when visible (saves resources but also triggers play)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            attemptPlay();
+                        } else {
+                            video.pause();
+                        }
                     });
-                });
-            }
+                }, { threshold: 0.1 }); // Trigger as soon as 10% is visible
 
-            // Initialization on first load and subsequent navigations
-            document.addEventListener('astro:page-load', initVideos);
+                observer.observe(video);
+                
+                // Fallback loop
+                video.addEventListener('ended', () => {
+                    video.currentTime = 0;
+                    attemptPlay();
+                });
+            });
         </script>
 
 
