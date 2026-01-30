@@ -1,0 +1,133 @@
+/* Briefing Internal Styles - Scoped to briefing pages */
+
+.briefing-wrapper .input-text,
+.briefing-wrapper input[type="text"],
+.briefing-wrapper input[type="email"],
+.briefing-wrapper input[type="tel"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0;
+    font-size: 2rem;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    font-weight: 300;
+    border-radius: 0;
+}
+
+.briefing-wrapper .input-text:focus,
+.briefing-wrapper input[type="text"]:focus,
+.briefing-wrapper input[type="email"]:focus,
+.briefing-wrapper input[type="tel"]:focus {
+    border-bottom-color: white;
+    caret-color: white;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.briefing-wrapper .input-text::placeholder,
+.briefing-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.briefing-wrapper .input-textarea,
+.briefing-wrapper textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: white;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-weight: 300;
+    border-radius: 0;
+    min-height: 40px;
+    overflow: hidden;
+}
+
+.briefing-wrapper .input-textarea:focus,
+.briefing-wrapper textarea:focus {
+    border-bottom-color: white;
+    caret-color: white;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.briefing-wrapper .input-textarea::placeholder,
+.briefing-wrapper textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+
+    .briefing-wrapper .input-text,
+    .briefing-wrapper input[type="text"],
+    .briefing-wrapper input[type="email"],
+    .briefing-wrapper input[type="tel"] {
+        font-size: 3rem;
+    }
+
+    .briefing-wrapper .input-textarea,
+    .briefing-wrapper textarea {
+        font-size: 2rem;
+    }
+}
+
+.briefing-wrapper .step-enter {
+    animation: stepEnter 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes stepEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.briefing-wrapper .btn-next {
+    background: white;
+    color: black;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.briefing-wrapper .btn-next:hover:not(:disabled) {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}
+
+.briefing-wrapper .btn-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.briefing-wrapper .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.briefing-wrapper .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.briefing-wrapper .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}

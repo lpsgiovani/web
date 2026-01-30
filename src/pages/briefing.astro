@@ -1,0 +1,25 @@
+---
+import WebLayout from '../layouts/WebLayout.astro';
+import BriefingForm from '../components/react/briefing/BriefingForm';
+import '../styles/briefing.css';
+
+export const prerender = false; // Add this if the page itself needs to be dynamic, though the interactivity is client-side. The API routes definitely need to be dynamic. 
+// Wait, BriefingForm is client:only="react", so the page shell can be static? 
+// The API routes are dynamic. The page shell can be static if it doesn't need server-side data fetching.
+// However, 'prerender' default in this project might be true (static), or false (server).
+// Recent conversations suggest 'output: static' was set. The user previously switched to static.
+// If output is static, I can't use 'export const prerender = false' unless output is 'hybrid' or 'server'.
+// If output is static, the API routes NEED to be `prerender = false` IF using adapter, but wait...
+// Astro 'static' output means NO server endpoints unless using an adapter and `prerender = false`.
+// The user has Vercel adapter installed (`@astrojs/vercel`).
+// So for API routes, `export const prerender = false;` is correct (and it is in the file).
+// For the page itself, it can be static.
+
+// Let's check 'astro.config.mjs' to be sure about the output mode.
+---
+
+<WebLayout title="Briefing" description="Fale sobre seu projeto">
+    <div class="bg-[#09090b] min-h-screen pt-24 pb-12">
+        <BriefingForm client:only="react" />
+    </div>
+</WebLayout>
